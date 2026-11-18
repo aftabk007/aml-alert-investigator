@@ -1,0 +1,322 @@
+{
+ "alert_id": "A02",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A02"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A02",
+    "evidence_id": "ALERT-A02",
+    "date": "2026-11-06",
+    "rule": "CASH_NEAR_CTR",
+    "customer_id": "C02",
+    "amount_total": 9600.0,
+    "summary": "Single cash deposit between $8,000 and $9,999.",
+    "triggering_transaction_ids": [
+     "T-0038"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C02"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C02",
+    "evidence_id": "KYC-C02",
+    "name": "Priya Natarajan",
+    "dob": "1985-08-22",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Dental hygienist",
+    "employer": "Millbrook Family Dental",
+    "segment": "personal",
+    "customer_since": "2014-06-03",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 200,
+     "total_in": 5200,
+     "total_out": 4800
+    },
+    "kyc_last_review": "2025-06-03",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 41
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C02",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C02",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 17,
+    "returned": 17,
+    "total_in": 28640.0,
+    "total_out": 7179.47,
+    "rows": [
+     {
+      "transaction_id": "T-0030",
+      "evidence_id": "T-0030",
+      "date": "2026-08-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1650.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0022",
+      "evidence_id": "T-0022",
+      "date": "2026-08-07",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2380.0,
+      "channel": "online",
+      "counterparty_id": "CP-006",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0034",
+      "evidence_id": "T-0034",
+      "date": "2026-08-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 142.17,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0023",
+      "evidence_id": "T-0023",
+      "date": "2026-08-21",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2380.0,
+      "channel": "online",
+      "counterparty_id": "CP-006",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0031",
+      "evidence_id": "T-0031",
+      "date": "2026-09-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1650.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0024",
+      "evidence_id": "T-0024",
+      "date": "2026-09-04",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2380.0,
+      "channel": "online",
+      "counterparty_id": "CP-006",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0035",
+      "evidence_id": "T-0035",
+      "date": "2026-09-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 156.4,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0025",
+      "evidence_id": "T-0025",
+      "date": "2026-09-18",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2380.0,
+      "channel": "online",
+      "counterparty_id": "CP-006",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0032",
+      "evidence_id": "T-0032",
+      "date": "2026-10-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1650.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0026",
+      "evidence_id": "T-0026",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2380.0,
+      "channel": "online",
+      "counterparty_id": "CP-006",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0036",
+      "evidence_id": "T-0036",
+      "date": "2026-10-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 131.88,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0027",
+      "evidence_id": "T-0027",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2380.0,
+      "channel": "online",
+      "counterparty_id": "CP-006",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0028",
+      "evidence_id": "T-0028",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2380.0,
+      "channel": "online",
+      "counterparty_id": "CP-006",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0033",
+      "evidence_id": "T-0033",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1650.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0038",
+      "evidence_id": "T-0038",
+      "date": "2026-11-05",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9600.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "cash - vehicle sale"
+     },
+     {
+      "transaction_id": "T-0037",
+      "evidence_id": "T-0037",
+      "date": "2026-11-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 149.02,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0029",
+      "evidence_id": "T-0029",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2380.0,
+      "channel": "online",
+      "counterparty_id": "CP-006",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C02"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C02",
+    "records": [
+     {
+      "record_id": "CH-003",
+      "evidence_id": "CH-003",
+      "date": "2025-06-03",
+      "kind": "kyc_review",
+      "text": "Annual review. No cash deposits over $1,000 in the last 12 months."
+     },
+     {
+      "record_id": "CH-002",
+      "evidence_id": "CH-002",
+      "date": "2026-11-05",
+      "kind": "teller_note",
+      "text": "Customer sold her 2017 sedan privately. Showed a signed bill of sale and title transfer for $9,600. Copies scanned to the file."
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "structuring",
+  "statements": [
+   {
+    "text": "Alert A02 fired on 2026-11-06 (rule CASH_NEAR_CTR).",
+    "evidence_ids": [
+     "ALERT-A02"
+    ]
+   },
+   {
+    "text": "1 cash transactions in the 8,000-9,999 band in 15 days: $9,600 on 2026-11-05.",
+    "evidence_ids": [
+     "T-0038"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule CASH_NEAR_CTR fired for customer Priya Natarajan. 1 cash transactions in the 8,000-9,999 band in 15 days: $9,600 on 2026-11-05."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

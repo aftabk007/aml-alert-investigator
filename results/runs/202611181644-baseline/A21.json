@@ -1,0 +1,321 @@
+{
+ "alert_id": "A21",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A21"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A21",
+    "evidence_id": "ALERT-A21",
+    "date": "2026-11-13",
+    "rule": "WATCHLIST_HIT",
+    "customer_id": "C21",
+    "amount_total": 0.0,
+    "summary": "Adverse media screening hit: exact name match (score 1.00).",
+    "triggering_transaction_ids": []
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C21"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C21",
+    "evidence_id": "KYC-C21",
+    "name": "John R. Pell",
+    "dob": "1997-01-15",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Software tester",
+    "employer": "Quillstone Software",
+    "segment": "personal",
+    "customer_since": "2019-09-03",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 5100,
+     "total_out": 4700
+    },
+    "kyc_last_review": "2025-09-03",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 29
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C21",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C21",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 16,
+    "returned": 16,
+    "total_in": 19520.0,
+    "total_out": 6099.47,
+    "rows": [
+     {
+      "transaction_id": "T-0540",
+      "evidence_id": "T-0540",
+      "date": "2026-08-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1380.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0532",
+      "evidence_id": "T-0532",
+      "date": "2026-08-07",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2440.0,
+      "channel": "online",
+      "counterparty_id": "CP-092",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0544",
+      "evidence_id": "T-0544",
+      "date": "2026-08-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 142.17,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0533",
+      "evidence_id": "T-0533",
+      "date": "2026-08-21",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2440.0,
+      "channel": "online",
+      "counterparty_id": "CP-092",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0541",
+      "evidence_id": "T-0541",
+      "date": "2026-09-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1380.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0534",
+      "evidence_id": "T-0534",
+      "date": "2026-09-04",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2440.0,
+      "channel": "online",
+      "counterparty_id": "CP-092",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0545",
+      "evidence_id": "T-0545",
+      "date": "2026-09-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 156.4,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0535",
+      "evidence_id": "T-0535",
+      "date": "2026-09-18",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2440.0,
+      "channel": "online",
+      "counterparty_id": "CP-092",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0542",
+      "evidence_id": "T-0542",
+      "date": "2026-10-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1380.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0536",
+      "evidence_id": "T-0536",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2440.0,
+      "channel": "online",
+      "counterparty_id": "CP-092",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0546",
+      "evidence_id": "T-0546",
+      "date": "2026-10-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 131.88,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0537",
+      "evidence_id": "T-0537",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2440.0,
+      "channel": "online",
+      "counterparty_id": "CP-092",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0538",
+      "evidence_id": "T-0538",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2440.0,
+      "channel": "online",
+      "counterparty_id": "CP-092",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0543",
+      "evidence_id": "T-0543",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1380.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0547",
+      "evidence_id": "T-0547",
+      "date": "2026-11-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 149.02,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0539",
+      "evidence_id": "T-0539",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2440.0,
+      "channel": "online",
+      "counterparty_id": "CP-092",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C21"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C21",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "screen_name",
+   "args": {
+    "name": "John R. Pell"
+   },
+   "is_error": false,
+   "result": {
+    "searched_name": "John R. Pell",
+    "candidates": [
+     {
+      "entry_id": "WL-03",
+      "evidence_id": "WL-03",
+      "list": "ADVERSE MEDIA (fictional)",
+      "name": "John R. Pell",
+      "aliases": [
+       "Johnny Pell"
+      ],
+      "age_at_article": 62,
+      "city": "Port Daley, FL (fictional)",
+      "article_date": "2026-11-01",
+      "notes": "News: 'Port Daley contractor John R. Pell, 62, charged with insurance fraud after hurricane repairs.'",
+      "name_score": 1.0
+     }
+    ],
+    "note": "Candidates are possible matches by name only. Compare date of birth, nationality and location before deciding."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "escalate",
+  "confidence": 0.9,
+  "typology": "possible watchlist match",
+  "statements": [
+   {
+    "text": "Alert A21 fired on 2026-11-13 (rule WATCHLIST_HIT).",
+    "evidence_ids": [
+     "ALERT-A21"
+    ]
+   },
+   {
+    "text": "Name score 1.00 against list entry WL-03.",
+    "evidence_ids": [
+     "WL-03"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

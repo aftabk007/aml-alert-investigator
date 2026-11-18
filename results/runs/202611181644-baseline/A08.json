@@ -1,0 +1,180 @@
+{
+ "alert_id": "A08",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A08"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A08",
+    "evidence_id": "ALERT-A08",
+    "date": "2026-11-11",
+    "rule": "WATCHLIST_HIT",
+    "customer_id": "C08",
+    "amount_total": 0.0,
+    "summary": "Name screening hit after a sanctions list update: exact name match (score 1.00).",
+    "triggering_transaction_ids": []
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C08"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C08",
+    "evidence_id": "KYC-C08",
+    "name": "Marat Oskolov",
+    "dob": "1972-02-03",
+    "citizenship": "Kestovia (fictional)",
+    "city": "Eastport, OH",
+    "occupation": "Import consultant",
+    "employer": "self-employed",
+    "segment": "personal",
+    "customer_since": "2026-07-14",
+    "risk_rating": "medium",
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 15000,
+     "total_out": 12000
+    },
+    "kyc_last_review": "2026-07-14",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 54
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C08",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C08",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 2,
+    "returned": 2,
+    "total_in": 40000.0,
+    "total_out": 15000.0,
+    "rows": [
+     {
+      "transaction_id": "T-0241",
+      "evidence_id": "T-0241",
+      "date": "2026-10-20",
+      "type": "wire_in",
+      "direction": "in",
+      "amount": 40000.0,
+      "channel": "online",
+      "counterparty_id": "CP-037",
+      "memo": "consulting"
+     },
+     {
+      "transaction_id": "T-0242",
+      "evidence_id": "T-0242",
+      "date": "2026-10-24",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 15000.0,
+      "channel": "online",
+      "counterparty_id": "CP-038",
+      "memo": "services"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C08"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C08",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "screen_name",
+   "args": {
+    "name": "Marat Oskolov"
+   },
+   "is_error": false,
+   "result": {
+    "searched_name": "Marat Oskolov",
+    "candidates": [
+     {
+      "entry_id": "WL-02",
+      "evidence_id": "WL-02",
+      "list": "SANCTIONS (fictional)",
+      "name": "Marat Oskolov",
+      "aliases": [
+       "M. Oskolov",
+       "Marat Oskolow"
+      ],
+      "dob": "1972-02-03",
+      "nationality": "Kestovia (fictional)",
+      "program": "KESTOVIA-RELATED (fictional)",
+      "added": "2026-11-10",
+      "notes": "Businessman linked to Kestovia Port Services JSC.",
+      "name_score": 1.0
+     },
+     {
+      "entry_id": "WL-05",
+      "evidence_id": "WL-05",
+      "list": "SANCTIONS (fictional)",
+      "name": "Marat Oskanov",
+      "dob": "1969-12-01",
+      "nationality": "Kestovia (fictional)",
+      "program": "KESTOVIA-RELATED (fictional)",
+      "notes": "Shipping executive.",
+      "name_score": 0.85
+     }
+    ],
+    "note": "Candidates are possible matches by name only. Compare date of birth, nationality and location before deciding."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "escalate",
+  "confidence": 0.9,
+  "typology": "possible watchlist match",
+  "statements": [
+   {
+    "text": "Alert A08 fired on 2026-11-11 (rule WATCHLIST_HIT).",
+    "evidence_ids": [
+     "ALERT-A08"
+    ]
+   },
+   {
+    "text": "Name score 1.00 against list entry WL-02.",
+    "evidence_ids": [
+     "WL-02"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

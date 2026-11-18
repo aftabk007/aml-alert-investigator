@@ -1,0 +1,361 @@
+{
+ "alert_id": "A01",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A01"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A01",
+    "evidence_id": "ALERT-A01",
+    "date": "2026-11-10",
+    "rule": "CASH_NEAR_CTR",
+    "customer_id": "C01",
+    "amount_total": 37900.0,
+    "summary": "2 or more cash deposits between $8,000 and $9,999 within 10 days.",
+    "triggering_transaction_ids": [
+     "T-0017",
+     "T-0018",
+     "T-0019",
+     "T-0020"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C01",
+    "evidence_id": "KYC-C01",
+    "name": "Tomas Reyes-Hart",
+    "dob": "1992-05-14",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Store clerk",
+    "employer": "Northgate Hardware",
+    "segment": "personal",
+    "customer_since": "2019-02-11",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 500,
+     "total_in": 3200,
+     "total_out": 3000
+    },
+    "kyc_last_review": "2025-02-11",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 34
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C01",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C01",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 21,
+    "returned": 21,
+    "total_in": 49500.0,
+    "total_out": 40979.47,
+    "rows": [
+     {
+      "transaction_id": "T-0009",
+      "evidence_id": "T-0009",
+      "date": "2026-08-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1100.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0001",
+      "evidence_id": "T-0001",
+      "date": "2026-08-07",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1450.0,
+      "channel": "online",
+      "counterparty_id": "CP-004",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0013",
+      "evidence_id": "T-0013",
+      "date": "2026-08-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 142.17,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0002",
+      "evidence_id": "T-0002",
+      "date": "2026-08-21",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1450.0,
+      "channel": "online",
+      "counterparty_id": "CP-004",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0010",
+      "evidence_id": "T-0010",
+      "date": "2026-09-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1100.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0003",
+      "evidence_id": "T-0003",
+      "date": "2026-09-04",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1450.0,
+      "channel": "online",
+      "counterparty_id": "CP-004",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0014",
+      "evidence_id": "T-0014",
+      "date": "2026-09-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 156.4,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0004",
+      "evidence_id": "T-0004",
+      "date": "2026-09-18",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1450.0,
+      "channel": "online",
+      "counterparty_id": "CP-004",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0011",
+      "evidence_id": "T-0011",
+      "date": "2026-10-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1100.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0005",
+      "evidence_id": "T-0005",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1450.0,
+      "channel": "online",
+      "counterparty_id": "CP-004",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0015",
+      "evidence_id": "T-0015",
+      "date": "2026-10-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 131.88,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0006",
+      "evidence_id": "T-0006",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1450.0,
+      "channel": "online",
+      "counterparty_id": "CP-004",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0007",
+      "evidence_id": "T-0007",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1450.0,
+      "channel": "online",
+      "counterparty_id": "CP-004",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0012",
+      "evidence_id": "T-0012",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1100.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0017",
+      "evidence_id": "T-0017",
+      "date": "2026-11-03",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9400.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch"
+     },
+     {
+      "transaction_id": "T-0018",
+      "evidence_id": "T-0018",
+      "date": "2026-11-04",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9200.0,
+      "channel": "branch",
+      "location": "Harlow branch"
+     },
+     {
+      "transaction_id": "T-0019",
+      "evidence_id": "T-0019",
+      "date": "2026-11-06",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9800.0,
+      "channel": "branch",
+      "location": "Eastport branch"
+     },
+     {
+      "transaction_id": "T-0020",
+      "evidence_id": "T-0020",
+      "date": "2026-11-07",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9500.0,
+      "channel": "branch",
+      "location": "Millbrook North branch"
+     },
+     {
+      "transaction_id": "T-0021",
+      "evidence_id": "T-0021",
+      "date": "2026-11-09",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 36000.0,
+      "channel": "online",
+      "counterparty_id": "CP-005",
+      "memo": "vehicles"
+     },
+     {
+      "transaction_id": "T-0016",
+      "evidence_id": "T-0016",
+      "date": "2026-11-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 149.02,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0008",
+      "evidence_id": "T-0008",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1450.0,
+      "channel": "online",
+      "counterparty_id": "CP-004",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C01",
+    "records": [
+     {
+      "record_id": "CH-001",
+      "evidence_id": "CH-001",
+      "date": "2026-11-03",
+      "kind": "teller_note",
+      "text": "Before depositing, customer asked the teller what amount 'triggers the government form'."
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "structuring",
+  "statements": [
+   {
+    "text": "Alert A01 fired on 2026-11-10 (rule CASH_NEAR_CTR).",
+    "evidence_ids": [
+     "ALERT-A01"
+    ]
+   },
+   {
+    "text": "4 cash transactions in the 8,000-9,999 band in 15 days: $9,400 on 2026-11-03, $9,200 on 2026-11-04, $9,800 on 2026-11-06, $9,500 on 2026-11-07.",
+    "evidence_ids": [
+     "T-0017",
+     "T-0018",
+     "T-0019",
+     "T-0020"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule CASH_NEAR_CTR fired for customer Tomas Reyes-Hart. 4 cash transactions in the 8,000-9,999 band in 15 days: $9,400 on 2026-11-03, $9,200 on 2026-11-04, $9,800 on 2026-11-06, $9,500 on 2026-11-07."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

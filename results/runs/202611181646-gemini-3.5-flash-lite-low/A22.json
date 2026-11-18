@@ -1,0 +1,467 @@
+{
+ "alert_id": "A22",
+ "agent": "gemini-3.5-flash-lite (low)",
+ "model": "gemini-3.5-flash-lite",
+ "effort": "low",
+ "outcome": "decided",
+ "error": null,
+ "turns": 5,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A22"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A22",
+    "evidence_id": "ALERT-A22",
+    "date": "2026-11-11",
+    "rule": "HIGH_RISK_WIRE",
+    "customer_id": "C22",
+    "amount_total": 79000.0,
+    "summary": "Wires to a counterparty in a high-risk jurisdiction (bank policy list).",
+    "triggering_transaction_ids": [
+     "T-0559",
+     "T-0560"
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C22"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C22",
+    "evidence_id": "KYC-C22",
+    "name": "Harrow Home Imports LLC",
+    "owner": "Peter Harrow",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Furniture importer (imports from Varonia (fictional))",
+    "segment": "business",
+    "customer_since": "2016-01-11",
+    "risk_rating": "medium",
+    "employees": 6,
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 48000,
+     "total_out": 45000
+    },
+    "kyc_last_review": "2026-01-11",
+    "linked_accounts": [],
+    "authorized_agents": []
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C22"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C22",
+    "start_date": "2026-10-02",
+    "end_date": "2026-11-16",
+    "total_rows": 7,
+    "returned": 7,
+    "total_in": 69500.0,
+    "total_out": 136000.0,
+    "rows": [
+     {
+      "transaction_id": "T-0550",
+      "evidence_id": "T-0550",
+      "date": "2026-10-07",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 26900.0,
+      "channel": "online",
+      "counterparty_id": "CP-093",
+      "memo": "FURNITURE ORDER"
+     },
+     {
+      "transaction_id": "T-0554",
+      "evidence_id": "T-0554",
+      "date": "2026-10-15",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 23900.0,
+      "channel": "online",
+      "counterparty_id": "CP-094",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0558",
+      "evidence_id": "T-0558",
+      "date": "2026-10-28",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 23900.0,
+      "channel": "online",
+      "counterparty_id": "CP-094",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0559",
+      "evidence_id": "T-0559",
+      "date": "2026-11-04",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 38000.0,
+      "channel": "online",
+      "counterparty_id": "CP-095",
+      "memo": "software license"
+     },
+     {
+      "transaction_id": "T-0551",
+      "evidence_id": "T-0551",
+      "date": "2026-11-07",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 30100.0,
+      "channel": "online",
+      "counterparty_id": "CP-093",
+      "memo": "FURNITURE ORDER"
+     },
+     {
+      "transaction_id": "T-0560",
+      "evidence_id": "T-0560",
+      "date": "2026-11-10",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 41000.0,
+      "channel": "online",
+      "counterparty_id": "CP-095",
+      "memo": "software license"
+     },
+     {
+      "transaction_id": "T-0555",
+      "evidence_id": "T-0555",
+      "date": "2026-11-15",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 21700.0,
+      "channel": "online",
+      "counterparty_id": "CP-094",
+      "memo": "INVOICE"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C22"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C22",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C22"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C22",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0113",
+      "evidence_id": "LG-0113",
+      "timestamp": "2026-10-20T19:37:00",
+      "event": "login",
+      "device_id": "DV-22Y22",
+      "device_first_seen": "2020-10-10",
+      "ip": "73.41.220.4",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0112",
+      "evidence_id": "LG-0112",
+      "timestamp": "2026-10-26T19:31:00",
+      "event": "login",
+      "device_id": "DV-22Y22",
+      "device_first_seen": "2020-10-10",
+      "ip": "73.41.220.4",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0111",
+      "evidence_id": "LG-0111",
+      "timestamp": "2026-11-01T19:25:00",
+      "event": "login",
+      "device_id": "DV-22Y22",
+      "device_first_seen": "2020-10-10",
+      "ip": "73.41.220.4",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0110",
+      "evidence_id": "LG-0110",
+      "timestamp": "2026-11-07T19:19:00",
+      "event": "login",
+      "device_id": "DV-22Y22",
+      "device_first_seen": "2020-10-10",
+      "ip": "73.41.220.4",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0109",
+      "evidence_id": "LG-0109",
+      "timestamp": "2026-11-13T19:13:00",
+      "event": "login",
+      "device_id": "DV-22Y22",
+      "device_first_seen": "2020-10-10",
+      "ip": "73.41.220.4",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  },
+  {
+   "turn": 3,
+   "tool": "get_counterparty",
+   "args": {
+    "customer_id": "C22",
+    "counterparty_id": "CP-095"
+   },
+   "is_error": false,
+   "result": {
+    "counterparty_id": "CP-095",
+    "evidence_id": "CP-095",
+    "name": "Nimbus Digital Services FZE",
+    "type": "business",
+    "country": "Free Port of Belmora (fictional)",
+    "registered": "2026-10-01",
+    "relationship_since": "2026-11-04",
+    "notes": "Registered 2026-10-01 in Belmora (fictional), a high-risk jurisdiction in bank policy. Registered-agent address shared by 200+ companies. No website on file.",
+    "with_this_customer": {
+     "payments_since_2026_08_01": 2,
+     "first_payment_since_2026_08_01": "2026-11-04",
+     "last_payment": "2026-11-10",
+     "total_amount_since_2026_08_01": 79000.0
+    }
+   }
+  },
+  {
+   "turn": 4,
+   "tool": "screen_name",
+   "args": {
+    "name": "Nimbus Digital Services FZE"
+   },
+   "is_error": false,
+   "result": {
+    "searched_name": "Nimbus Digital Services FZE",
+    "candidates": [
+     {
+      "entry_id": "WL-07",
+      "evidence_id": "WL-07",
+      "list": "SANCTIONS (fictional)",
+      "name": "Nimbus Digital Services FZE",
+      "nationality": "Free Port of Belmora (fictional)",
+      "program": "none - under review list (fictional)",
+      "notes": "Entity on internal watch list, not sanctioned.",
+      "name_score": 1.0
+     }
+    ],
+    "note": "Candidates are possible matches by name only. Compare date of birth, nationality and location before deciding."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "escalate",
+  "next_steps": "Contact the customer to obtain business documentation and rationale for software license payments totaling $79,000 sent to a newly registered entity in a high-risk jurisdiction.",
+  "statements": [
+   {
+    "evidence_ids": [
+     "KYC-C22"
+    ],
+    "text": "C22 (Harrow Home Imports LLC) is registered as a furniture importer."
+   },
+   {
+    "text": "Between 2026-11-04 and 2026-11-10, C22 sent two wire transfers totaling $79,000 to Nimbus Digital Services FZE (CP-095) for software licenses.",
+    "evidence_ids": [
+     "T-0559",
+     "T-0560"
+    ]
+   },
+   {
+    "evidence_ids": [
+     "CP-095"
+    ],
+    "text": "CP-095 is located in a high-risk jurisdiction, was registered on 2026-10-01, shares an address with over 200 companies, and has no website."
+   },
+   {
+    "evidence_ids": [
+     "WL-07"
+    ],
+    "text": "CP-095 is on an internal watch list under review."
+   }
+  ],
+  "typology": "high risk wire / potential shell company",
+  "confidence": 0.95
+ },
+ "usage": {
+  "input": 17458,
+  "output": 452,
+  "thinking": 953
+ },
+ "model_turns": [
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_alert",
+      "args": {
+       "alert_id": "A22"
+      },
+      "id": "call_4316245203384388033"
+     },
+     "thoughtSignature": "EvEBCu4BAWkUfRNCaJEIN6wxmIoKfaP8bM2ncDNBVlcjHP1ygu+1LyR1WPOe2iawK99oQA3ixTmcI18YUC6eQo+DySpso7PKw/APC1Xlfb9Spz+K/AJqWxuIDQsp/O7dHG0NLbmKnHRPtM39mx2wQTKs7IcgDUR4TdbiL58Xhe1Q5pTumAWl1m8FWxTcHA5M21/ZLML4ZzEgtdWe1Wjprl45s9BSjmZp27BQO/PL+YWxSg4zZ69zCFuacWRL3D/hhwJ3GNdaU3MEC7Be3p8AqyHvEbelRo/tornJiD35HLUhXkHRH/utOiLxe8dDNbJJEMwmMQ=="
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_customer_profile",
+      "args": {
+       "customer_id": "C22"
+      },
+      "id": "call_16016353984285366225"
+     },
+     "thoughtSignature": "EpECCo4CAWkUfRO8+frWrWXaSIL9kWJF9YxRwkTodeMKtq+KbDJqQd5ozsxkLSgXfCLuh3vDRZdWxCSAyppJv4lPua490nIbCgEVu4NzH/aObgVWDqnTIOyo62clasWMkgL1jYHfAF+xIL5mufpYwbG2gPA+m2tjQz/iBuh4p5kjJHDcxM/08wU4GEp3TYEO+zKAzZn6cRqLDlIZUtv4VbjSom0zqlLY8ZbTvWY7HaMceQZObRuCYJdYi2K/wlCNBPf7ZE3OnDkqWGbPYqJs4lzTjFkyj+8/ZgITHSsG0nvMop7SU8yBTTlzQfs6ORZeafa673VQZTD6uvxLgsbarnGj09sws9jsAxVo7zEvHGAlMLoD"
+    },
+    {
+     "functionCall": {
+      "name": "get_transactions",
+      "args": {
+       "customer_id": "C22"
+      },
+      "id": "call_16016353984285365020"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_case_history",
+      "args": {
+       "customer_id": "C22"
+      },
+      "id": "call_16016353984285367911"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_login_activity",
+      "args": {
+       "customer_id": "C22"
+      },
+      "id": "call_16016353984285366706"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_counterparty",
+      "args": {
+       "customer_id": "C22",
+       "counterparty_id": "CP-095"
+      },
+      "id": "call_14034466226049533771"
+     },
+     "thoughtSignature": "EqQCCqECAWkUfRMwNGSSteWuM2cq8T88WAWlOLUhKhKdg+59p0JswA1y+pQjUZMkynhaCQgbpKPWspfdO4m04OgCgAJC6zAUu20Nx32SQvtq7Uwj8nVVEB5ChdALaRqqCMUQK8ymxjCCFoBhX6X9kX/P1aRMLNNjoo0NETa38P4lUjTtmB1xUn8G0eTZO3yLc87P/btdZ6/mXXaAx6RLrHPrCVRgb97pA96KIFbfX1htv64HJPW7B8HyfVPQzeNnUFKZC02+yvHpdT77GDLdrUh8U4cF3nH8J4IYUXSkVHSbx5JZFtMcjEP9+da4LliHJaiGLEO76acEQyYayV7HN8qbphlIbH/gOB+4r7LUpu5YwzlCDMwmmC/f5AW2u4Aw4FMBlT9sHg=="
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "screen_name",
+      "args": {
+       "name": "Nimbus Digital Services FZE"
+      },
+      "id": "call_7384967992349387367"
+     },
+     "thoughtSignature": "EokFCoYFAWkUfRNFKAN4uUpssyfblnMPWjmJGDNPi3mTbvfUDPPF6DKmKEbXB5wkcgVpuksPoa5MuumJ9ySRYypd6GhI3onj8wqf7U0C4TBwYREeZvJ29RaC2fTJ4OBypxz3BD7ychUQ9Z2Z2WwRnKG5h5sdyX9VxJ4qANmheXC1lDP3V2M1MA5XW+6rgmGbeLXO52xYPQkfhRbMfBR+xHsG8fMDckP6BOAAxd1OxJyBZaGR0cB3u1T7n9BYwJNYkIROWrKSUStciiF/G9A0c5FLd6zACKPbyAoTimjZQ8KaSNvCxxYzr39cw7PjYx4Neon1fsSQiBaDfXrEQFHWMvx/tFbBuIeON0JzIJ55U/vi4SHiJ9N7cirmey+maJXI+7aMJNAYAJ19i16ReVFr5fxwAEk2bz9/CMO0vOI8g80Fq1i1gFHzNkZLePn5YBfE7JhgLJqeHrPDiMLqiSJVUbUzM6m9R2PitiB6oc9UwpHwtAhX7b+ac6juKappYsxVsiWAIr4aXYCDVqHZfCG88hsbdhwdFvNey0Y/qP+bBPe9tSqwONAQ9cjDVuiWxrVyKIkPGQvCOJSEivpRaNx4ZTIseQobMWJPsQu8yzqympZibpTIpxLq6tSc2mOAG6oir2EdZvEm+YeUGpzmXsauFDFE7vwWpg2a0n70+UzhJB+pL+vkBP/mgyy2GMGleGR6kuYphl8blLiOrfMHQblj182V49j+bNESScmM1lZ3vxsKyYTKF4iQzJt9465I7GlOyhfbLfYiC6IR8TlQ7U/IfZ72BszkSl614QiQ66+ny6mcFrGF7LeO+9dOmGvPZ/EvSEFX7qSe4Bm9UPaExwt+l6YVSKQz31AV1a6kaA=="
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "submit_decision",
+      "args": {
+       "decision": "escalate",
+       "next_steps": "Contact the customer to obtain business documentation and rationale for software license payments totaling $79,000 sent to a newly registered entity in a high-risk jurisdiction.",
+       "statements": [
+        {
+         "evidence_ids": [
+          "KYC-C22"
+         ],
+         "text": "C22 (Harrow Home Imports LLC) is registered as a furniture importer."
+        },
+        {
+         "text": "Between 2026-11-04 and 2026-11-10, C22 sent two wire transfers totaling $79,000 to Nimbus Digital Services FZE (CP-095) for software licenses.",
+         "evidence_ids": [
+          "T-0559",
+          "T-0560"
+         ]
+        },
+        {
+         "evidence_ids": [
+          "CP-095"
+         ],
+         "text": "CP-095 is located in a high-risk jurisdiction, was registered on 2026-10-01, shares an address with over 200 companies, and has no website."
+        },
+        {
+         "evidence_ids": [
+          "WL-07"
+         ],
+         "text": "CP-095 is on an internal watch list under review."
+        }
+       ],
+       "typology": "high risk wire / potential shell company",
+       "confidence": 0.95
+      },
+      "id": "call_9603034026696489110"
+     },
+     "thoughtSignature": "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"
+    }
+   ],
+   "role": "model"
+  }
+ ],
+ "wall_ms": 93512
+}

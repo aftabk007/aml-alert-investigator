@@ -1,0 +1,379 @@
+{
+ "alert_id": "A15",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A15"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A15",
+    "evidence_id": "ALERT-A15",
+    "date": "2026-11-09",
+    "rule": "FUNNEL",
+    "customer_id": "C15",
+    "amount_total": 15400.0,
+    "summary": "Cash deposits at 3 or more out-of-area locations within 7 days.",
+    "triggering_transaction_ids": [
+     "T-0329",
+     "T-0330",
+     "T-0331",
+     "T-0332",
+     "T-0333"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C15"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C15",
+    "evidence_id": "KYC-C15",
+    "name": "Luis Ortega Vance",
+    "dob": "1995-04-30",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Warehouse worker",
+    "employer": "Ridgeline Distribution",
+    "segment": "personal",
+    "customer_since": "2025-06-02",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 200,
+     "total_in": 3300,
+     "total_out": 3200
+    },
+    "kyc_last_review": "2025-06-02",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 31
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C15",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C15",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 23,
+    "returned": 23,
+    "total_in": 27480.0,
+    "total_out": 20079.47,
+    "rows": [
+     {
+      "transaction_id": "T-0321",
+      "evidence_id": "T-0321",
+      "date": "2026-08-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1150.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0313",
+      "evidence_id": "T-0313",
+      "date": "2026-08-07",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1510.0,
+      "channel": "online",
+      "counterparty_id": "CP-054",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0325",
+      "evidence_id": "T-0325",
+      "date": "2026-08-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 142.17,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0314",
+      "evidence_id": "T-0314",
+      "date": "2026-08-21",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1510.0,
+      "channel": "online",
+      "counterparty_id": "CP-054",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0322",
+      "evidence_id": "T-0322",
+      "date": "2026-09-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1150.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0315",
+      "evidence_id": "T-0315",
+      "date": "2026-09-04",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1510.0,
+      "channel": "online",
+      "counterparty_id": "CP-054",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0326",
+      "evidence_id": "T-0326",
+      "date": "2026-09-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 156.4,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0316",
+      "evidence_id": "T-0316",
+      "date": "2026-09-18",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1510.0,
+      "channel": "online",
+      "counterparty_id": "CP-054",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0323",
+      "evidence_id": "T-0323",
+      "date": "2026-10-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1150.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0317",
+      "evidence_id": "T-0317",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1510.0,
+      "channel": "online",
+      "counterparty_id": "CP-054",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0327",
+      "evidence_id": "T-0327",
+      "date": "2026-10-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 131.88,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0318",
+      "evidence_id": "T-0318",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1510.0,
+      "channel": "online",
+      "counterparty_id": "CP-054",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0319",
+      "evidence_id": "T-0319",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1510.0,
+      "channel": "online",
+      "counterparty_id": "CP-054",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0324",
+      "evidence_id": "T-0324",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1150.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0329",
+      "evidence_id": "T-0329",
+      "date": "2026-11-02",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 3200.0,
+      "channel": "shared_branch",
+      "location": "Shared branch network - Phoenix, AZ",
+      "memo": "depositor not the account holder"
+     },
+     {
+      "transaction_id": "T-0330",
+      "evidence_id": "T-0330",
+      "date": "2026-11-03",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 2900.0,
+      "channel": "shared_branch",
+      "location": "Shared branch network - Tucson, AZ",
+      "memo": "depositor not the account holder"
+     },
+     {
+      "transaction_id": "T-0331",
+      "evidence_id": "T-0331",
+      "date": "2026-11-04",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 3400.0,
+      "channel": "shared_branch",
+      "location": "Shared branch network - El Paso, TX",
+      "memo": "depositor not the account holder"
+     },
+     {
+      "transaction_id": "T-0332",
+      "evidence_id": "T-0332",
+      "date": "2026-11-05",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 2800.0,
+      "channel": "shared_branch",
+      "location": "Shared branch network - Phoenix, AZ",
+      "memo": "depositor not the account holder"
+     },
+     {
+      "transaction_id": "T-0333",
+      "evidence_id": "T-0333",
+      "date": "2026-11-06",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 3100.0,
+      "channel": "shared_branch",
+      "location": "Shared branch network - Las Cruces, NM",
+      "memo": "depositor not the account holder"
+     },
+     {
+      "transaction_id": "T-0334",
+      "evidence_id": "T-0334",
+      "date": "2026-11-07",
+      "type": "cash_withdrawal",
+      "direction": "out",
+      "amount": 7500.0,
+      "channel": "atm",
+      "location": "ATM network - Chicago, IL"
+     },
+     {
+      "transaction_id": "T-0335",
+      "evidence_id": "T-0335",
+      "date": "2026-11-08",
+      "type": "cash_withdrawal",
+      "direction": "out",
+      "amount": 7400.0,
+      "channel": "atm",
+      "location": "ATM network - Chicago, IL"
+     },
+     {
+      "transaction_id": "T-0328",
+      "evidence_id": "T-0328",
+      "date": "2026-11-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 149.02,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0320",
+      "evidence_id": "T-0320",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1510.0,
+      "channel": "online",
+      "counterparty_id": "CP-054",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C15"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C15",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "funnel account",
+  "statements": [
+   {
+    "text": "Alert A15 fired on 2026-11-09 (rule FUNNEL).",
+    "evidence_ids": [
+     "ALERT-A15"
+    ]
+   },
+   {
+    "text": "Cash deposits at 4 out-of-area locations in 7 days.",
+    "evidence_ids": [
+     "T-0329",
+     "T-0330",
+     "T-0331",
+     "T-0332",
+     "T-0333"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule FUNNEL fired for customer Luis Ortega Vance. Cash deposits at 4 out-of-area locations in 7 days."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

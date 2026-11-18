@@ -1,0 +1,273 @@
+{
+ "alert_id": "A20",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A20"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A20",
+    "evidence_id": "ALERT-A20",
+    "date": "2026-11-11",
+    "rule": "CASH_NEAR_CTR",
+    "customer_id": "C20",
+    "amount_total": 28400.0,
+    "summary": "2 or more cash deposits between $8,000 and $9,999 within 10 days.",
+    "triggering_transaction_ids": [
+     "T-0529",
+     "T-0530",
+     "T-0531"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C20"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C20",
+    "evidence_id": "KYC-C20",
+    "name": "Rina Castellano",
+    "dob": "1980-11-25",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Nail salon owner (sole proprietor)",
+    "employer": "Castellano Nail Studio",
+    "segment": "personal",
+    "customer_since": "2018-07-16",
+    "risk_rating": "high",
+    "expected_monthly": {
+     "cash_in": 6000,
+     "total_in": 9000,
+     "total_out": 8500
+    },
+    "kyc_last_review": "2026-06-12",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 45
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C20",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C20",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 13,
+    "returned": 13,
+    "total_in": 45800.0,
+    "total_out": 10400.0,
+    "rows": [
+     {
+      "transaction_id": "T-0519",
+      "evidence_id": "T-0519",
+      "date": "2026-08-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 2600.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "SALON RENT"
+     },
+     {
+      "transaction_id": "T-0523",
+      "evidence_id": "T-0523",
+      "date": "2026-08-09",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 2900.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "salon receipts"
+     },
+     {
+      "transaction_id": "T-0526",
+      "evidence_id": "T-0526",
+      "date": "2026-08-23",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 2800.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "salon receipts"
+     },
+     {
+      "transaction_id": "T-0520",
+      "evidence_id": "T-0520",
+      "date": "2026-09-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 2600.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "SALON RENT"
+     },
+     {
+      "transaction_id": "T-0524",
+      "evidence_id": "T-0524",
+      "date": "2026-09-09",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 3100.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "salon receipts"
+     },
+     {
+      "transaction_id": "T-0527",
+      "evidence_id": "T-0527",
+      "date": "2026-09-23",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 3000.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "salon receipts"
+     },
+     {
+      "transaction_id": "T-0521",
+      "evidence_id": "T-0521",
+      "date": "2026-10-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 2600.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "SALON RENT"
+     },
+     {
+      "transaction_id": "T-0525",
+      "evidence_id": "T-0525",
+      "date": "2026-10-09",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 2700.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "salon receipts"
+     },
+     {
+      "transaction_id": "T-0528",
+      "evidence_id": "T-0528",
+      "date": "2026-10-23",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 2900.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "salon receipts"
+     },
+     {
+      "transaction_id": "T-0522",
+      "evidence_id": "T-0522",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 2600.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "SALON RENT"
+     },
+     {
+      "transaction_id": "T-0529",
+      "evidence_id": "T-0529",
+      "date": "2026-11-03",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9300.0,
+      "channel": "branch",
+      "location": "Millbrook North branch"
+     },
+     {
+      "transaction_id": "T-0530",
+      "evidence_id": "T-0530",
+      "date": "2026-11-05",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9650.0,
+      "channel": "branch",
+      "location": "Harlow branch"
+     },
+     {
+      "transaction_id": "T-0531",
+      "evidence_id": "T-0531",
+      "date": "2026-11-10",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9450.0,
+      "channel": "branch",
+      "location": "Eastport branch"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C20"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C20",
+    "records": [
+     {
+      "record_id": "CH-030",
+      "evidence_id": "CH-030",
+      "date": "2026-06-10",
+      "kind": "sar_filed",
+      "text": "SAR filed for structuring: six cash deposits of $9,000-$9,900 at different branches in May 2026. Risk rating raised to high. Monitor for continuing activity.",
+      "disposition": "sar_filed"
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "structuring",
+  "statements": [
+   {
+    "text": "Alert A20 fired on 2026-11-11 (rule CASH_NEAR_CTR).",
+    "evidence_ids": [
+     "ALERT-A20"
+    ]
+   },
+   {
+    "text": "3 cash transactions in the 8,000-9,999 band in 15 days: $9,300 on 2026-11-03, $9,650 on 2026-11-05, $9,450 on 2026-11-10.",
+    "evidence_ids": [
+     "T-0529",
+     "T-0530",
+     "T-0531"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule CASH_NEAR_CTR fired for customer Rina Castellano. 3 cash transactions in the 8,000-9,999 band in 15 days: $9,300 on 2026-11-03, $9,650 on 2026-11-05, $9,450 on 2026-11-10."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

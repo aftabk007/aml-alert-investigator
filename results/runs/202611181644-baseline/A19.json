@@ -1,0 +1,250 @@
+{
+ "alert_id": "A19",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A19"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A19",
+    "evidence_id": "ALERT-A19",
+    "date": "2026-11-05",
+    "rule": "CASH_NEAR_CTR",
+    "customer_id": "C19",
+    "amount_total": 29400.0,
+    "summary": "2 or more cash withdrawals between $8,000 and $9,999 within 10 days.",
+    "triggering_transaction_ids": [
+     "T-0516",
+     "T-0517",
+     "T-0518"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C19"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C19",
+    "evidence_id": "KYC-C19",
+    "name": "Dale Hutchins",
+    "dob": "1968-08-14",
+    "citizenship": "US",
+    "city": "Eastport, OH",
+    "occupation": "Contractor (self-employed)",
+    "employer": "self-employed",
+    "segment": "personal",
+    "customer_since": "2010-03-29",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 1000,
+     "total_in": 8000,
+     "total_out": 7500
+    },
+    "kyc_last_review": "2025-03-29",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 58
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C19",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C19",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 11,
+    "returned": 11,
+    "total_in": 32800.0,
+    "total_out": 29400.0,
+    "rows": [
+     {
+      "transaction_id": "T-0508",
+      "evidence_id": "T-0508",
+      "date": "2026-08-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 4200.0,
+      "channel": "online",
+      "counterparty_id": "CP-091",
+      "memo": "SUBCONTRACT"
+     },
+     {
+      "transaction_id": "T-0512",
+      "evidence_id": "T-0512",
+      "date": "2026-08-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 4200.0,
+      "channel": "online",
+      "counterparty_id": "CP-091",
+      "memo": "SUBCONTRACT"
+     },
+     {
+      "transaction_id": "T-0509",
+      "evidence_id": "T-0509",
+      "date": "2026-09-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3900.0,
+      "channel": "online",
+      "counterparty_id": "CP-091",
+      "memo": "SUBCONTRACT"
+     },
+     {
+      "transaction_id": "T-0513",
+      "evidence_id": "T-0513",
+      "date": "2026-09-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3900.0,
+      "channel": "online",
+      "counterparty_id": "CP-091",
+      "memo": "SUBCONTRACT"
+     },
+     {
+      "transaction_id": "T-0510",
+      "evidence_id": "T-0510",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 4600.0,
+      "channel": "online",
+      "counterparty_id": "CP-091",
+      "memo": "SUBCONTRACT"
+     },
+     {
+      "transaction_id": "T-0514",
+      "evidence_id": "T-0514",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 4600.0,
+      "channel": "online",
+      "counterparty_id": "CP-091",
+      "memo": "SUBCONTRACT"
+     },
+     {
+      "transaction_id": "T-0511",
+      "evidence_id": "T-0511",
+      "date": "2026-11-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3700.0,
+      "channel": "online",
+      "counterparty_id": "CP-091",
+      "memo": "SUBCONTRACT"
+     },
+     {
+      "transaction_id": "T-0516",
+      "evidence_id": "T-0516",
+      "date": "2026-11-02",
+      "type": "cash_withdrawal",
+      "direction": "out",
+      "amount": 9800.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch"
+     },
+     {
+      "transaction_id": "T-0517",
+      "evidence_id": "T-0517",
+      "date": "2026-11-03",
+      "type": "cash_withdrawal",
+      "direction": "out",
+      "amount": 9700.0,
+      "channel": "branch",
+      "location": "Harlow branch"
+     },
+     {
+      "transaction_id": "T-0518",
+      "evidence_id": "T-0518",
+      "date": "2026-11-04",
+      "type": "cash_withdrawal",
+      "direction": "out",
+      "amount": 9900.0,
+      "channel": "branch",
+      "location": "Eastport branch"
+     },
+     {
+      "transaction_id": "T-0515",
+      "evidence_id": "T-0515",
+      "date": "2026-11-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3700.0,
+      "channel": "online",
+      "counterparty_id": "CP-091",
+      "memo": "SUBCONTRACT"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C19"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C19",
+    "records": [
+     {
+      "record_id": "CH-029",
+      "evidence_id": "CH-029",
+      "date": "2026-11-02",
+      "kind": "teller_note",
+      "text": "Customer asked to withdraw $15,000 in cash, then changed it to $9,800 after the teller said a CTR would be filed."
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "structuring",
+  "statements": [
+   {
+    "text": "Alert A19 fired on 2026-11-05 (rule CASH_NEAR_CTR).",
+    "evidence_ids": [
+     "ALERT-A19"
+    ]
+   },
+   {
+    "text": "3 cash transactions in the 8,000-9,999 band in 15 days: $9,800 on 2026-11-02, $9,700 on 2026-11-03, $9,900 on 2026-11-04.",
+    "evidence_ids": [
+     "T-0516",
+     "T-0517",
+     "T-0518"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule CASH_NEAR_CTR fired for customer Dale Hutchins. 3 cash transactions in the 8,000-9,999 band in 15 days: $9,800 on 2026-11-02, $9,700 on 2026-11-03, $9,900 on 2026-11-04."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

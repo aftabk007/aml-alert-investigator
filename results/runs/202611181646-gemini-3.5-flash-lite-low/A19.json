@@ -1,0 +1,319 @@
+{
+ "alert_id": "A19",
+ "agent": "gemini-3.5-flash-lite (low)",
+ "model": "gemini-3.5-flash-lite",
+ "effort": "low",
+ "outcome": "decided",
+ "error": null,
+ "turns": 3,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A19"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A19",
+    "evidence_id": "ALERT-A19",
+    "date": "2026-11-05",
+    "rule": "CASH_NEAR_CTR",
+    "customer_id": "C19",
+    "amount_total": 29400.0,
+    "summary": "2 or more cash withdrawals between $8,000 and $9,999 within 10 days.",
+    "triggering_transaction_ids": [
+     "T-0516",
+     "T-0517",
+     "T-0518"
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C19"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C19",
+    "evidence_id": "KYC-C19",
+    "name": "Dale Hutchins",
+    "dob": "1968-08-14",
+    "citizenship": "US",
+    "city": "Eastport, OH",
+    "occupation": "Contractor (self-employed)",
+    "employer": "self-employed",
+    "segment": "personal",
+    "customer_since": "2010-03-29",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 1000,
+     "total_in": 8000,
+     "total_out": 7500
+    },
+    "kyc_last_review": "2025-03-29",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 58
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C19"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C19",
+    "start_date": "2026-10-02",
+    "end_date": "2026-11-16",
+    "total_rows": 7,
+    "returned": 7,
+    "total_in": 16600.0,
+    "total_out": 29400.0,
+    "rows": [
+     {
+      "transaction_id": "T-0510",
+      "evidence_id": "T-0510",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 4600.0,
+      "channel": "online",
+      "counterparty_id": "CP-091",
+      "memo": "SUBCONTRACT"
+     },
+     {
+      "transaction_id": "T-0514",
+      "evidence_id": "T-0514",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 4600.0,
+      "channel": "online",
+      "counterparty_id": "CP-091",
+      "memo": "SUBCONTRACT"
+     },
+     {
+      "transaction_id": "T-0511",
+      "evidence_id": "T-0511",
+      "date": "2026-11-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3700.0,
+      "channel": "online",
+      "counterparty_id": "CP-091",
+      "memo": "SUBCONTRACT"
+     },
+     {
+      "transaction_id": "T-0516",
+      "evidence_id": "T-0516",
+      "date": "2026-11-02",
+      "type": "cash_withdrawal",
+      "direction": "out",
+      "amount": 9800.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch"
+     },
+     {
+      "transaction_id": "T-0517",
+      "evidence_id": "T-0517",
+      "date": "2026-11-03",
+      "type": "cash_withdrawal",
+      "direction": "out",
+      "amount": 9700.0,
+      "channel": "branch",
+      "location": "Harlow branch"
+     },
+     {
+      "transaction_id": "T-0518",
+      "evidence_id": "T-0518",
+      "date": "2026-11-04",
+      "type": "cash_withdrawal",
+      "direction": "out",
+      "amount": 9900.0,
+      "channel": "branch",
+      "location": "Eastport branch"
+     },
+     {
+      "transaction_id": "T-0515",
+      "evidence_id": "T-0515",
+      "date": "2026-11-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3700.0,
+      "channel": "online",
+      "counterparty_id": "CP-091",
+      "memo": "SUBCONTRACT"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C19"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C19",
+    "records": [
+     {
+      "record_id": "CH-029",
+      "evidence_id": "CH-029",
+      "date": "2026-11-02",
+      "kind": "teller_note",
+      "text": "Customer asked to withdraw $15,000 in cash, then changed it to $9,800 after the teller said a CTR would be filed."
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "sar_draft": "On November 2, 2026, Dale Hutchins (C19) visited the Millbrook Main branch attempting to withdraw $15,000 in cash. Upon being informed by the teller that a Currency Transaction Report (CTR) would be required, the customer reduced the withdrawal amount to $9,800. Over the next two days, on November 3 and November 4, 2026, the customer made additional cash withdrawals of $9,700 at the Harlow branch and $9,900 at the Eastport branch, respectively. In total, the customer withdrew $29,400 in cash across three different branches in three days, systematically avoiding the $10,000 CTR reporting threshold after explicit discussion of CTR requirements.",
+  "decision": "sar",
+  "confidence": 1,
+  "next_steps": "File Suspicious Activity Report (SAR) for structuring cash withdrawals and monitor account for further suspicious activity.",
+  "statements": [
+   {
+    "text": "On 2026-11-02, customer Dale Hutchins visited the Millbrook Main branch and asked to withdraw $15,000 in cash, but changed the amount to $9,800 after being informed about CTR requirements.",
+    "evidence_ids": [
+     "ALERT-A19",
+     "T-0516",
+     "CH-029"
+    ]
+   },
+   {
+    "evidence_ids": [
+     "T-0517"
+    ],
+    "text": "On 2026-11-03, the customer withdrew $9,700 in cash at the Harlow branch."
+   },
+   {
+    "text": "On 2026-11-04, the customer withdrew $9,900 in cash at the Eastport branch, bringing total cash withdrawals to $29,400 over three consecutive days across three different bank branches.",
+    "evidence_ids": [
+     "ALERT-A19",
+     "T-0518"
+    ]
+   },
+   {
+    "evidence_ids": [
+     "KYC-C19",
+     "CH-029"
+    ],
+    "text": "The pattern of multiple high cash withdrawals just under the $10,000 reporting threshold immediately following an evasion attempt indicates intentional structuring to evade CTR reporting."
+   }
+  ],
+  "typology": "structuring"
+ },
+ "usage": {
+  "input": 7748,
+  "output": 587,
+  "thinking": 924
+ },
+ "model_turns": [
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_alert",
+      "args": {
+       "alert_id": "A19"
+      },
+      "id": "call_5384800342586895197"
+     },
+     "thoughtSignature": "EvEBCu4BAWkUfRM5/SX3in02irdHEcQg1p3qpG4bY4Z/0sSU7xEM55JBRBkM4pQ+RvvJCE8kMy4elF8lOVQ/IdV+K2MInI+q8DcjODx7+7OETNASL3NmVP34wAO0Nx2HRZnc+06sEhuHYXWKXycVgtWObml11eRVmQcHoCn/jurDY3HRL4SGZj5emQU4HoFKL8n/QMiCOD9wPXbwuC+J6yO9TXoYbA5gbbAMuJ0m8UTqxv5yUHDu4a/ivmjTKo7oopW9ITgq59XdVCk7ahbzryII6Dn74KXRo5bgip+d+gQtIjvf9rG0H293u1hBmTxO2hyR5Q=="
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_customer_profile",
+      "args": {
+       "customer_id": "C19"
+      },
+      "id": "call_18003129374235491782"
+     },
+     "thoughtSignature": "EtYCCtMCAWkUfRPTKnDAa8SvJ8fZX4TMmX4u1fuWHxVYb2uFFS8fS5g2NDodYRAWDAWwnZQ2SmXtkbGKcuDYsZ/t2dx6RlTNKNm82XPeAodO4269L62EUxZeR/gtaBe40eZg4rQVTDEk5yTD1Vm5aea0eN2Q0AOkPQe6FfzsEl1qw5gzzochtjbT8pUT7gZubYKJlcl9ogxevxAFsOpmL8MnD39T2fskLy9av75TS/imqcQOTdWCowrUgsqaaCgdpvfN6ACeFq0kncWQVyaVj/zhxASt9z62996frLmTK1YYusbnSXoKgYjSExDOj7MKa1hbo54xIgvzA1Mypg1uNKjlonbRU9g2oVR0RO1Qs9WO0DE727mcO2B2PatZlA1vfx1qxqHL+ucwdte82ODJ12nWYtKC60nC+EtonNG6g0KLguVUhi3K4HiHGLXvw2ddz/lYdYgrfNCy"
+    },
+    {
+     "functionCall": {
+      "name": "get_transactions",
+      "args": {
+       "customer_id": "C19"
+      },
+      "id": "call_18003129374235488529"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_case_history",
+      "args": {
+       "customer_id": "C19"
+      },
+      "id": "call_18003129374235489372"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "submit_decision",
+      "args": {
+       "sar_draft": "On November 2, 2026, Dale Hutchins (C19) visited the Millbrook Main branch attempting to withdraw $15,000 in cash. Upon being informed by the teller that a Currency Transaction Report (CTR) would be required, the customer reduced the withdrawal amount to $9,800. Over the next two days, on November 3 and November 4, 2026, the customer made additional cash withdrawals of $9,700 at the Harlow branch and $9,900 at the Eastport branch, respectively. In total, the customer withdrew $29,400 in cash across three different branches in three days, systematically avoiding the $10,000 CTR reporting threshold after explicit discussion of CTR requirements.",
+       "decision": "sar",
+       "confidence": 1,
+       "next_steps": "File Suspicious Activity Report (SAR) for structuring cash withdrawals and monitor account for further suspicious activity.",
+       "statements": [
+        {
+         "text": "On 2026-11-02, customer Dale Hutchins visited the Millbrook Main branch and asked to withdraw $15,000 in cash, but changed the amount to $9,800 after being informed about CTR requirements.",
+         "evidence_ids": [
+          "ALERT-A19",
+          "T-0516",
+          "CH-029"
+         ]
+        },
+        {
+         "evidence_ids": [
+          "T-0517"
+         ],
+         "text": "On 2026-11-03, the customer withdrew $9,700 in cash at the Harlow branch."
+        },
+        {
+         "text": "On 2026-11-04, the customer withdrew $9,900 in cash at the Eastport branch, bringing total cash withdrawals to $29,400 over three consecutive days across three different bank branches.",
+         "evidence_ids": [
+          "ALERT-A19",
+          "T-0518"
+         ]
+        },
+        {
+         "evidence_ids": [
+          "KYC-C19",
+          "CH-029"
+         ],
+         "text": "The pattern of multiple high cash withdrawals just under the $10,000 reporting threshold immediately following an evasion attempt indicates intentional structuring to evade CTR reporting."
+        }
+       ],
+       "typology": "structuring"
+      },
+      "id": "call_2952060101298035414"
+     },
+     "thoughtSignature": "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"
+    }
+   ],
+   "role": "model"
+  }
+ ],
+ "wall_ms": 6936
+}

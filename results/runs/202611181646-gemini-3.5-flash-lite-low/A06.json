@@ -1,0 +1,598 @@
+{
+ "alert_id": "A06",
+ "agent": "gemini-3.5-flash-lite (low)",
+ "model": "gemini-3.5-flash-lite",
+ "effort": "low",
+ "outcome": "decided",
+ "error": null,
+ "turns": 4,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A06"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A06",
+    "evidence_id": "ALERT-A06",
+    "date": "2026-11-13",
+    "rule": "FAN_OUT",
+    "customer_id": "C06",
+    "amount_total": 17650.0,
+    "summary": "Payments to 8 or more different payees within 2 days.",
+    "triggering_transaction_ids": [
+     "T-0216",
+     "T-0217",
+     "T-0218",
+     "T-0219",
+     "T-0220",
+     "T-0221",
+     "T-0222",
+     "T-0223",
+     "T-0224"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C06"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C06",
+    "evidence_id": "KYC-C06",
+    "name": "Kayla Brennan",
+    "dob": "2004-07-09",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Student (part-time cafe job)",
+    "employer": "Bean There Cafe",
+    "segment": "personal",
+    "customer_since": "2024-01-15",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 100,
+     "total_in": 1200,
+     "total_out": 1100
+    },
+    "kyc_last_review": "2025-01-15",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 22
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C06",
+    "start_date": "2026-10-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C06",
+    "start_date": "2026-10-01",
+    "end_date": "2026-11-16",
+    "total_rows": 15,
+    "returned": 15,
+    "total_in": 20160.0,
+    "total_out": 17650.0,
+    "rows": [
+     {
+      "transaction_id": "T-0210",
+      "evidence_id": "T-0210",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0211",
+      "evidence_id": "T-0211",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0212",
+      "evidence_id": "T-0212",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0214",
+      "evidence_id": "T-0214",
+      "date": "2026-11-11",
+      "type": "wire_in",
+      "direction": "in",
+      "amount": 9500.0,
+      "channel": "online",
+      "counterparty_id": "CP-025",
+      "memo": "project payment"
+     },
+     {
+      "transaction_id": "T-0215",
+      "evidence_id": "T-0215",
+      "date": "2026-11-11",
+      "type": "p2p_in",
+      "direction": "in",
+      "amount": 8500.0,
+      "channel": "online",
+      "counterparty_id": "CP-026",
+      "memo": "for you"
+     },
+     {
+      "transaction_id": "T-0216",
+      "evidence_id": "T-0216",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 2050.0,
+      "channel": "online",
+      "counterparty_id": "CP-027"
+     },
+     {
+      "transaction_id": "T-0217",
+      "evidence_id": "T-0217",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1980.0,
+      "channel": "online",
+      "counterparty_id": "CP-028"
+     },
+     {
+      "transaction_id": "T-0218",
+      "evidence_id": "T-0218",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1950.0,
+      "channel": "online",
+      "counterparty_id": "CP-029"
+     },
+     {
+      "transaction_id": "T-0219",
+      "evidence_id": "T-0219",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 2100.0,
+      "channel": "online",
+      "counterparty_id": "CP-030"
+     },
+     {
+      "transaction_id": "T-0220",
+      "evidence_id": "T-0220",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1890.0,
+      "channel": "online",
+      "counterparty_id": "CP-031"
+     },
+     {
+      "transaction_id": "T-0221",
+      "evidence_id": "T-0221",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 2000.0,
+      "channel": "online",
+      "counterparty_id": "CP-032"
+     },
+     {
+      "transaction_id": "T-0222",
+      "evidence_id": "T-0222",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1700.0,
+      "channel": "online",
+      "counterparty_id": "CP-033"
+     },
+     {
+      "transaction_id": "T-0223",
+      "evidence_id": "T-0223",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1930.0,
+      "channel": "online",
+      "counterparty_id": "CP-034"
+     },
+     {
+      "transaction_id": "T-0224",
+      "evidence_id": "T-0224",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 2050.0,
+      "channel": "online",
+      "counterparty_id": "CP-035"
+     },
+     {
+      "transaction_id": "T-0213",
+      "evidence_id": "T-0213",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C06"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C06",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C06"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C06",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0030",
+      "evidence_id": "LG-0030",
+      "timestamp": "2026-10-20T19:37:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0029",
+      "evidence_id": "LG-0029",
+      "timestamp": "2026-10-26T19:31:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0028",
+      "evidence_id": "LG-0028",
+      "timestamp": "2026-11-01T19:25:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0027",
+      "evidence_id": "LG-0027",
+      "timestamp": "2026-11-07T19:19:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0031",
+      "evidence_id": "LG-0031",
+      "timestamp": "2026-11-10T23:41:00",
+      "event": "login",
+      "device_id": "DV-6X99",
+      "device_first_seen": "2026-11-10",
+      "ip": "142.88.7.21",
+      "ip_city": "Toronto",
+      "ip_country": "CA",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0032",
+      "evidence_id": "LG-0032",
+      "timestamp": "2026-11-12T08:05:00",
+      "event": "login",
+      "device_id": "DV-6X99",
+      "device_first_seen": "2026-11-10",
+      "ip": "142.88.7.21",
+      "ip_city": "Toronto",
+      "ip_country": "CA",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0026",
+      "evidence_id": "LG-0026",
+      "timestamp": "2026-11-13T19:13:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  },
+  {
+   "turn": 3,
+   "tool": "get_counterparty",
+   "args": {
+    "customer_id": "C06",
+    "counterparty_id": "CP-025"
+   },
+   "is_error": false,
+   "result": {
+    "counterparty_id": "CP-025",
+    "evidence_id": "CP-025",
+    "name": "Harbor Point Consulting",
+    "type": "business",
+    "registered": "2026-10-02",
+    "relationship_since": "2026-11-11",
+    "notes": "Registered 2026-10-02. Sent money to 3 other customers of this bank in November.",
+    "other_customers_paid": 3,
+    "with_this_customer": {
+     "payments_since_2026_08_01": 1,
+     "first_payment_since_2026_08_01": "2026-11-11",
+     "last_payment": "2026-11-11",
+     "total_amount_since_2026_08_01": 9500.0
+    }
+   }
+  },
+  {
+   "turn": 3,
+   "tool": "get_counterparty",
+   "args": {
+    "customer_id": "C06",
+    "counterparty_id": "CP-026"
+   },
+   "is_error": false,
+   "result": {
+    "counterparty_id": "CP-026",
+    "evidence_id": "CP-026",
+    "name": "R. Okafor",
+    "type": "individual",
+    "relationship_since": "2026-11-11",
+    "notes": "No other link to the customer on file.",
+    "with_this_customer": {
+     "payments_since_2026_08_01": 1,
+     "first_payment_since_2026_08_01": "2026-11-11",
+     "last_payment": "2026-11-11",
+     "total_amount_since_2026_08_01": 8500.0
+    }
+   }
+  }
+ ],
+ "decision": {
+  "confidence": 1,
+  "statements": [
+   {
+    "text": "Customer C06 (Kayla Brennan) is a 22-year-old part-time cafe worker in Millbrook, OH, with an expected monthly deposit of $100 and total inflow of $1,200.",
+    "evidence_ids": [
+     "KYC-C06"
+    ]
+   },
+   {
+    "text": "On 2026-11-10 and 2026-11-12, logins occurred from a new device (DV-6X99) located in Toronto, Canada, contrasting with the customer's usual logins from Millbrook, OH.",
+    "evidence_ids": [
+     "LG-0031",
+     "LG-0032"
+    ]
+   },
+   {
+    "evidence_ids": [
+     "T-0214",
+     "T-0215",
+     "CP-025",
+     "CP-026"
+    ],
+    "text": "On 2026-11-11, unexpected funds totaling $18,000 were received via wire ($9,500 from Harbor Point Consulting) and P2P ($8,500 from R. Okafor)."
+   },
+   {
+    "evidence_ids": [
+     "ALERT-A06",
+     "T-0216",
+     "T-0217",
+     "T-0218",
+     "T-0219",
+     "T-0220",
+     "T-0221",
+     "T-0222",
+     "T-0223",
+     "T-0224"
+    ],
+    "text": "On 2026-11-12, exactly 9 P2P out transactions totaling $17,650 were executed to different payees within two days."
+   }
+  ],
+  "next_steps": "Hold remaining funds, lock online banking access, and immediately contact the customer using verified phone numbers on file to verify whether she authorized the Toronto logins and P2P transfers.",
+  "typology": "account takeover",
+  "decision": "escalate"
+ },
+ "usage": {
+  "input": 15450,
+  "output": 652,
+  "thinking": 1204
+ },
+ "model_turns": [
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_alert",
+      "args": {
+       "alert_id": "A06"
+      },
+      "id": "call_2779198764325074546"
+     },
+     "thoughtSignature": "EvMBCvABAWkUfRPQKLxjlsq8D8GWUkKFoTKAiX2hgcU8h7FM8ASPWDjsQpqo5Fxz4RVC7P6ZIdsMi+xDKPRleW6c8XIAtVOwj4ffde60hw6UaoZvM8Nk1KtJKl4gTTljc8QpvwQLasSdYkuGnOxzaxDqN7K0rKJHnu++/aN0SI1voJhr0YCcViMN2SPVANGkn4vEGXkhwnvUiXEXX7bR+1MEIR5JiD+KsegNZPt9cLg+OJL91NIaKuQOj49dSnSrdjeY8OBASW++Z7KUPFimMI8OIRjelJ4Kt838sPzPCJ6UNS524YKQCZEj1r4Dqt6s7svVgeTY"
+    },
+    {
+     "functionCall": {
+      "name": "get_customer_profile",
+      "args": {
+       "customer_id": "C06"
+      },
+      "id": "call_2779198764325074475"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_transactions",
+      "args": {
+       "customer_id": "C06",
+       "start_date": "2026-10-01"
+      },
+      "id": "call_9971360075775362831"
+     },
+     "thoughtSignature": "EqEDCp4DAWkUfRPRLnRCDKB3qivUjT5cIfCYx2yRN3kkXAtpnkFoscnhoWBTEijVrjg72+krhgxYJZcW5Qn2vswoZ8OGUX0RDeDNdLCck2AuNdWyGt6zjCSNKsxW5tghfXBijMAT7yB1VBZuR699tZJWo1rtijAQtxi0kjpp8LGxX+QOpH3Xf55M8/UbguVL8JGRXdeWSau5V0QPTP7cC/VOR6LIxyjPBCEYIFrizcbNh35f2UhZbmm9nQkJM3EnQU6r1pglQgAyQ9Asi8b+xxLKbyapqBavSANLnyILBxKQ1vwTr8wupsmetG81iRnbqvgdzyJi1x14W+/MAoOOQ6AK+wOFyrEYotK8M/iueOzi8SAYmNzAP1hNcdKVafcQ/ofB9Z3MTfat4c3GQF2/C2WHa+cXHTlq83G6yQYtKiOYCkoqCRw7OquZ61FU0V3n21+jx24a0qmxItBDmhYVyClU5NDooJHYot79PAmIXHo8Iqs6B3Qnm37zWVRuZ9LlKI1SBWddlLmu4gKfcEF19AAGJGL1dZekZ7NErWlE5XfI++v5"
+    },
+    {
+     "functionCall": {
+      "name": "get_case_history",
+      "args": {
+       "customer_id": "C06"
+      },
+      "id": "call_9971360075775362010"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_login_activity",
+      "args": {
+       "customer_id": "C06"
+      },
+      "id": "call_9971360075775361189"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_counterparty",
+      "args": {
+       "customer_id": "C06",
+       "counterparty_id": "CP-025"
+      },
+      "id": "call_2269170730826861794"
+     },
+     "thoughtSignature": "Eq4HCqsHAWkUfROtRl5KJhMeWmpxaPQXrtZuZZh8/tgXQ+5YasIyseGYAowv1xLSWzCyNYFe4hl+zXiBjCpfz7nN8KF+/0TwsvTxPpD16TW/Gp4Fzc+dtWnpAkMzHoGHJ20pFPgOUxn3swStF73jF4clpR1UujRE4eEhLbZejxRGdysB+pzh2lLCnBJqlSTTt7VQHkTDJ9G8+oPkfnGZ9r/dlJs3vVPCGkmQByfntHvWzvMwZofB1LLJXbYpe2HrugZNbBpL2vXbkzx2h+0kmd2wkfGIInhNYmspl7Fnsw7+6ME9Pxcnbcr7sTZx4PB5NT04rTmBVTCFgxkD9u3Rbon8T2GjISpSkkD2bpwGPQP8d02qnwMPfJx+Ykr6KZ7m6Z+VcnMTjLKCKKilCFzr45pgnD7hlAeq2UDuajwtwVCbr0E69mfmlTF2IMs2cEtg3dF1rktXt754XKqehlbPn6D3MyGqXVp6gj9+oL9vg3b+wDEfCelgEcvba6lDMt0nMsXsXigij8f3Qz34ChWoaC8lnCq3TklHfz3v6LLgwGxj+SVi7Sf0a2y1959QFy/o3p2fzoWPQmLNY8QnJNPQEi5KZA00YXwnuJ4eKuZexALQujO4KESlQir+t4KMyFe6Y8qZO3anwBRzvt8nmQrmSzFDxMqRk1GKqn1iPSvEsjQx6+Zfl9+mfKC1Dul2xXfoPN7JU2F2JNWKPlyFkFKK654hdUiqLO7+WD70UZwbJFJnk6yxUTb4DBUxKL15hhmoHIOkcTzpd9nL7ywZMEoHwDveXoFbbH7gppwhdMlTS0f/VWf3paTkxKapCA88cfITL/Ay0UXNvDbsan/U8mjgUrsJupTB98zR35oCBV4zsm9fDDAJvOTETQydTozn/bt5FLXyTM1A3GpL6m5t1UDdEP9I3Ezt+jmEdx0Pv5BEGQt/TFnAlAo4e6ZweJR+fkeihE9UuHajMcH4k1r5udpA21H9l1+OjrfFtL3lCPdxIm/2uolxPVbwxPfuTJM7+qjSjtjd2gKKRkwQl2Ow9NZAmR9Md4jpZtq1fWFx0ew3Gkfo6f5FjRSeP+6Rhty7IzXlpiXmm7cRXeejz9H8CU/xjBD7Fek19yOsPSg5/xoAGODEq7+7Kg/VWJn9Mmblw5KgA07KQ40JZZQyEHYdzWMqcsbVcCxVMKkRuHKFb08bb7dM7e2Ne6IsmSdBn6C8F8hgjsNJqTgaYD9kZesMy2IzROhw1YyYPan66dw9tMGsIP6b"
+    },
+    {
+     "functionCall": {
+      "name": "get_counterparty",
+      "args": {
+       "customer_id": "C06",
+       "counterparty_id": "CP-026"
+      },
+      "id": "call_2269170730826861377"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "submit_decision",
+      "args": {
+       "confidence": 1,
+       "statements": [
+        {
+         "text": "Customer C06 (Kayla Brennan) is a 22-year-old part-time cafe worker in Millbrook, OH, with an expected monthly deposit of $100 and total inflow of $1,200.",
+         "evidence_ids": [
+          "KYC-C06"
+         ]
+        },
+        {
+         "text": "On 2026-11-10 and 2026-11-12, logins occurred from a new device (DV-6X99) located in Toronto, Canada, contrasting with the customer's usual logins from Millbrook, OH.",
+         "evidence_ids": [
+          "LG-0031",
+          "LG-0032"
+         ]
+        },
+        {
+         "evidence_ids": [
+          "T-0214",
+          "T-0215",
+          "CP-025",
+          "CP-026"
+         ],
+         "text": "On 2026-11-11, unexpected funds totaling $18,000 were received via wire ($9,500 from Harbor Point Consulting) and P2P ($8,500 from R. Okafor)."
+        },
+        {
+         "evidence_ids": [
+          "ALERT-A06",
+          "T-0216",
+          "T-0217",
+          "T-0218",
+          "T-0219",
+          "T-0220",
+          "T-0221",
+          "T-0222",
+          "T-0223",
+          "T-0224"
+         ],
+         "text": "On 2026-11-12, exactly 9 P2P out transactions totaling $17,650 were executed to different payees within two days."
+        }
+       ],
+       "next_steps": "Hold remaining funds, lock online banking access, and immediately contact the customer using verified phone numbers on file to verify whether she authorized the Toronto logins and P2P transfers.",
+       "typology": "account takeover",
+       "decision": "escalate"
+      },
+      "id": "call_4860552713074916461"
+     },
+     "thoughtSignature": "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"
+    }
+   ],
+   "role": "model"
+  }
+ ],
+ "wall_ms": 25199
+}

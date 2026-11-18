@@ -1,0 +1,470 @@
+{
+ "alert_id": "A24",
+ "agent": "gemini-3.5-flash-lite (low)",
+ "model": "gemini-3.5-flash-lite",
+ "effort": "low",
+ "outcome": "decided",
+ "error": null,
+ "turns": 4,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A24"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A24",
+    "evidence_id": "ALERT-A24",
+    "date": "2026-11-10",
+    "rule": "RAPID_MOVEMENT",
+    "customer_id": "C24",
+    "amount_total": 9930.0,
+    "summary": "90% or more of incoming funds sent out within 48 hours.",
+    "triggering_transaction_ids": [
+     "T-0584",
+     "T-0586"
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C24"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C24",
+    "evidence_id": "KYC-C24",
+    "name": "Tyler Grant",
+    "dob": "2000-03-09",
+    "citizenship": "US",
+    "city": "Harlow, OH",
+    "occupation": "Job seeker (updated 2026-09)",
+    "employer": "none",
+    "segment": "personal",
+    "customer_since": "2021-05-17",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 900,
+     "total_out": 900
+    },
+    "kyc_last_review": "2026-09-02",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 26
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C24"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C24",
+    "start_date": "2026-10-02",
+    "end_date": "2026-11-16",
+    "total_rows": 8,
+    "returned": 8,
+    "total_in": 11160.0,
+    "total_out": 14400.0,
+    "rows": [
+     {
+      "transaction_id": "T-0581",
+      "evidence_id": "T-0581",
+      "date": "2026-10-09",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 410.0,
+      "channel": "online",
+      "counterparty_id": "CP-099",
+      "memo": "BENEFITS"
+     },
+     {
+      "transaction_id": "T-0582",
+      "evidence_id": "T-0582",
+      "date": "2026-10-23",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 410.0,
+      "channel": "online",
+      "counterparty_id": "CP-099",
+      "memo": "BENEFITS"
+     },
+     {
+      "transaction_id": "T-0584",
+      "evidence_id": "T-0584",
+      "date": "2026-11-04",
+      "type": "check_deposit",
+      "direction": "in",
+      "amount": 4950.0,
+      "channel": "mobile",
+      "counterparty_id": "CP-100",
+      "memo": "mobile check deposit"
+     },
+     {
+      "transaction_id": "T-0585",
+      "evidence_id": "T-0585",
+      "date": "2026-11-05",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 4700.0,
+      "channel": "online",
+      "counterparty_id": "CP-101"
+     },
+     {
+      "transaction_id": "T-0583",
+      "evidence_id": "T-0583",
+      "date": "2026-11-06",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 410.0,
+      "channel": "online",
+      "counterparty_id": "CP-099",
+      "memo": "BENEFITS"
+     },
+     {
+      "transaction_id": "T-0586",
+      "evidence_id": "T-0586",
+      "date": "2026-11-06",
+      "type": "check_deposit",
+      "direction": "in",
+      "amount": 4980.0,
+      "channel": "mobile",
+      "counterparty_id": "CP-100",
+      "memo": "mobile check deposit"
+     },
+     {
+      "transaction_id": "T-0587",
+      "evidence_id": "T-0587",
+      "date": "2026-11-07",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 4750.0,
+      "channel": "online",
+      "counterparty_id": "CP-101"
+     },
+     {
+      "transaction_id": "T-0588",
+      "evidence_id": "T-0588",
+      "date": "2026-11-09",
+      "type": "check_return",
+      "direction": "out",
+      "amount": 4950.0,
+      "channel": "online",
+      "counterparty_id": "CP-100",
+      "memo": "returned deposited item - altered check"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C24"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C24",
+    "records": [
+     {
+      "record_id": "CH-032",
+      "evidence_id": "CH-032",
+      "date": "2026-11-07",
+      "kind": "call_note",
+      "text": "Customer said his new remote job, found on social media, 'processes payments for clients': he deposits checks and sends the money to his manager."
+     },
+     {
+      "record_id": "CH-033",
+      "evidence_id": "CH-033",
+      "date": "2026-11-09",
+      "kind": "returned_item",
+      "text": "Check deposited 2026-11-04 for $4,950 returned by the paying bank as altered.",
+      "amount": 4950.0
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C24"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C24",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0123",
+      "evidence_id": "LG-0123",
+      "timestamp": "2026-10-20T19:37:00",
+      "event": "login",
+      "device_id": "DV-24A24",
+      "device_first_seen": "2021-05-17",
+      "ip": "73.41.240.6",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0122",
+      "evidence_id": "LG-0122",
+      "timestamp": "2026-10-26T19:31:00",
+      "event": "login",
+      "device_id": "DV-24A24",
+      "device_first_seen": "2021-05-17",
+      "ip": "73.41.240.6",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0121",
+      "evidence_id": "LG-0121",
+      "timestamp": "2026-11-01T19:25:00",
+      "event": "login",
+      "device_id": "DV-24A24",
+      "device_first_seen": "2021-05-17",
+      "ip": "73.41.240.6",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0120",
+      "evidence_id": "LG-0120",
+      "timestamp": "2026-11-07T19:19:00",
+      "event": "login",
+      "device_id": "DV-24A24",
+      "device_first_seen": "2021-05-17",
+      "ip": "73.41.240.6",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0119",
+      "evidence_id": "LG-0119",
+      "timestamp": "2026-11-13T19:13:00",
+      "event": "login",
+      "device_id": "DV-24A24",
+      "device_first_seen": "2021-05-17",
+      "ip": "73.41.240.6",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  },
+  {
+   "turn": 3,
+   "tool": "get_counterparty",
+   "args": {
+    "counterparty_id": "CP-101",
+    "customer_id": "C24"
+   },
+   "is_error": false,
+   "result": {
+    "counterparty_id": "CP-101",
+    "evidence_id": "CP-101",
+    "name": "R. Daniels",
+    "type": "individual",
+    "relationship_since": "2026-11-05",
+    "notes": "P2P payee at another bank. First paid 2026-11-05.",
+    "with_this_customer": {
+     "payments_since_2026_08_01": 2,
+     "first_payment_since_2026_08_01": "2026-11-05",
+     "last_payment": "2026-11-07",
+     "total_amount_since_2026_08_01": 9450.0
+    }
+   }
+  }
+ ],
+ "decision": {
+  "statements": [
+   {
+    "evidence_ids": [
+     "KYC-C24"
+    ],
+    "text": "Customer Tyler Grant (C24) is a 26-year-old job seeker in Harlow, OH."
+   },
+   {
+    "text": "The customer deposited two checks totaling $9,930 ($4,950 on 2026-11-04 and $4,980 on 2026-11-06) via mobile check deposit.",
+    "evidence_ids": [
+     "T-0584",
+     "T-0586"
+    ]
+   },
+   {
+    "text": "The customer rapidly sent $9,450 via P2P out to R. Daniels (CP-101) across two transactions on 2026-11-05 and 2026-11-07.",
+    "evidence_ids": [
+     "T-0585",
+     "T-0587"
+    ]
+   },
+   {
+    "text": "In a call note on 2026-11-07, the customer explained he found a remote job on social media where he deposits checks and forwards funds to his 'manager'.",
+    "evidence_ids": [
+     "CH-032"
+    ]
+   },
+   {
+    "evidence_ids": [
+     "T-0588",
+     "CH-033"
+    ],
+    "text": "On 2026-11-09, the check deposited on 2026-11-04 for $4,950 was returned by the paying bank as an altered check."
+   }
+  ],
+  "confidence": 0.95,
+  "next_steps": "File SAR for check fraud and scam-related money mule activity, and restrict the account.",
+  "decision": "sar",
+  "sar_draft": "Customer Tyler Grant (C24) engaged in a check fraud scam involving mobile check deposits and rapid P2P outflows. On 2026-11-04 and 2026-11-06, the customer deposited checks totaling $9,930 ($4,950 and $4,980) via mobile deposit. Between 2026-11-05 and 2026-11-07, the customer rapidly transferred $9,450 via P2P to R. Daniels (CP-101). In a call on 2026-11-07, the customer stated he found a 'remote job' on social media processing payments by depositing checks and sending funds to his manager. On 2026-11-09, one of the deposited checks ($4,950) was returned as altered.",
+  "typology": "check fraud"
+ },
+ "usage": {
+  "input": 13825,
+  "output": 740,
+  "thinking": 629
+ },
+ "model_turns": [
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_alert",
+      "args": {
+       "alert_id": "A24"
+      },
+      "id": "call_10021954228635266830"
+     },
+     "thoughtSignature": "EukDCuYDAWkUfRPRQn+RyI1XW8t7rHL2i5pRPIsxB+XqP44FlLvDZ8NQxsrPAUVa3AGXgm+0EtXf4YP335qoGjrBzFScoDET4+6n7tCimzFMiT4IUVlOFbzMAaECIQgzw9ixcR4MnbwEix8E+ypleu187VwdjWf2OG5/41kVJ1JRnGn/k8YxDl3aCSIkQvcNKeZ/+j/04eIDkFgMd7B7eW22QymnQacAzPuPQdD9RaLlrT3xUul/4t82V4+3zVmv1C7ZhljxY4WAbvvHBrip8dn4mEZm355HyzZEauf0dcqlwY8y9wQ29XwnA9O1iPHmshLsV8BuCqFfxrm7BJM6t0Dd6ZtlV+l1v63hkvIoJprx5gztuRjnkn9JGFrcDewxNyd9Hl87Ot57keC4rZKhn2CA9j5IjDdh73CQ8dwLbcuJyEA69dTy/RFW4aC/jZe/YCwF07GTAxLBJdUq9RNfa2temHq6x2Pu4MKfgeAwucT8Sus9qCUeV029UrCUjhnVoozg+QjfNOfzzic0Njr9RsuTduhCpyJ7c15RsIAj6OZeL1jrVtYGoNXarEW6VYtBNt7EyLL6/hRiCJ/LowS8VOnazZ4rpsFAHj3kpdhcTYsCP5oHsrjetxv8TlLAfx1pffo6gZ8Zthv2jFXn"
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_customer_profile",
+      "args": {
+       "customer_id": "C24"
+      },
+      "id": "call_14894251708606068363"
+     },
+     "thoughtSignature": "EsYDCsMDAWkUfRPeeSxaBBYrjRJUV2dnS+hL75gdFHMQPr0VfdDQ2cLaK93GxQQZbKXWkFafyHGt77VJipiOHSaTYKtihd+J97pwfO8PnJ47HOms5W2Yaq8bnnrfcLQtDkoNN3/ORWbOIOCeuAdmfBXh+Uk9Rd5/rB4IufzcUMEGk/2B/WjXtttqgzlD7703pb6lDUBbOHbKjAGKCB6K0ncODjxWY1jmHqcWIDs3kborR9nTljoLfFQepQGBhUjKsYdlUNjhHyi4EMRW8BZU6ZThmrg497ocesFbfxUNFOqusXNTtH9E1nyJ0FV/sK6Z0sIJ2DypQ7K2hpNEO4Wg25PFXZMdWe2BpDQiBU0H9HVrjI2xe8Q1a+KAAk0ptSypwC0iLoxXMDvHr/YOCwu4stPbU/saW2CM/++bsdhp6LX+kLFbSlYS08gyntvctscxsleAhCkYsyXpRBvYvAq7YrsnrLwrnU2DoYGgYkfnpu74yWoQayKgcAr8deVjOVL8CVBq1BsGjbv982LHlQVFw6bQmAshdcJ4lK0ojS6QHalRHWPH9fDHKpN8rYl/4Y93JdQvjLcM0FlFMgQ58CeJpVTz5xYH2Y6HEQ=="
+    },
+    {
+     "functionCall": {
+      "name": "get_transactions",
+      "args": {
+       "customer_id": "C24"
+      },
+      "id": "call_14894251708606068032"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_case_history",
+      "args": {
+       "customer_id": "C24"
+      },
+      "id": "call_14894251708606067701"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_login_activity",
+      "args": {
+       "customer_id": "C24"
+      },
+      "id": "call_14894251708606067370"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_counterparty",
+      "args": {
+       "counterparty_id": "CP-101",
+       "customer_id": "C24"
+      },
+      "id": "call_8755343319362302061"
+     },
+     "thoughtSignature": "EoEICv4HAWkUfROmdJlO19Xqox+/VYn+0Bgz8zpXaFMYkoCOIaZeflRgWscwlPk+VMwYvEHdsd5TLPgMVCiembSSciG0tHqth45TCpPKPCvmm48RhoGwMHREia4bO7NBAmmoMQRNhwYbGadAEex4ti7dmVss4MnyrQvM1/Bmel8lmJ0ToE9narZA/y3j3KQEsZ22hU6FR3ZcdyqiolS2XMQRFLPRq6EssRVo6YskicsPKXRTQOXGZ25SmdTY2jekzl5HmGl2wY1MNBpwdh2QUy6i9b3ZXByvvafM+RNyO8aAS+yZ2/oqRqwV5rRwKx3JmyJ3OYyDXcW4vN7ISBHt3qImMg7AJv9fhBz3NVe1bFc7RQB9UTmA+TQD3Rp+WvoVY592JS+y2byce9pUygKLuSecnGWryvy2LIswD+LRsH30PQOihLx62jWWO1mhhRv6lEpfid8Apjd0BD8Ri36EHi8d0Wn/W4yO/8s41OXF5RgihM2NeA1p85+/luOltH9Dz2ZeerQnsq3KjMFE4Du1VM2x23d4pY8Xh3nL+azX2cWEJnISH9TZBLU50ekVCCNhpvASb3LdxMiGZcXXn84P8jdAmqfalSiQGpGWxLEtL7hrnVs6eAsaARIB/MK9OWeaSgRMTkTwIUe1qiqr07h4xCjnHA/QQ/p8p0qSq8bXBxw07Qzm0GiubcZoK+HcbY8b7NAWi2q7MK+ChS6HeKr1duJ3JcDfUHHcybfKHTB2tMvnDlzBi+2QWRIFDZPUNJHdeQKkkUCz4tVOhDyq07eRuk6oxHwt5pUo/v7ug7hc+KfSR2/jtfpTZJxt02M5qc158OjVmTLfirRAQjH8Yd2ohIyyp4CmWNYXUqcIu9sq1dbAkDBGDLIU+lTA09vL401UrA4ccnBwQ+3HINfwzhA/IGco26R8eY1lFJG5OmOWHEbmJJ4HQ8YScEuj6ha2RFAgQqAHCMj5IpLcYj78mDZybvp7L2mHS65SBe7sBBiA0+jTuJEsl5oiFdbLHGxAaqkmZnKcS3jhh8sdgsq1dCMH6sSGBEbX+YCxnZukO6ozW1TZoz/ZQRdxzO5eOZfX5qXMq9UWjn5S8hHnQdtZobWmyt9NbviwrPhgWuTeVWnPnAx8O4eLQC02GPL0/+AvBJuHZqvADoQAy9JGabPDRoOrqe7r1g1UIUPqrBbr/nMTmkBm3q0F/PTil6hMp2MYC0i5SYY5YWjkJDRQSNUl/h8NcWoS/NAOwvBCjgxo88LWpb+wL71QT1a8LQqAsQX7KYmOlNg3lAC274dRFpNpwMJSJZxUdB5LjgNBuD5OM89jl9P8zrFWFDOhvyj6+h7QrqQ/mAdkJfo4Naznf2RndXFsG512oYU="
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "submit_decision",
+      "args": {
+       "statements": [
+        {
+         "evidence_ids": [
+          "KYC-C24"
+         ],
+         "text": "Customer Tyler Grant (C24) is a 26-year-old job seeker in Harlow, OH."
+        },
+        {
+         "text": "The customer deposited two checks totaling $9,930 ($4,950 on 2026-11-04 and $4,980 on 2026-11-06) via mobile check deposit.",
+         "evidence_ids": [
+          "T-0584",
+          "T-0586"
+         ]
+        },
+        {
+         "text": "The customer rapidly sent $9,450 via P2P out to R. Daniels (CP-101) across two transactions on 2026-11-05 and 2026-11-07.",
+         "evidence_ids": [
+          "T-0585",
+          "T-0587"
+         ]
+        },
+        {
+         "text": "In a call note on 2026-11-07, the customer explained he found a remote job on social media where he deposits checks and forwards funds to his 'manager'.",
+         "evidence_ids": [
+          "CH-032"
+         ]
+        },
+        {
+         "evidence_ids": [
+          "T-0588",
+          "CH-033"
+         ],
+         "text": "On 2026-11-09, the check deposited on 2026-11-04 for $4,950 was returned by the paying bank as an altered check."
+        }
+       ],
+       "confidence": 0.95,
+       "next_steps": "File SAR for check fraud and scam-related money mule activity, and restrict the account.",
+       "decision": "sar",
+       "sar_draft": "Customer Tyler Grant (C24) engaged in a check fraud scam involving mobile check deposits and rapid P2P outflows. On 2026-11-04 and 2026-11-06, the customer deposited checks totaling $9,930 ($4,950 and $4,980) via mobile deposit. Between 2026-11-05 and 2026-11-07, the customer rapidly transferred $9,450 via P2P to R. Daniels (CP-101). In a call on 2026-11-07, the customer stated he found a 'remote job' on social media processing payments by depositing checks and sending funds to his manager. On 2026-11-09, one of the deposited checks ($4,950) was returned as altered.",
+       "typology": "check fraud"
+      },
+      "id": "call_10427271539576042769"
+     },
+     "thoughtSignature": "EvkCCvYCAWkUfRMB8SiAyqcn+KvUDQlLDoETv3dMlhX49LjT23dOtM93wzeeB2Xtvigp0D9DCF/WWJpAO0D9iT5iCL70q0z3QQfRqUJ2VWnDctE7/U92gIwX/3tUvfq3vXOIvsk7TJ4wF0KTakiwPXotYnBuqq/+OVEzEYp1lLI0o3jBAIqkJgDx2NblQNzoDIMSB3vzLFj8MlayK6oKMUCvuOyJxRryXD0A/YMPTyTcZUcOG1URq+INKFWDeBCiIwN0V2jRn8Pc63S2Z/Vsn8ZObZx01D6UM24fMsC0q2X1ikqJud5BeL66G0sR3MrqFGDSLHtVQjAAlDIxZPho2/QKE5tAnPIXOWixt9d/XWsyL5URLOWYO66ik9gsSszLp0x22ajDErUPrxRrGK4O4+xePKhtYIKwL0oN5aY4pOxWZ/3IsVV09N/JsEKS7fkQMulcblnAhA1ov/6fonl75uIB1t1AfkethlXXBUBEMiv3Ns+i1xQONXZkfJ8="
+    }
+   ],
+   "role": "model"
+  }
+ ],
+ "wall_ms": 58121
+}

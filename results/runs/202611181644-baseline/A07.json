@@ -1,0 +1,323 @@
+{
+ "alert_id": "A07",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A07"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A07",
+    "evidence_id": "ALERT-A07",
+    "date": "2026-11-12",
+    "rule": "WATCHLIST_HIT",
+    "customer_id": "C07",
+    "amount_total": 0.0,
+    "summary": "Name screening hit after a sanctions list update: customer name is similar to a list entry (score 0.97).",
+    "triggering_transaction_ids": []
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C07"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C07",
+    "evidence_id": "KYC-C07",
+    "name": "Daniel Varga Moreno",
+    "dob": "1991-04-12",
+    "citizenship": "US",
+    "place_of_birth": "Millbrook, OH",
+    "city": "Millbrook, OH",
+    "occupation": "Nurse",
+    "employer": "Millbrook General Hospital",
+    "segment": "personal",
+    "customer_since": "2016-08-30",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 100,
+     "total_in": 5600,
+     "total_out": 5200
+    },
+    "kyc_last_review": "2025-08-30",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 35
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C07",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C07",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 16,
+    "returned": 16,
+    "total_in": 20880.0,
+    "total_out": 7859.47,
+    "rows": [
+     {
+      "transaction_id": "T-0233",
+      "evidence_id": "T-0233",
+      "date": "2026-08-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1820.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0225",
+      "evidence_id": "T-0225",
+      "date": "2026-08-07",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2610.0,
+      "channel": "online",
+      "counterparty_id": "CP-036",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0237",
+      "evidence_id": "T-0237",
+      "date": "2026-08-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 142.17,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0226",
+      "evidence_id": "T-0226",
+      "date": "2026-08-21",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2610.0,
+      "channel": "online",
+      "counterparty_id": "CP-036",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0234",
+      "evidence_id": "T-0234",
+      "date": "2026-09-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1820.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0227",
+      "evidence_id": "T-0227",
+      "date": "2026-09-04",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2610.0,
+      "channel": "online",
+      "counterparty_id": "CP-036",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0238",
+      "evidence_id": "T-0238",
+      "date": "2026-09-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 156.4,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0228",
+      "evidence_id": "T-0228",
+      "date": "2026-09-18",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2610.0,
+      "channel": "online",
+      "counterparty_id": "CP-036",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0235",
+      "evidence_id": "T-0235",
+      "date": "2026-10-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1820.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0229",
+      "evidence_id": "T-0229",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2610.0,
+      "channel": "online",
+      "counterparty_id": "CP-036",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0239",
+      "evidence_id": "T-0239",
+      "date": "2026-10-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 131.88,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0230",
+      "evidence_id": "T-0230",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2610.0,
+      "channel": "online",
+      "counterparty_id": "CP-036",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0231",
+      "evidence_id": "T-0231",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2610.0,
+      "channel": "online",
+      "counterparty_id": "CP-036",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0236",
+      "evidence_id": "T-0236",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1820.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0240",
+      "evidence_id": "T-0240",
+      "date": "2026-11-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 149.02,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0232",
+      "evidence_id": "T-0232",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2610.0,
+      "channel": "online",
+      "counterparty_id": "CP-036",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C07"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C07",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "screen_name",
+   "args": {
+    "name": "Daniel Varga Moreno"
+   },
+   "is_error": false,
+   "result": {
+    "searched_name": "Daniel Varga Moreno",
+    "candidates": [
+     {
+      "entry_id": "WL-01",
+      "evidence_id": "WL-01",
+      "list": "SANCTIONS (fictional)",
+      "name": "Daniel Vargas Moreno",
+      "aliases": [
+       "Dani Vargas"
+      ],
+      "dob": "1967-09-30",
+      "nationality": "Kestovia (fictional)",
+      "program": "KESTOVIA-RELATED (fictional)",
+      "added": "2026-11-11",
+      "notes": "Former port official of Kestovia. Lives in Kestovia.",
+      "name_score": 0.97
+     }
+    ],
+    "note": "Candidates are possible matches by name only. Compare date of birth, nationality and location before deciding."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "escalate",
+  "confidence": 0.9,
+  "typology": "possible watchlist match",
+  "statements": [
+   {
+    "text": "Alert A07 fired on 2026-11-12 (rule WATCHLIST_HIT).",
+    "evidence_ids": [
+     "ALERT-A07"
+    ]
+   },
+   {
+    "text": "Name score 0.97 against list entry WL-01.",
+    "evidence_ids": [
+     "WL-01"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

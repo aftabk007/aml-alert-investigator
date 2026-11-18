@@ -1,0 +1,374 @@
+{
+ "alert_id": "A17",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A17"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A17",
+    "evidence_id": "ALERT-A17",
+    "date": "2026-11-12",
+    "rule": "NEW_DEVICE_TRANSFER",
+    "customer_id": "C17",
+    "amount_total": 12000.0,
+    "summary": "New device, new payee and a transfer of $5,000 or more within 1 hour.",
+    "triggering_transaction_ids": [
+     "T-0487"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C17"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C17",
+    "evidence_id": "KYC-C17",
+    "name": "Samuel Ortiz",
+    "dob": "1974-01-21",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Plumber (self-employed)",
+    "employer": "self-employed",
+    "segment": "personal",
+    "customer_since": "2005-04-11",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 300,
+     "total_in": 6000,
+     "total_out": 5600
+    },
+    "kyc_last_review": "2025-04-11",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 52
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C17",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C17",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 12,
+    "returned": 12,
+    "total_in": 19400.0,
+    "total_out": 17520.0,
+    "rows": [
+     {
+      "transaction_id": "T-0483",
+      "evidence_id": "T-0483",
+      "date": "2026-08-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1380.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0476",
+      "evidence_id": "T-0476",
+      "date": "2026-08-04",
+      "type": "check_deposit",
+      "direction": "in",
+      "amount": 2400.0,
+      "channel": "mobile",
+      "counterparty_id": "CP-086",
+      "memo": "plumbing job"
+     },
+     {
+      "transaction_id": "T-0480",
+      "evidence_id": "T-0480",
+      "date": "2026-08-18",
+      "type": "check_deposit",
+      "direction": "in",
+      "amount": 2400.0,
+      "channel": "mobile",
+      "counterparty_id": "CP-086",
+      "memo": "plumbing job"
+     },
+     {
+      "transaction_id": "T-0484",
+      "evidence_id": "T-0484",
+      "date": "2026-09-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1380.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0477",
+      "evidence_id": "T-0477",
+      "date": "2026-09-04",
+      "type": "check_deposit",
+      "direction": "in",
+      "amount": 3100.0,
+      "channel": "mobile",
+      "counterparty_id": "CP-087",
+      "memo": "plumbing job"
+     },
+     {
+      "transaction_id": "T-0481",
+      "evidence_id": "T-0481",
+      "date": "2026-09-18",
+      "type": "check_deposit",
+      "direction": "in",
+      "amount": 3100.0,
+      "channel": "mobile",
+      "counterparty_id": "CP-087",
+      "memo": "plumbing job"
+     },
+     {
+      "transaction_id": "T-0485",
+      "evidence_id": "T-0485",
+      "date": "2026-10-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1380.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0478",
+      "evidence_id": "T-0478",
+      "date": "2026-10-04",
+      "type": "check_deposit",
+      "direction": "in",
+      "amount": 2750.0,
+      "channel": "mobile",
+      "counterparty_id": "CP-086",
+      "memo": "plumbing job"
+     },
+     {
+      "transaction_id": "T-0482",
+      "evidence_id": "T-0482",
+      "date": "2026-10-18",
+      "type": "check_deposit",
+      "direction": "in",
+      "amount": 2750.0,
+      "channel": "mobile",
+      "counterparty_id": "CP-086",
+      "memo": "plumbing job"
+     },
+     {
+      "transaction_id": "T-0486",
+      "evidence_id": "T-0486",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1380.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0479",
+      "evidence_id": "T-0479",
+      "date": "2026-11-04",
+      "type": "check_deposit",
+      "direction": "in",
+      "amount": 2900.0,
+      "channel": "mobile",
+      "counterparty_id": "CP-087",
+      "memo": "plumbing job"
+     },
+     {
+      "transaction_id": "T-0487",
+      "evidence_id": "T-0487",
+      "date": "2026-11-12",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 12000.0,
+      "channel": "online",
+      "counterparty_id": "CP-088",
+      "memo": "invoice"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C17"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C17",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C17"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C17",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0084",
+      "evidence_id": "LG-0084",
+      "timestamp": "2026-10-20T19:37:00",
+      "event": "login",
+      "device_id": "DV-17S17",
+      "device_first_seen": "2021-11-02",
+      "ip": "73.41.170.6",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0083",
+      "evidence_id": "LG-0083",
+      "timestamp": "2026-10-26T19:31:00",
+      "event": "login",
+      "device_id": "DV-17S17",
+      "device_first_seen": "2021-11-02",
+      "ip": "73.41.170.6",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0082",
+      "evidence_id": "LG-0082",
+      "timestamp": "2026-11-01T19:25:00",
+      "event": "login",
+      "device_id": "DV-17S17",
+      "device_first_seen": "2021-11-02",
+      "ip": "73.41.170.6",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0081",
+      "evidence_id": "LG-0081",
+      "timestamp": "2026-11-07T19:19:00",
+      "event": "login",
+      "device_id": "DV-17S17",
+      "device_first_seen": "2021-11-02",
+      "ip": "73.41.170.6",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0085",
+      "evidence_id": "LG-0085",
+      "timestamp": "2026-11-12T02:14:00",
+      "event": "login",
+      "device_id": "DV-17Y88",
+      "device_first_seen": "2026-11-12",
+      "ip": "185.220.9.33",
+      "ip_city": "Amsterdam",
+      "ip_country": "NL",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0086",
+      "evidence_id": "LG-0086",
+      "timestamp": "2026-11-12T02:16:00",
+      "event": "password_reset",
+      "device_id": "DV-17Y88",
+      "device_first_seen": "2026-11-12",
+      "ip": "185.220.9.33",
+      "ip_city": "Amsterdam",
+      "ip_country": "NL",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0087",
+      "evidence_id": "LG-0087",
+      "timestamp": "2026-11-12T02:20:00",
+      "event": "phone_number_changed",
+      "device_id": "DV-17Y88",
+      "device_first_seen": "2026-11-12",
+      "ip": "185.220.9.33",
+      "ip_city": "Amsterdam",
+      "ip_country": "NL",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0088",
+      "evidence_id": "LG-0088",
+      "timestamp": "2026-11-12T02:25:00",
+      "event": "new_payee_added",
+      "device_id": "DV-17Y88",
+      "device_first_seen": "2026-11-12",
+      "ip": "185.220.9.33",
+      "ip_city": "Amsterdam",
+      "ip_country": "NL",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0080",
+      "evidence_id": "LG-0080",
+      "timestamp": "2026-11-13T19:13:00",
+      "event": "login",
+      "device_id": "DV-17S17",
+      "device_first_seen": "2021-11-02",
+      "ip": "73.41.170.6",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  }
+ ],
+ "decision": {
+  "decision": "escalate",
+  "confidence": 0.9,
+  "typology": "new device + transfer",
+  "statements": [
+   {
+    "text": "Alert A17 fired on 2026-11-12 (rule NEW_DEVICE_TRANSFER).",
+    "evidence_ids": [
+     "ALERT-A17"
+    ]
+   },
+   {
+    "text": "New device DV-17Y88 and a transfer of $12,000.",
+    "evidence_ids": [
+     "LG-0085",
+     "T-0487"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

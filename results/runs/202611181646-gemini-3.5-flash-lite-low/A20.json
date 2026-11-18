@@ -1,0 +1,292 @@
+{
+ "alert_id": "A20",
+ "agent": "gemini-3.5-flash-lite (low)",
+ "model": "gemini-3.5-flash-lite",
+ "effort": "low",
+ "outcome": "decided",
+ "error": null,
+ "turns": 3,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A20"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A20",
+    "evidence_id": "ALERT-A20",
+    "date": "2026-11-11",
+    "rule": "CASH_NEAR_CTR",
+    "customer_id": "C20",
+    "amount_total": 28400.0,
+    "summary": "2 or more cash deposits between $8,000 and $9,999 within 10 days.",
+    "triggering_transaction_ids": [
+     "T-0529",
+     "T-0530",
+     "T-0531"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C20"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C20",
+    "evidence_id": "KYC-C20",
+    "name": "Rina Castellano",
+    "dob": "1980-11-25",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Nail salon owner (sole proprietor)",
+    "employer": "Castellano Nail Studio",
+    "segment": "personal",
+    "customer_since": "2018-07-16",
+    "risk_rating": "high",
+    "expected_monthly": {
+     "cash_in": 6000,
+     "total_in": 9000,
+     "total_out": 8500
+    },
+    "kyc_last_review": "2026-06-12",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 45
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_transactions",
+   "args": {
+    "start_date": "2026-10-01",
+    "customer_id": "C20",
+    "types": [
+     "cash_deposit",
+     "cash_withdrawal"
+    ]
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C20",
+    "start_date": "2026-10-01",
+    "end_date": "2026-11-16",
+    "total_rows": 5,
+    "returned": 5,
+    "total_in": 34000.0,
+    "total_out": 0,
+    "rows": [
+     {
+      "transaction_id": "T-0525",
+      "evidence_id": "T-0525",
+      "date": "2026-10-09",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 2700.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "salon receipts"
+     },
+     {
+      "transaction_id": "T-0528",
+      "evidence_id": "T-0528",
+      "date": "2026-10-23",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 2900.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "salon receipts"
+     },
+     {
+      "transaction_id": "T-0529",
+      "evidence_id": "T-0529",
+      "date": "2026-11-03",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9300.0,
+      "channel": "branch",
+      "location": "Millbrook North branch"
+     },
+     {
+      "transaction_id": "T-0530",
+      "evidence_id": "T-0530",
+      "date": "2026-11-05",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9650.0,
+      "channel": "branch",
+      "location": "Harlow branch"
+     },
+     {
+      "transaction_id": "T-0531",
+      "evidence_id": "T-0531",
+      "date": "2026-11-10",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9450.0,
+      "channel": "branch",
+      "location": "Eastport branch"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C20"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C20",
+    "records": [
+     {
+      "record_id": "CH-030",
+      "evidence_id": "CH-030",
+      "date": "2026-06-10",
+      "kind": "sar_filed",
+      "text": "SAR filed for structuring: six cash deposits of $9,000-$9,900 at different branches in May 2026. Risk rating raised to high. Monitor for continuing activity.",
+      "disposition": "sar_filed"
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "next_steps": "File the SAR and refer the account to the BSA officer for potential account closure due to continued structuring.",
+  "confidence": 0.99,
+  "typology": "structuring",
+  "statements": [
+   {
+    "evidence_ids": [
+     "KYC-C20"
+    ],
+    "text": "Rina Castellano is the owner of Castellano Nail Studio with an expected monthly cash-in of $6,000."
+   },
+   {
+    "text": "Between 2026-11-03 and 2026-11-10, the customer deposited a total of $28,400 in cash across three separate transactions ranging from $9,300 to $9,650 at different branch locations.",
+    "evidence_ids": [
+     "T-0529",
+     "T-0530",
+     "T-0531"
+    ]
+   },
+   {
+    "evidence_ids": [
+     "CH-030"
+    ],
+    "text": "The customer previously had a SAR filed on 2026-06-10 for a similar pattern of structuring cash deposits between $9,000 and $9,900 across multiple branches."
+   }
+  ],
+  "sar_draft": "On 2026-11-11, alert A20 fired for Rina Castellano, owner of Castellano Nail Studio (C20), due to multiple cash deposits near the $10,000 CTR threshold. Between 2026-11-03 and 2026-11-10, the customer made three cash deposits: $9,300 at Millbrook North branch (T-0529), $9,650 at Harlow branch (T-0530), and $9,450 at Eastport branch (T-0531), totaling $28,400. This activity continues a pattern previously identified and reported via SAR on 2026-06-10 (CH-030) for structuring across multiple branches, far exceeding the expected monthly cash-in of $6,000 (KYC-C20). The geographic dispersion of deposits across different bank branches strongly suggests an intentional effort to evade CTR reporting requirements.",
+  "decision": "sar"
+ },
+ "usage": {
+  "input": 7803,
+  "output": 617,
+  "thinking": 650
+ },
+ "model_turns": [
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_alert",
+      "args": {
+       "alert_id": "A20"
+      },
+      "id": "call_14607487062264838443"
+     },
+     "thoughtSignature": "EukBCuYBAWkUfRN/zk5JITI/ucVVBFUQjYgSLS+E3aOJOm5CQQZLnBv4A7ar6az+vA2aeI+NC+8sDWrDGWEsp6dz+xLHdogG3XfemwL4uBwQDbm5NwkM0tzaxMUZD/U01YPniv/4GxqWBKJePVzkrvinCzhTF87muoJ5HsJ7zPMg4lrcautG5776MIgALDFhgFbHIQFmf+GmZciq07749N4GPblA9ieiV8OXeAJX/f/yBMguEkHodhOi+aMxAh4j9xO+r52QbQd+j0gBvCAfKbzRFHPWWuh3tIEoOJGnEGOCABBcVWGPq2xIihE="
+    },
+    {
+     "functionCall": {
+      "name": "get_customer_profile",
+      "args": {
+       "customer_id": "C20"
+      },
+      "id": "call_14607487062264839036"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_transactions",
+      "args": {
+       "start_date": "2026-10-01",
+       "customer_id": "C20",
+       "types": [
+        "cash_deposit",
+        "cash_withdrawal"
+       ]
+      },
+      "id": "call_15585108802158963085"
+     },
+     "thoughtSignature": "ErMCCrACAWkUfROPKYuWOtphcPFNyl8MDogXcpAfizCZLuo5KU7EcL1NlbIE9hxhyQ61DCTqEk7vxx1ILnrSKDXaTVsmRDNbMbyZyUr5QZkOYu1lehdHEWTKK8g8eU4QjzXmk0F3dkM1RQk2mHArO+TqVy/B7EwLpNzBjUvAXrtGEb6qKnMC9Q7HgUjxMT2Zw+1YTouasMTU0hfgrvcGRlNtwRpG5KgVOamPjG/2GxcuWUG60GvnvLNZHwGq7cAGorMG/MzrH4+mDyQQmRlHsTQF3TN7IOVuvdyC0ZSu1bpl4QaETADZ5oMVH68qtU9VWBrH6O2mkUcMzmFVUrZX4fzaXhUwoNwgM1yGN90A7XF5bp3XDR7McFUmWzXDR6jdXlSapm/9UKNgiwz2acqlR4rfL/pfDQ=="
+    },
+    {
+     "functionCall": {
+      "name": "get_case_history",
+      "args": {
+       "customer_id": "C20"
+      },
+      "id": "call_15585108802158960748"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "submit_decision",
+      "args": {
+       "next_steps": "File the SAR and refer the account to the BSA officer for potential account closure due to continued structuring.",
+       "confidence": 0.99,
+       "typology": "structuring",
+       "statements": [
+        {
+         "evidence_ids": [
+          "KYC-C20"
+         ],
+         "text": "Rina Castellano is the owner of Castellano Nail Studio with an expected monthly cash-in of $6,000."
+        },
+        {
+         "text": "Between 2026-11-03 and 2026-11-10, the customer deposited a total of $28,400 in cash across three separate transactions ranging from $9,300 to $9,650 at different branch locations.",
+         "evidence_ids": [
+          "T-0529",
+          "T-0530",
+          "T-0531"
+         ]
+        },
+        {
+         "evidence_ids": [
+          "CH-030"
+         ],
+         "text": "The customer previously had a SAR filed on 2026-06-10 for a similar pattern of structuring cash deposits between $9,000 and $9,900 across multiple branches."
+        }
+       ],
+       "sar_draft": "On 2026-11-11, alert A20 fired for Rina Castellano, owner of Castellano Nail Studio (C20), due to multiple cash deposits near the $10,000 CTR threshold. Between 2026-11-03 and 2026-11-10, the customer made three cash deposits: $9,300 at Millbrook North branch (T-0529), $9,650 at Harlow branch (T-0530), and $9,450 at Eastport branch (T-0531), totaling $28,400. This activity continues a pattern previously identified and reported via SAR on 2026-06-10 (CH-030) for structuring across multiple branches, far exceeding the expected monthly cash-in of $6,000 (KYC-C20). The geographic dispersion of deposits across different bank branches strongly suggests an intentional effort to evade CTR reporting requirements.",
+       "decision": "sar"
+      },
+      "id": "call_16866999361593877840"
+     },
+     "thoughtSignature": "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"
+    }
+   ],
+   "role": "model"
+  }
+ ],
+ "wall_ms": 56919
+}

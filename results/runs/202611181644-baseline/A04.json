@@ -1,0 +1,666 @@
+{
+ "alert_id": "A04",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A04"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A04",
+    "evidence_id": "ALERT-A04",
+    "date": "2026-11-14",
+    "rule": "CASH_NEAR_CTR",
+    "customer_id": "C04",
+    "amount_total": 36850.0,
+    "summary": "3 or more cash deposits between $8,000 and $9,999 within 30 days.",
+    "triggering_transaction_ids": [
+     "T-0087",
+     "T-0089",
+     "T-0091",
+     "T-0093"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C04"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C04",
+    "evidence_id": "KYC-C04",
+    "name": "Golden Wok Kitchen LLC",
+    "owner": "Lin Zhao",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Restaurant (cash-intensive business)",
+    "segment": "business",
+    "customer_since": "2014-04-07",
+    "risk_rating": "medium",
+    "employees": 11,
+    "expected_monthly": {
+     "cash_in": 70000,
+     "total_in": 95000,
+     "total_out": 90000
+    },
+    "kyc_last_review": "2025-04-07",
+    "linked_accounts": [],
+    "authorized_agents": []
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C04",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C04",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 37,
+    "returned": 37,
+    "total_in": 317320.0,
+    "total_out": 103600.0,
+    "rows": [
+     {
+      "transaction_id": "T-0065",
+      "evidence_id": "T-0065",
+      "date": "2026-08-03",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 8650.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0095",
+      "evidence_id": "T-0095",
+      "date": "2026-08-05",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 14800.0,
+      "channel": "online",
+      "counterparty_id": "CP-009",
+      "memo": "FOOD SUPPLY INVOICE"
+     },
+     {
+      "transaction_id": "T-0066",
+      "evidence_id": "T-0066",
+      "date": "2026-08-06",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 11240.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0067",
+      "evidence_id": "T-0067",
+      "date": "2026-08-10",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9900.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0068",
+      "evidence_id": "T-0068",
+      "date": "2026-08-13",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 12880.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0069",
+      "evidence_id": "T-0069",
+      "date": "2026-08-17",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 8400.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0070",
+      "evidence_id": "T-0070",
+      "date": "2026-08-20",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 10650.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0099",
+      "evidence_id": "T-0099",
+      "date": "2026-08-20",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 14800.0,
+      "channel": "online",
+      "counterparty_id": "CP-009",
+      "memo": "FOOD SUPPLY INVOICE"
+     },
+     {
+      "transaction_id": "T-0071",
+      "evidence_id": "T-0071",
+      "date": "2026-08-24",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9300.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0072",
+      "evidence_id": "T-0072",
+      "date": "2026-08-27",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 13120.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0073",
+      "evidence_id": "T-0073",
+      "date": "2026-08-31",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 8800.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0074",
+      "evidence_id": "T-0074",
+      "date": "2026-09-03",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 11470.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0096",
+      "evidence_id": "T-0096",
+      "date": "2026-09-05",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 14800.0,
+      "channel": "online",
+      "counterparty_id": "CP-009",
+      "memo": "FOOD SUPPLY INVOICE"
+     },
+     {
+      "transaction_id": "T-0075",
+      "evidence_id": "T-0075",
+      "date": "2026-09-07",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9650.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0076",
+      "evidence_id": "T-0076",
+      "date": "2026-09-10",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 12300.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0077",
+      "evidence_id": "T-0077",
+      "date": "2026-09-14",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 8950.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0078",
+      "evidence_id": "T-0078",
+      "date": "2026-09-17",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 10980.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0100",
+      "evidence_id": "T-0100",
+      "date": "2026-09-20",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 14800.0,
+      "channel": "online",
+      "counterparty_id": "CP-009",
+      "memo": "FOOD SUPPLY INVOICE"
+     },
+     {
+      "transaction_id": "T-0079",
+      "evidence_id": "T-0079",
+      "date": "2026-09-21",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9700.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0080",
+      "evidence_id": "T-0080",
+      "date": "2026-09-24",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 12650.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0081",
+      "evidence_id": "T-0081",
+      "date": "2026-09-28",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 8600.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0082",
+      "evidence_id": "T-0082",
+      "date": "2026-10-01",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 11320.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0083",
+      "evidence_id": "T-0083",
+      "date": "2026-10-05",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9750.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0097",
+      "evidence_id": "T-0097",
+      "date": "2026-10-05",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 14800.0,
+      "channel": "online",
+      "counterparty_id": "CP-009",
+      "memo": "FOOD SUPPLY INVOICE"
+     },
+     {
+      "transaction_id": "T-0084",
+      "evidence_id": "T-0084",
+      "date": "2026-10-08",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 12400.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0085",
+      "evidence_id": "T-0085",
+      "date": "2026-10-12",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9100.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0086",
+      "evidence_id": "T-0086",
+      "date": "2026-10-15",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 13050.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0087",
+      "evidence_id": "T-0087",
+      "date": "2026-10-19",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9400.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0101",
+      "evidence_id": "T-0101",
+      "date": "2026-10-20",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 14800.0,
+      "channel": "online",
+      "counterparty_id": "CP-009",
+      "memo": "FOOD SUPPLY INVOICE"
+     },
+     {
+      "transaction_id": "T-0088",
+      "evidence_id": "T-0088",
+      "date": "2026-10-22",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 11800.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0089",
+      "evidence_id": "T-0089",
+      "date": "2026-10-26",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 8700.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0090",
+      "evidence_id": "T-0090",
+      "date": "2026-10-29",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 12150.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0091",
+      "evidence_id": "T-0091",
+      "date": "2026-11-02",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9200.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0092",
+      "evidence_id": "T-0092",
+      "date": "2026-11-05",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 10900.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0098",
+      "evidence_id": "T-0098",
+      "date": "2026-11-05",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 14800.0,
+      "channel": "online",
+      "counterparty_id": "CP-009",
+      "memo": "FOOD SUPPLY INVOICE"
+     },
+     {
+      "transaction_id": "T-0093",
+      "evidence_id": "T-0093",
+      "date": "2026-11-09",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9550.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     },
+     {
+      "transaction_id": "T-0094",
+      "evidence_id": "T-0094",
+      "date": "2026-11-12",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 12760.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "store receipts"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C04"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C04",
+    "records": [
+     {
+      "record_id": "CH-020",
+      "evidence_id": "CH-020",
+      "date": "2024-10-21",
+      "kind": "alert_closed",
+      "text": "CASH_NEAR_CTR alert closed: deposits match point-of-sale totals; CTRs filed on days over $10,000.",
+      "disposition": "closed"
+     },
+     {
+      "record_id": "CH-019",
+      "evidence_id": "CH-019",
+      "date": "2025-04-07",
+      "kind": "kyc_review",
+      "text": "Annual review. Owner deposits weekend and mid-week takings twice a week. Volumes match the point-of-sale reports we reviewed. CTRs are filed on large days."
+     },
+     {
+      "record_id": "CH-004",
+      "evidence_id": "CH-004",
+      "date": "2026-08-06",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $11,240.",
+      "amount": 11240.0
+     },
+     {
+      "record_id": "CH-005",
+      "evidence_id": "CH-005",
+      "date": "2026-08-13",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $12,880.",
+      "amount": 12880.0
+     },
+     {
+      "record_id": "CH-006",
+      "evidence_id": "CH-006",
+      "date": "2026-08-20",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $10,650.",
+      "amount": 10650.0
+     },
+     {
+      "record_id": "CH-007",
+      "evidence_id": "CH-007",
+      "date": "2026-08-27",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $13,120.",
+      "amount": 13120.0
+     },
+     {
+      "record_id": "CH-008",
+      "evidence_id": "CH-008",
+      "date": "2026-09-03",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $11,470.",
+      "amount": 11470.0
+     },
+     {
+      "record_id": "CH-009",
+      "evidence_id": "CH-009",
+      "date": "2026-09-10",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $12,300.",
+      "amount": 12300.0
+     },
+     {
+      "record_id": "CH-010",
+      "evidence_id": "CH-010",
+      "date": "2026-09-17",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $10,980.",
+      "amount": 10980.0
+     },
+     {
+      "record_id": "CH-011",
+      "evidence_id": "CH-011",
+      "date": "2026-09-24",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $12,650.",
+      "amount": 12650.0
+     },
+     {
+      "record_id": "CH-012",
+      "evidence_id": "CH-012",
+      "date": "2026-10-01",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $11,320.",
+      "amount": 11320.0
+     },
+     {
+      "record_id": "CH-013",
+      "evidence_id": "CH-013",
+      "date": "2026-10-08",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $12,400.",
+      "amount": 12400.0
+     },
+     {
+      "record_id": "CH-014",
+      "evidence_id": "CH-014",
+      "date": "2026-10-15",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $13,050.",
+      "amount": 13050.0
+     },
+     {
+      "record_id": "CH-015",
+      "evidence_id": "CH-015",
+      "date": "2026-10-22",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $11,800.",
+      "amount": 11800.0
+     },
+     {
+      "record_id": "CH-016",
+      "evidence_id": "CH-016",
+      "date": "2026-10-29",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $12,150.",
+      "amount": 12150.0
+     },
+     {
+      "record_id": "CH-017",
+      "evidence_id": "CH-017",
+      "date": "2026-11-05",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $10,900.",
+      "amount": 10900.0
+     },
+     {
+      "record_id": "CH-018",
+      "evidence_id": "CH-018",
+      "date": "2026-11-12",
+      "kind": "ctr_filed",
+      "text": "Currency transaction report filed for cash deposit of $12,760.",
+      "amount": 12760.0
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "structuring",
+  "statements": [
+   {
+    "text": "Alert A04 fired on 2026-11-14 (rule CASH_NEAR_CTR).",
+    "evidence_ids": [
+     "ALERT-A04"
+    ]
+   },
+   {
+    "text": "2 cash transactions in the 8,000-9,999 band in 15 days: $9,200 on 2026-11-02, $9,550 on 2026-11-09.",
+    "evidence_ids": [
+     "T-0091",
+     "T-0093"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule CASH_NEAR_CTR fired for customer Golden Wok Kitchen LLC. 2 cash transactions in the 8,000-9,999 band in 15 days: $9,200 on 2026-11-02, $9,550 on 2026-11-09."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

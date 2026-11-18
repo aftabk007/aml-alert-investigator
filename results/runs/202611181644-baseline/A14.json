@@ -1,0 +1,317 @@
+{
+ "alert_id": "A14",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A14"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A14",
+    "evidence_id": "ALERT-A14",
+    "date": "2026-11-07",
+    "rule": "PROFILE_MISMATCH",
+    "customer_id": "C14",
+    "amount_total": 18000.0,
+    "summary": "Incoming funds in 30 days are more than 3 times the expected monthly amount.",
+    "triggering_transaction_ids": [
+     "T-0312"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C14"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C14",
+    "evidence_id": "KYC-C14",
+    "name": "Ethan Brooks",
+    "dob": "1982-02-27",
+    "citizenship": "US",
+    "city": "Eastport, OH",
+    "occupation": "Sales manager",
+    "employer": "Kestrel Logistics Inc",
+    "segment": "personal",
+    "customer_since": "2015-10-01",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 6800,
+     "total_out": 6200
+    },
+    "kyc_last_review": "2025-10-01",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 44
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C14",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C14",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 17,
+    "returned": 17,
+    "total_in": 42800.0,
+    "total_out": 8779.47,
+    "rows": [
+     {
+      "transaction_id": "T-0304",
+      "evidence_id": "T-0304",
+      "date": "2026-08-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 2050.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0296",
+      "evidence_id": "T-0296",
+      "date": "2026-08-07",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3100.0,
+      "channel": "online",
+      "counterparty_id": "CP-053",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0308",
+      "evidence_id": "T-0308",
+      "date": "2026-08-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 142.17,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0297",
+      "evidence_id": "T-0297",
+      "date": "2026-08-21",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3100.0,
+      "channel": "online",
+      "counterparty_id": "CP-053",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0305",
+      "evidence_id": "T-0305",
+      "date": "2026-09-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 2050.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0298",
+      "evidence_id": "T-0298",
+      "date": "2026-09-04",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3100.0,
+      "channel": "online",
+      "counterparty_id": "CP-053",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0309",
+      "evidence_id": "T-0309",
+      "date": "2026-09-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 156.4,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0299",
+      "evidence_id": "T-0299",
+      "date": "2026-09-18",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3100.0,
+      "channel": "online",
+      "counterparty_id": "CP-053",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0306",
+      "evidence_id": "T-0306",
+      "date": "2026-10-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 2050.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0300",
+      "evidence_id": "T-0300",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3100.0,
+      "channel": "online",
+      "counterparty_id": "CP-053",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0310",
+      "evidence_id": "T-0310",
+      "date": "2026-10-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 131.88,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0301",
+      "evidence_id": "T-0301",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3100.0,
+      "channel": "online",
+      "counterparty_id": "CP-053",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0302",
+      "evidence_id": "T-0302",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3100.0,
+      "channel": "online",
+      "counterparty_id": "CP-053",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0307",
+      "evidence_id": "T-0307",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 2050.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0312",
+      "evidence_id": "T-0312",
+      "date": "2026-11-06",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 18000.0,
+      "channel": "online",
+      "counterparty_id": "CP-053",
+      "memo": "ANNUAL BONUS 2026"
+     },
+     {
+      "transaction_id": "T-0311",
+      "evidence_id": "T-0311",
+      "date": "2026-11-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 149.02,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0303",
+      "evidence_id": "T-0303",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3100.0,
+      "channel": "online",
+      "counterparty_id": "CP-053",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C14"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C14",
+    "records": [
+     {
+      "record_id": "CH-026",
+      "evidence_id": "CH-026",
+      "date": "2025-11-10",
+      "kind": "alert_closed",
+      "text": "PROFILE_MISMATCH alert closed: $16,500 ACH from employer Kestrel Logistics with memo ANNUAL BONUS 2025. Expected activity.",
+      "disposition": "closed"
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "escalate",
+  "confidence": 0.9,
+  "typology": "profile mismatch",
+  "statements": [
+   {
+    "text": "Alert A14 fired on 2026-11-07 (rule PROFILE_MISMATCH).",
+    "evidence_ids": [
+     "ALERT-A14"
+    ]
+   },
+   {
+    "text": "$24,200 came in over 30 days.",
+    "evidence_ids": [
+     "T-0301",
+     "T-0302",
+     "T-0312"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

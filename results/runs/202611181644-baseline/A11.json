@@ -1,0 +1,261 @@
+{
+ "alert_id": "A11",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A11"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A11",
+    "evidence_id": "ALERT-A11",
+    "date": "2026-11-08",
+    "rule": "ELDER_OUTFLOW",
+    "customer_id": "C11",
+    "amount_total": 64000.0,
+    "summary": "Customer aged 70+ sent $20,000 or more to new payees within 30 days.",
+    "triggering_transaction_ids": [
+     "T-0271",
+     "T-0272",
+     "T-0273"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C11"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C11",
+    "evidence_id": "KYC-C11",
+    "name": "Margaret Ellison",
+    "dob": "1948-03-19",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Retired teacher",
+    "employer": "retired",
+    "segment": "personal",
+    "customer_since": "1987-09-01",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 3900,
+     "total_out": 3000
+    },
+    "kyc_last_review": "2026-10-25",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 78
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C11",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C11",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 11,
+    "returned": 11,
+    "total_in": 15600.0,
+    "total_out": 67558.08,
+    "rows": [
+     {
+      "transaction_id": "T-0263",
+      "evidence_id": "T-0263",
+      "date": "2026-08-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3900.0,
+      "channel": "online",
+      "counterparty_id": "CP-044",
+      "memo": "PENSION"
+     },
+     {
+      "transaction_id": "T-0267",
+      "evidence_id": "T-0267",
+      "date": "2026-08-14",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 880.2,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES AND CARE"
+     },
+     {
+      "transaction_id": "T-0264",
+      "evidence_id": "T-0264",
+      "date": "2026-09-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3900.0,
+      "channel": "online",
+      "counterparty_id": "CP-044",
+      "memo": "PENSION"
+     },
+     {
+      "transaction_id": "T-0268",
+      "evidence_id": "T-0268",
+      "date": "2026-09-14",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 910.45,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES AND CARE"
+     },
+     {
+      "transaction_id": "T-0265",
+      "evidence_id": "T-0265",
+      "date": "2026-10-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3900.0,
+      "channel": "online",
+      "counterparty_id": "CP-044",
+      "memo": "PENSION"
+     },
+     {
+      "transaction_id": "T-0269",
+      "evidence_id": "T-0269",
+      "date": "2026-10-14",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 865.1,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES AND CARE"
+     },
+     {
+      "transaction_id": "T-0271",
+      "evidence_id": "T-0271",
+      "date": "2026-10-30",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 18000.0,
+      "channel": "online",
+      "counterparty_id": "CP-045",
+      "memo": "investment"
+     },
+     {
+      "transaction_id": "T-0266",
+      "evidence_id": "T-0266",
+      "date": "2026-11-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3900.0,
+      "channel": "online",
+      "counterparty_id": "CP-044",
+      "memo": "PENSION"
+     },
+     {
+      "transaction_id": "T-0272",
+      "evidence_id": "T-0272",
+      "date": "2026-11-03",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 21000.0,
+      "channel": "online",
+      "counterparty_id": "CP-045",
+      "memo": "investment"
+     },
+     {
+      "transaction_id": "T-0273",
+      "evidence_id": "T-0273",
+      "date": "2026-11-07",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 25000.0,
+      "channel": "online",
+      "counterparty_id": "CP-046",
+      "memo": "investment fee"
+     },
+     {
+      "transaction_id": "T-0270",
+      "evidence_id": "T-0270",
+      "date": "2026-11-14",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 902.33,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES AND CARE"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C11"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C11",
+    "records": [
+     {
+      "record_id": "CH-023",
+      "evidence_id": "CH-023",
+      "date": "2026-10-25",
+      "kind": "kyc_update",
+      "text": "Joint owner added: Victor Lang, age 36. Not a relative listed on the account. Added online."
+     },
+     {
+      "record_id": "CH-024",
+      "evidence_id": "CH-024",
+      "date": "2026-11-03",
+      "kind": "branch_note",
+      "text": "Customer said she is helping a friend she met online with an investment that 'doubles in a month'. She seemed rushed."
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "elder exploitation",
+  "statements": [
+   {
+    "text": "Alert A11 fired on 2026-11-08 (rule ELDER_OUTFLOW).",
+    "evidence_ids": [
+     "ALERT-A11"
+    ]
+   },
+   {
+    "text": "Customer is 78; $64,000 sent to new payees in 30 days.",
+    "evidence_ids": [
+     "KYC-C11",
+     "T-0271",
+     "T-0272",
+     "T-0273"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule ELDER_OUTFLOW fired for customer Margaret Ellison. Customer is 78; $64,000 sent to new payees in 30 days."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

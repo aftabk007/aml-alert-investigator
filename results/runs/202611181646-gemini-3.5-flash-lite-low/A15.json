@@ -1,0 +1,466 @@
+{
+ "alert_id": "A15",
+ "agent": "gemini-3.5-flash-lite (low)",
+ "model": "gemini-3.5-flash-lite",
+ "effort": "low",
+ "outcome": "decided",
+ "error": null,
+ "turns": 3,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A15"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A15",
+    "evidence_id": "ALERT-A15",
+    "date": "2026-11-09",
+    "rule": "FUNNEL",
+    "customer_id": "C15",
+    "amount_total": 15400.0,
+    "summary": "Cash deposits at 3 or more out-of-area locations within 7 days.",
+    "triggering_transaction_ids": [
+     "T-0329",
+     "T-0330",
+     "T-0331",
+     "T-0332",
+     "T-0333"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C15"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C15",
+    "evidence_id": "KYC-C15",
+    "name": "Luis Ortega Vance",
+    "dob": "1995-04-30",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Warehouse worker",
+    "employer": "Ridgeline Distribution",
+    "segment": "personal",
+    "customer_since": "2025-06-02",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 200,
+     "total_in": 3300,
+     "total_out": 3200
+    },
+    "kyc_last_review": "2025-06-02",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 31
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C15"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C15",
+    "start_date": "2026-10-02",
+    "end_date": "2026-11-16",
+    "total_rows": 14,
+    "returned": 14,
+    "total_in": 21440.0,
+    "total_out": 16330.9,
+    "rows": [
+     {
+      "transaction_id": "T-0317",
+      "evidence_id": "T-0317",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1510.0,
+      "channel": "online",
+      "counterparty_id": "CP-054",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0327",
+      "evidence_id": "T-0327",
+      "date": "2026-10-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 131.88,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0318",
+      "evidence_id": "T-0318",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1510.0,
+      "channel": "online",
+      "counterparty_id": "CP-054",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0319",
+      "evidence_id": "T-0319",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1510.0,
+      "channel": "online",
+      "counterparty_id": "CP-054",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0324",
+      "evidence_id": "T-0324",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1150.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0329",
+      "evidence_id": "T-0329",
+      "date": "2026-11-02",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 3200.0,
+      "channel": "shared_branch",
+      "location": "Shared branch network - Phoenix, AZ",
+      "memo": "depositor not the account holder"
+     },
+     {
+      "transaction_id": "T-0330",
+      "evidence_id": "T-0330",
+      "date": "2026-11-03",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 2900.0,
+      "channel": "shared_branch",
+      "location": "Shared branch network - Tucson, AZ",
+      "memo": "depositor not the account holder"
+     },
+     {
+      "transaction_id": "T-0331",
+      "evidence_id": "T-0331",
+      "date": "2026-11-04",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 3400.0,
+      "channel": "shared_branch",
+      "location": "Shared branch network - El Paso, TX",
+      "memo": "depositor not the account holder"
+     },
+     {
+      "transaction_id": "T-0332",
+      "evidence_id": "T-0332",
+      "date": "2026-11-05",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 2800.0,
+      "channel": "shared_branch",
+      "location": "Shared branch network - Phoenix, AZ",
+      "memo": "depositor not the account holder"
+     },
+     {
+      "transaction_id": "T-0333",
+      "evidence_id": "T-0333",
+      "date": "2026-11-06",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 3100.0,
+      "channel": "shared_branch",
+      "location": "Shared branch network - Las Cruces, NM",
+      "memo": "depositor not the account holder"
+     },
+     {
+      "transaction_id": "T-0334",
+      "evidence_id": "T-0334",
+      "date": "2026-11-07",
+      "type": "cash_withdrawal",
+      "direction": "out",
+      "amount": 7500.0,
+      "channel": "atm",
+      "location": "ATM network - Chicago, IL"
+     },
+     {
+      "transaction_id": "T-0335",
+      "evidence_id": "T-0335",
+      "date": "2026-11-08",
+      "type": "cash_withdrawal",
+      "direction": "out",
+      "amount": 7400.0,
+      "channel": "atm",
+      "location": "ATM network - Chicago, IL"
+     },
+     {
+      "transaction_id": "T-0328",
+      "evidence_id": "T-0328",
+      "date": "2026-11-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 149.02,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0320",
+      "evidence_id": "T-0320",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1510.0,
+      "channel": "online",
+      "counterparty_id": "CP-054",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C15"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C15",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C15"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C15",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0074",
+      "evidence_id": "LG-0074",
+      "timestamp": "2026-10-20T19:37:00",
+      "event": "login",
+      "device_id": "DV-15Q15",
+      "device_first_seen": "2025-06-02",
+      "ip": "73.41.150.4",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0073",
+      "evidence_id": "LG-0073",
+      "timestamp": "2026-10-26T19:31:00",
+      "event": "login",
+      "device_id": "DV-15Q15",
+      "device_first_seen": "2025-06-02",
+      "ip": "73.41.150.4",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0072",
+      "evidence_id": "LG-0072",
+      "timestamp": "2026-11-01T19:25:00",
+      "event": "login",
+      "device_id": "DV-15Q15",
+      "device_first_seen": "2025-06-02",
+      "ip": "73.41.150.4",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0071",
+      "evidence_id": "LG-0071",
+      "timestamp": "2026-11-07T19:19:00",
+      "event": "login",
+      "device_id": "DV-15Q15",
+      "device_first_seen": "2025-06-02",
+      "ip": "73.41.150.4",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0070",
+      "evidence_id": "LG-0070",
+      "timestamp": "2026-11-13T19:13:00",
+      "event": "login",
+      "device_id": "DV-15Q15",
+      "device_first_seen": "2025-06-02",
+      "ip": "73.41.150.4",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  }
+ ],
+ "decision": {
+  "confidence": 1,
+  "next_steps": "File a Suspicious Activity Report (SAR) for funnel account activity and money mule behavior, and consider restricting the account.",
+  "typology": "funnel account",
+  "decision": "sar",
+  "sar_draft": "Between 2026-11-02 and 2026-11-06, customer Luis Ortega Vance (C15), a warehouse worker residing in Millbrook, OH, received $15,400 in cash deposits across five transactions at shared branch locations in Phoenix, AZ, Tucson, AZ, El Paso, TX, and Las Cruces, NM. The deposit memos noted that the depositor was not the account holder. Shortly thereafter, on 2026-11-07 and 2026-11-08, cash withdrawals totaling $14,900 were made via ATM in Chicago, IL. This activity exhibits classic funnel account patterns, inconsistent with the customer's expected monthly cash activity of $200.",
+  "statements": [
+   {
+    "evidence_ids": [
+     "ALERT-A15",
+     "T-0329",
+     "T-0330",
+     "T-0331",
+     "T-0332",
+     "T-0333"
+    ],
+    "text": "Customer C15 received $15,400 in cash deposits across five transactions between 2026-11-02 and 2026-11-06 at shared branches in Phoenix, AZ, Tucson, AZ, El Paso, TX, and Las Cruces, NM, with memos noting the depositor was not the account holder."
+   },
+   {
+    "evidence_ids": [
+     "KYC-C15"
+    ],
+    "text": "The customer's expected monthly cash deposit is $200, far below the $15,400 deposited in early November 2026."
+   },
+   {
+    "evidence_ids": [
+     "T-0334",
+     "T-0335"
+    ],
+    "text": "Between 2026-11-07 and 2026-11-08, cash withdrawals totaling $14,900 were made via ATM in Chicago, IL."
+   }
+  ]
+ },
+ "usage": {
+  "input": 9238,
+  "output": 607,
+  "thinking": 599
+ },
+ "model_turns": [
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_alert",
+      "args": {
+       "alert_id": "A15"
+      },
+      "id": "call_8045739047378271670"
+     },
+     "thoughtSignature": "Eu0BCuoBAWkUfRM9XB5CDWnEPqUByCnz9CxPHbCoclHALi3M9IDr3+5OyUnbNBh3vFJjxw3SjnXCSlO+giwVOWKFP3WzrNizYGMzma5RURvyblYonwlAUNjQ2EHeORorYj/EtdGCCxgsFqi7KuY0q+zBAylaXgPDDiT70mQclgt4zSN0ZlieAIUbFktbrn3BQLiVcc80vsVHIDUcZlQxw8K+UuP0GiMT3F2YWvKmFZl5jROtcjZ/zk7zMLOOJzaRh5L6n8HIM+9zPEC+AH5e4fpnWGev5p8RrEy0kv/IEj0w9NDjjyP0DwWc92RTHhIg"
+    },
+    {
+     "functionCall": {
+      "name": "get_customer_profile",
+      "args": {
+       "customer_id": "C15"
+      },
+      "id": "call_8045739047378268857"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_transactions",
+      "args": {
+       "customer_id": "C15"
+      },
+      "id": "call_1162747855378730297"
+     },
+     "thoughtSignature": "Et0BCtoBAWkUfRMYOufYMlIx2qdCzwdGIeh0O/hbt9roPFtWFhCvIgfjKNd7Rz4QmuwhX/ptqN8B4V9gY1uZhBAJBA9hg+9oHvs6YyLhWaGJTt1wk53En+ZdnH2MeIccEKVZHNK3h10DO03GFO8Ndbgz77mVOWG43InQ/oefaLEs6rzCo2aVw8IDh7z6q4YbZyMgnalOSFi7TVa46RXr81tDydLEj9gk6PCmrleoL82dPbSysitJwwCdgRyxY80ko5OX3eyHgCNwuxhCTY3Pz7FPe4YkjniboRCNKzokDmQ="
+    },
+    {
+     "functionCall": {
+      "name": "get_case_history",
+      "args": {
+       "customer_id": "C15"
+      },
+      "id": "call_1162747855378727792"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_login_activity",
+      "args": {
+       "customer_id": "C15"
+      },
+      "id": "call_1162747855378729383"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "submit_decision",
+      "args": {
+       "confidence": 1,
+       "next_steps": "File a Suspicious Activity Report (SAR) for funnel account activity and money mule behavior, and consider restricting the account.",
+       "typology": "funnel account",
+       "decision": "sar",
+       "sar_draft": "Between 2026-11-02 and 2026-11-06, customer Luis Ortega Vance (C15), a warehouse worker residing in Millbrook, OH, received $15,400 in cash deposits across five transactions at shared branch locations in Phoenix, AZ, Tucson, AZ, El Paso, TX, and Las Cruces, NM. The deposit memos noted that the depositor was not the account holder. Shortly thereafter, on 2026-11-07 and 2026-11-08, cash withdrawals totaling $14,900 were made via ATM in Chicago, IL. This activity exhibits classic funnel account patterns, inconsistent with the customer's expected monthly cash activity of $200.",
+       "statements": [
+        {
+         "evidence_ids": [
+          "ALERT-A15",
+          "T-0329",
+          "T-0330",
+          "T-0331",
+          "T-0332",
+          "T-0333"
+         ],
+         "text": "Customer C15 received $15,400 in cash deposits across five transactions between 2026-11-02 and 2026-11-06 at shared branches in Phoenix, AZ, Tucson, AZ, El Paso, TX, and Las Cruces, NM, with memos noting the depositor was not the account holder."
+        },
+        {
+         "evidence_ids": [
+          "KYC-C15"
+         ],
+         "text": "The customer's expected monthly cash deposit is $200, far below the $15,400 deposited in early November 2026."
+        },
+        {
+         "evidence_ids": [
+          "T-0334",
+          "T-0335"
+         ],
+         "text": "Between 2026-11-07 and 2026-11-08, cash withdrawals totaling $14,900 were made via ATM in Chicago, IL."
+        }
+       ]
+      },
+      "id": "call_14846909349791409919"
+     },
+     "thoughtSignature": "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"
+    }
+   ],
+   "role": "model"
+  }
+ ],
+ "wall_ms": 6096
+}

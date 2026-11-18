@@ -1,0 +1,199 @@
+{
+ "alert_id": "A09",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A09"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A09",
+    "evidence_id": "ALERT-A09",
+    "date": "2026-11-09",
+    "rule": "RAPID_MOVEMENT",
+    "customer_id": "C09",
+    "amount_total": 7500.0,
+    "summary": "90% or more of incoming funds sent out within 48 hours.",
+    "triggering_transaction_ids": [
+     "T-0243"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C09"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C09",
+    "evidence_id": "KYC-C09",
+    "name": "Jordan Pike",
+    "dob": "2007-01-28",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Student",
+    "employer": "none",
+    "segment": "personal",
+    "customer_since": "2026-10-24",
+    "risk_rating": "low",
+    "opened_channel": "online",
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 800,
+     "total_out": 800
+    },
+    "kyc_last_review": "2026-10-24",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 19
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C09",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C09",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 2,
+    "returned": 2,
+    "total_in": 7500.0,
+    "total_out": 7300.0,
+    "rows": [
+     {
+      "transaction_id": "T-0243",
+      "evidence_id": "T-0243",
+      "date": "2026-11-08",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 7500.0,
+      "channel": "online",
+      "counterparty_id": "CP-039",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0244",
+      "evidence_id": "T-0244",
+      "date": "2026-11-08",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 7300.0,
+      "channel": "online",
+      "counterparty_id": "CP-040"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C09"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C09",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C09"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C09",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0041",
+      "evidence_id": "LG-0041",
+      "timestamp": "2026-10-24T16:02:00",
+      "event": "login",
+      "device_id": "DV-9J09",
+      "device_first_seen": "2026-10-24",
+      "ip": "73.41.90.6",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0042",
+      "evidence_id": "LG-0042",
+      "timestamp": "2026-11-08T11:20:00",
+      "event": "login",
+      "device_id": "DV-55K9",
+      "device_first_seen": "2026-11-08",
+      "ip": "64.12.88.40",
+      "ip_city": "Dallas, TX",
+      "ip_country": "US",
+      "other_customers_on_this_device": [
+       "C30",
+       "C31"
+      ]
+     },
+     {
+      "login_id": "LG-0043",
+      "evidence_id": "LG-0043",
+      "timestamp": "2026-11-08T14:31:00",
+      "event": "login",
+      "device_id": "DV-55K9",
+      "device_first_seen": "2026-11-08",
+      "ip": "64.12.88.40",
+      "ip_city": "Dallas, TX",
+      "ip_country": "US",
+      "other_customers_on_this_device": [
+       "C30",
+       "C31"
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "rapid movement",
+  "statements": [
+   {
+    "text": "Alert A09 fired on 2026-11-09 (rule RAPID_MOVEMENT).",
+    "evidence_ids": [
+     "ALERT-A09"
+    ]
+   },
+   {
+    "text": "$7,500 came in on 2026-11-08 and $7,300 went out within 2 days.",
+    "evidence_ids": [
+     "T-0243",
+     "T-0244"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule RAPID_MOVEMENT fired for customer Jordan Pike. $7,500 came in on 2026-11-08 and $7,300 went out within 2 days."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

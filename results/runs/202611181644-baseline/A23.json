@@ -1,0 +1,405 @@
+{
+ "alert_id": "A23",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A23"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A23",
+    "evidence_id": "ALERT-A23",
+    "date": "2026-11-14",
+    "rule": "RAPID_MOVEMENT",
+    "customer_id": "C23",
+    "amount_total": 14000.0,
+    "summary": "90% or more of incoming funds sent out within 48 hours.",
+    "triggering_transaction_ids": [
+     "T-0577"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C23"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C23",
+    "evidence_id": "KYC-C23",
+    "name": "Owen Gallagher",
+    "dob": "1976-07-19",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Pharmacist",
+    "employer": "Millbrook Pharmacy",
+    "segment": "personal",
+    "customer_since": "2009-04-06",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 7400,
+     "total_out": 6900
+    },
+    "kyc_last_review": "2025-04-06",
+    "linked_accounts": [
+     "Savings account at Northfield Credit Union in the customer's own name (linked 2017)"
+    ],
+    "authorized_agents": [],
+    "age": 50
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C23",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C23",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 18,
+    "returned": 18,
+    "total_in": 40400.0,
+    "total_out": 22979.47,
+    "rows": [
+     {
+      "transaction_id": "T-0569",
+      "evidence_id": "T-0569",
+      "date": "2026-08-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 2200.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0561",
+      "evidence_id": "T-0561",
+      "date": "2026-08-07",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3300.0,
+      "channel": "online",
+      "counterparty_id": "CP-096",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0573",
+      "evidence_id": "T-0573",
+      "date": "2026-08-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 142.17,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0562",
+      "evidence_id": "T-0562",
+      "date": "2026-08-21",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3300.0,
+      "channel": "online",
+      "counterparty_id": "CP-096",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0570",
+      "evidence_id": "T-0570",
+      "date": "2026-09-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 2200.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0563",
+      "evidence_id": "T-0563",
+      "date": "2026-09-04",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3300.0,
+      "channel": "online",
+      "counterparty_id": "CP-096",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0574",
+      "evidence_id": "T-0574",
+      "date": "2026-09-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 156.4,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0564",
+      "evidence_id": "T-0564",
+      "date": "2026-09-18",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3300.0,
+      "channel": "online",
+      "counterparty_id": "CP-096",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0571",
+      "evidence_id": "T-0571",
+      "date": "2026-10-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 2200.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0565",
+      "evidence_id": "T-0565",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3300.0,
+      "channel": "online",
+      "counterparty_id": "CP-096",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0575",
+      "evidence_id": "T-0575",
+      "date": "2026-10-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 131.88,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0566",
+      "evidence_id": "T-0566",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3300.0,
+      "channel": "online",
+      "counterparty_id": "CP-096",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0567",
+      "evidence_id": "T-0567",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3300.0,
+      "channel": "online",
+      "counterparty_id": "CP-096",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0572",
+      "evidence_id": "T-0572",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 2200.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0576",
+      "evidence_id": "T-0576",
+      "date": "2026-11-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 149.02,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0577",
+      "evidence_id": "T-0577",
+      "date": "2026-11-12",
+      "type": "transfer_in",
+      "direction": "in",
+      "amount": 14000.0,
+      "channel": "online",
+      "counterparty_id": "CP-097",
+      "memo": "from savings"
+     },
+     {
+      "transaction_id": "T-0568",
+      "evidence_id": "T-0568",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3300.0,
+      "channel": "online",
+      "counterparty_id": "CP-096",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0578",
+      "evidence_id": "T-0578",
+      "date": "2026-11-13",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 13600.0,
+      "channel": "online",
+      "counterparty_id": "CP-098",
+      "memo": "PROPERTY TAX 2ND HALF 2026"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C23"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C23",
+    "records": [
+     {
+      "record_id": "CH-031",
+      "evidence_id": "CH-031",
+      "date": "2025-11-14",
+      "kind": "alert_closed",
+      "text": "RAPID_MOVEMENT alert closed: $13,900 moved from own savings and paid to Millbrook County Treasurer for property tax. Expected activity.",
+      "disposition": "closed"
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C23"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C23",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0118",
+      "evidence_id": "LG-0118",
+      "timestamp": "2026-10-20T19:37:00",
+      "event": "login",
+      "device_id": "DV-23Z23",
+      "device_first_seen": "2021-02-14",
+      "ip": "73.41.230.1",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0117",
+      "evidence_id": "LG-0117",
+      "timestamp": "2026-10-26T19:31:00",
+      "event": "login",
+      "device_id": "DV-23Z23",
+      "device_first_seen": "2021-02-14",
+      "ip": "73.41.230.1",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0116",
+      "evidence_id": "LG-0116",
+      "timestamp": "2026-11-01T19:25:00",
+      "event": "login",
+      "device_id": "DV-23Z23",
+      "device_first_seen": "2021-02-14",
+      "ip": "73.41.230.1",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0115",
+      "evidence_id": "LG-0115",
+      "timestamp": "2026-11-07T19:19:00",
+      "event": "login",
+      "device_id": "DV-23Z23",
+      "device_first_seen": "2021-02-14",
+      "ip": "73.41.230.1",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0114",
+      "evidence_id": "LG-0114",
+      "timestamp": "2026-11-13T19:13:00",
+      "event": "login",
+      "device_id": "DV-23Z23",
+      "device_first_seen": "2021-02-14",
+      "ip": "73.41.230.1",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "rapid movement",
+  "statements": [
+   {
+    "text": "Alert A23 fired on 2026-11-14 (rule RAPID_MOVEMENT).",
+    "evidence_ids": [
+     "ALERT-A23"
+    ]
+   },
+   {
+    "text": "$14,000 came in on 2026-11-12 and $13,749.02 went out within 2 days.",
+    "evidence_ids": [
+     "T-0577",
+     "T-0576",
+     "T-0578"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule RAPID_MOVEMENT fired for customer Owen Gallagher. $14,000 came in on 2026-11-12 and $13,749.02 went out within 2 days."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

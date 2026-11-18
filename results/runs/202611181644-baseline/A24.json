@@ -1,0 +1,320 @@
+{
+ "alert_id": "A24",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A24"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A24",
+    "evidence_id": "ALERT-A24",
+    "date": "2026-11-10",
+    "rule": "RAPID_MOVEMENT",
+    "customer_id": "C24",
+    "amount_total": 9930.0,
+    "summary": "90% or more of incoming funds sent out within 48 hours.",
+    "triggering_transaction_ids": [
+     "T-0584",
+     "T-0586"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C24"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C24",
+    "evidence_id": "KYC-C24",
+    "name": "Tyler Grant",
+    "dob": "2000-03-09",
+    "citizenship": "US",
+    "city": "Harlow, OH",
+    "occupation": "Job seeker (updated 2026-09)",
+    "employer": "none",
+    "segment": "personal",
+    "customer_since": "2021-05-17",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 900,
+     "total_out": 900
+    },
+    "kyc_last_review": "2026-09-02",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 26
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C24",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C24",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 10,
+    "returned": 10,
+    "total_in": 11980.0,
+    "total_out": 14400.0,
+    "rows": [
+     {
+      "transaction_id": "T-0579",
+      "evidence_id": "T-0579",
+      "date": "2026-09-11",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 410.0,
+      "channel": "online",
+      "counterparty_id": "CP-099",
+      "memo": "BENEFITS"
+     },
+     {
+      "transaction_id": "T-0580",
+      "evidence_id": "T-0580",
+      "date": "2026-09-25",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 410.0,
+      "channel": "online",
+      "counterparty_id": "CP-099",
+      "memo": "BENEFITS"
+     },
+     {
+      "transaction_id": "T-0581",
+      "evidence_id": "T-0581",
+      "date": "2026-10-09",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 410.0,
+      "channel": "online",
+      "counterparty_id": "CP-099",
+      "memo": "BENEFITS"
+     },
+     {
+      "transaction_id": "T-0582",
+      "evidence_id": "T-0582",
+      "date": "2026-10-23",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 410.0,
+      "channel": "online",
+      "counterparty_id": "CP-099",
+      "memo": "BENEFITS"
+     },
+     {
+      "transaction_id": "T-0584",
+      "evidence_id": "T-0584",
+      "date": "2026-11-04",
+      "type": "check_deposit",
+      "direction": "in",
+      "amount": 4950.0,
+      "channel": "mobile",
+      "counterparty_id": "CP-100",
+      "memo": "mobile check deposit"
+     },
+     {
+      "transaction_id": "T-0585",
+      "evidence_id": "T-0585",
+      "date": "2026-11-05",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 4700.0,
+      "channel": "online",
+      "counterparty_id": "CP-101"
+     },
+     {
+      "transaction_id": "T-0583",
+      "evidence_id": "T-0583",
+      "date": "2026-11-06",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 410.0,
+      "channel": "online",
+      "counterparty_id": "CP-099",
+      "memo": "BENEFITS"
+     },
+     {
+      "transaction_id": "T-0586",
+      "evidence_id": "T-0586",
+      "date": "2026-11-06",
+      "type": "check_deposit",
+      "direction": "in",
+      "amount": 4980.0,
+      "channel": "mobile",
+      "counterparty_id": "CP-100",
+      "memo": "mobile check deposit"
+     },
+     {
+      "transaction_id": "T-0587",
+      "evidence_id": "T-0587",
+      "date": "2026-11-07",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 4750.0,
+      "channel": "online",
+      "counterparty_id": "CP-101"
+     },
+     {
+      "transaction_id": "T-0588",
+      "evidence_id": "T-0588",
+      "date": "2026-11-09",
+      "type": "check_return",
+      "direction": "out",
+      "amount": 4950.0,
+      "channel": "online",
+      "counterparty_id": "CP-100",
+      "memo": "returned deposited item - altered check"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C24"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C24",
+    "records": [
+     {
+      "record_id": "CH-032",
+      "evidence_id": "CH-032",
+      "date": "2026-11-07",
+      "kind": "call_note",
+      "text": "Customer said his new remote job, found on social media, 'processes payments for clients': he deposits checks and sends the money to his manager."
+     },
+     {
+      "record_id": "CH-033",
+      "evidence_id": "CH-033",
+      "date": "2026-11-09",
+      "kind": "returned_item",
+      "text": "Check deposited 2026-11-04 for $4,950 returned by the paying bank as altered.",
+      "amount": 4950.0
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C24"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C24",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0123",
+      "evidence_id": "LG-0123",
+      "timestamp": "2026-10-20T19:37:00",
+      "event": "login",
+      "device_id": "DV-24A24",
+      "device_first_seen": "2021-05-17",
+      "ip": "73.41.240.6",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0122",
+      "evidence_id": "LG-0122",
+      "timestamp": "2026-10-26T19:31:00",
+      "event": "login",
+      "device_id": "DV-24A24",
+      "device_first_seen": "2021-05-17",
+      "ip": "73.41.240.6",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0121",
+      "evidence_id": "LG-0121",
+      "timestamp": "2026-11-01T19:25:00",
+      "event": "login",
+      "device_id": "DV-24A24",
+      "device_first_seen": "2021-05-17",
+      "ip": "73.41.240.6",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0120",
+      "evidence_id": "LG-0120",
+      "timestamp": "2026-11-07T19:19:00",
+      "event": "login",
+      "device_id": "DV-24A24",
+      "device_first_seen": "2021-05-17",
+      "ip": "73.41.240.6",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0119",
+      "evidence_id": "LG-0119",
+      "timestamp": "2026-11-13T19:13:00",
+      "event": "login",
+      "device_id": "DV-24A24",
+      "device_first_seen": "2021-05-17",
+      "ip": "73.41.240.6",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "rapid movement",
+  "statements": [
+   {
+    "text": "Alert A24 fired on 2026-11-10 (rule RAPID_MOVEMENT).",
+    "evidence_ids": [
+     "ALERT-A24"
+    ]
+   },
+   {
+    "text": "$4,950 came in on 2026-11-04 and $4,700 went out within 2 days.",
+    "evidence_ids": [
+     "T-0584",
+     "T-0585"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule RAPID_MOVEMENT fired for customer Tyler Grant. $4,950 came in on 2026-11-04 and $4,700 went out within 2 days."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

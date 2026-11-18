@@ -1,0 +1,263 @@
+{
+ "alert_id": "A22",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A22"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A22",
+    "evidence_id": "ALERT-A22",
+    "date": "2026-11-11",
+    "rule": "HIGH_RISK_WIRE",
+    "customer_id": "C22",
+    "amount_total": 79000.0,
+    "summary": "Wires to a counterparty in a high-risk jurisdiction (bank policy list).",
+    "triggering_transaction_ids": [
+     "T-0559",
+     "T-0560"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C22"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C22",
+    "evidence_id": "KYC-C22",
+    "name": "Harrow Home Imports LLC",
+    "owner": "Peter Harrow",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Furniture importer (imports from Varonia (fictional))",
+    "segment": "business",
+    "customer_since": "2016-01-11",
+    "risk_rating": "medium",
+    "employees": 6,
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 48000,
+     "total_out": 45000
+    },
+    "kyc_last_review": "2026-01-11",
+    "linked_accounts": [],
+    "authorized_agents": []
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C22",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C22",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 13,
+    "returned": 13,
+    "total_in": 164100.0,
+    "total_out": 195600.0,
+    "rows": [
+     {
+      "transaction_id": "T-0548",
+      "evidence_id": "T-0548",
+      "date": "2026-08-07",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 28400.0,
+      "channel": "online",
+      "counterparty_id": "CP-093",
+      "memo": "FURNITURE ORDER"
+     },
+     {
+      "transaction_id": "T-0552",
+      "evidence_id": "T-0552",
+      "date": "2026-08-15",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 22500.0,
+      "channel": "online",
+      "counterparty_id": "CP-094",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0556",
+      "evidence_id": "T-0556",
+      "date": "2026-08-28",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 22500.0,
+      "channel": "online",
+      "counterparty_id": "CP-094",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0549",
+      "evidence_id": "T-0549",
+      "date": "2026-09-07",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 31200.0,
+      "channel": "online",
+      "counterparty_id": "CP-093",
+      "memo": "FURNITURE ORDER"
+     },
+     {
+      "transaction_id": "T-0553",
+      "evidence_id": "T-0553",
+      "date": "2026-09-15",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 24800.0,
+      "channel": "online",
+      "counterparty_id": "CP-094",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0557",
+      "evidence_id": "T-0557",
+      "date": "2026-09-28",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 24800.0,
+      "channel": "online",
+      "counterparty_id": "CP-094",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0550",
+      "evidence_id": "T-0550",
+      "date": "2026-10-07",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 26900.0,
+      "channel": "online",
+      "counterparty_id": "CP-093",
+      "memo": "FURNITURE ORDER"
+     },
+     {
+      "transaction_id": "T-0554",
+      "evidence_id": "T-0554",
+      "date": "2026-10-15",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 23900.0,
+      "channel": "online",
+      "counterparty_id": "CP-094",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0558",
+      "evidence_id": "T-0558",
+      "date": "2026-10-28",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 23900.0,
+      "channel": "online",
+      "counterparty_id": "CP-094",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0559",
+      "evidence_id": "T-0559",
+      "date": "2026-11-04",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 38000.0,
+      "channel": "online",
+      "counterparty_id": "CP-095",
+      "memo": "software license"
+     },
+     {
+      "transaction_id": "T-0551",
+      "evidence_id": "T-0551",
+      "date": "2026-11-07",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 30100.0,
+      "channel": "online",
+      "counterparty_id": "CP-093",
+      "memo": "FURNITURE ORDER"
+     },
+     {
+      "transaction_id": "T-0560",
+      "evidence_id": "T-0560",
+      "date": "2026-11-10",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 41000.0,
+      "channel": "online",
+      "counterparty_id": "CP-095",
+      "memo": "software license"
+     },
+     {
+      "transaction_id": "T-0555",
+      "evidence_id": "T-0555",
+      "date": "2026-11-15",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 21700.0,
+      "channel": "online",
+      "counterparty_id": "CP-094",
+      "memo": "INVOICE"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C22"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C22",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "escalate",
+  "confidence": 0.9,
+  "typology": "high-risk jurisdiction",
+  "statements": [
+   {
+    "text": "Alert A22 fired on 2026-11-11 (rule HIGH_RISK_WIRE).",
+    "evidence_ids": [
+     "ALERT-A22"
+    ]
+   },
+   {
+    "text": "Wire to a high-risk jurisdiction.",
+    "evidence_ids": [
+     "T-0559",
+     "T-0560"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

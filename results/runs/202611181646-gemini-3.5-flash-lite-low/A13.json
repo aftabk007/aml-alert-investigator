@@ -1,0 +1,446 @@
+{
+ "alert_id": "A13",
+ "agent": "gemini-3.5-flash-lite (low)",
+ "model": "gemini-3.5-flash-lite",
+ "effort": "low",
+ "outcome": "decided",
+ "error": null,
+ "turns": 5,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A13"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A13",
+    "evidence_id": "ALERT-A13",
+    "date": "2026-11-10",
+    "rule": "PROFILE_MISMATCH",
+    "customer_id": "C13",
+    "amount_total": 45000.0,
+    "summary": "Incoming funds in 30 days are more than 5 times the expected monthly amount.",
+    "triggering_transaction_ids": [
+     "T-0294",
+     "T-0295"
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C13"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C13",
+    "evidence_id": "KYC-C13",
+    "name": "Nadia Petrova-Lowe",
+    "dob": "1989-12-11",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Freelance graphic designer",
+    "employer": "self-employed",
+    "segment": "personal",
+    "customer_since": "2020-02-17",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 4500,
+     "total_out": 4200
+    },
+    "kyc_last_review": "2025-02-17",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 36
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C13"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C13",
+    "start_date": "2026-10-02",
+    "end_date": "2026-11-16",
+    "total_rows": 6,
+    "returned": 6,
+    "total_in": 50200.0,
+    "total_out": 1400.0,
+    "rows": [
+     {
+      "transaction_id": "T-0285",
+      "evidence_id": "T-0285",
+      "date": "2026-10-08",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1400.0,
+      "channel": "online",
+      "counterparty_id": "CP-051",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0289",
+      "evidence_id": "T-0289",
+      "date": "2026-10-22",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1750.0,
+      "channel": "online",
+      "counterparty_id": "CP-049",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0293",
+      "evidence_id": "T-0293",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1400.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0294",
+      "evidence_id": "T-0294",
+      "date": "2026-11-02",
+      "type": "wire_in",
+      "direction": "in",
+      "amount": 22500.0,
+      "channel": "online",
+      "counterparty_id": "CP-052",
+      "memo": "consulting fees"
+     },
+     {
+      "transaction_id": "T-0286",
+      "evidence_id": "T-0286",
+      "date": "2026-11-08",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2050.0,
+      "channel": "online",
+      "counterparty_id": "CP-049",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0295",
+      "evidence_id": "T-0295",
+      "date": "2026-11-09",
+      "type": "wire_in",
+      "direction": "in",
+      "amount": 22500.0,
+      "channel": "online",
+      "counterparty_id": "CP-052",
+      "memo": "consulting fees"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C13"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C13",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C13"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C13",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0064",
+      "evidence_id": "LG-0064",
+      "timestamp": "2026-10-20T19:37:00",
+      "event": "login",
+      "device_id": "DV-13N13",
+      "device_first_seen": "2020-02-17",
+      "ip": "73.41.130.9",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0063",
+      "evidence_id": "LG-0063",
+      "timestamp": "2026-10-26T19:31:00",
+      "event": "login",
+      "device_id": "DV-13N13",
+      "device_first_seen": "2020-02-17",
+      "ip": "73.41.130.9",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0062",
+      "evidence_id": "LG-0062",
+      "timestamp": "2026-11-01T19:25:00",
+      "event": "login",
+      "device_id": "DV-13N13",
+      "device_first_seen": "2020-02-17",
+      "ip": "73.41.130.9",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0061",
+      "evidence_id": "LG-0061",
+      "timestamp": "2026-11-07T19:19:00",
+      "event": "login",
+      "device_id": "DV-13N13",
+      "device_first_seen": "2020-02-17",
+      "ip": "73.41.130.9",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0060",
+      "evidence_id": "LG-0060",
+      "timestamp": "2026-11-13T19:13:00",
+      "event": "login",
+      "device_id": "DV-13N13",
+      "device_first_seen": "2020-02-17",
+      "ip": "73.41.130.9",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  },
+  {
+   "turn": 3,
+   "tool": "get_counterparty",
+   "args": {
+    "counterparty_id": "CP-052",
+    "customer_id": "C13"
+   },
+   "is_error": false,
+   "result": {
+    "counterparty_id": "CP-052",
+    "evidence_id": "CP-052",
+    "name": "Orion Trade Holdings Ltd",
+    "type": "business",
+    "country": "Free Port of Belmora (fictional)",
+    "registered": "2026-06-03",
+    "relationship_since": "2026-11-02",
+    "notes": "Registered 2026-06-03 in Belmora (fictional). No website on file.",
+    "with_this_customer": {
+     "payments_since_2026_08_01": 2,
+     "first_payment_since_2026_08_01": "2026-11-02",
+     "last_payment": "2026-11-09",
+     "total_amount_since_2026_08_01": 45000.0
+    }
+   }
+  },
+  {
+   "turn": 4,
+   "tool": "screen_name",
+   "args": {
+    "name": "Orion Trade Holdings Ltd"
+   },
+   "is_error": false,
+   "result": {
+    "searched_name": "Orion Trade Holdings Ltd",
+    "candidates": [],
+    "note": "Candidates are possible matches by name only. Compare date of birth, nationality and location before deciding."
+   }
+  }
+ ],
+ "decision": {
+  "typology": "unexplained activity / profile mismatch",
+  "confidence": 0.9,
+  "statements": [
+   {
+    "evidence_ids": [
+     "ALERT-A13"
+    ],
+    "text": "Customer C13 (Nadia Petrova-Lowe) triggered alert A13 for PROFILE_MISMATCH due to incoming funds exceeding 5 times her expected monthly amount of $4,500."
+   },
+   {
+    "text": "Customer C13 is registered as a freelance graphic designer with an expected monthly income of $4,500.",
+    "evidence_ids": [
+     "KYC-C13"
+    ]
+   },
+   {
+    "evidence_ids": [
+     "T-0294",
+     "T-0295"
+    ],
+    "text": "On 2026-11-02 and 2026-11-09, customer C13 received two wire transfers of $22,500 each ($45,000 total) from Orion Trade Holdings Ltd with the memo 'consulting fees'."
+   },
+   {
+    "evidence_ids": [
+     "CP-052"
+    ],
+    "text": "Orion Trade Holdings Ltd is a business entity registered on 2026-06-03 in the Free Port of Belmora with no prior relationship with the customer before November 2026."
+   }
+  ],
+  "next_steps": "Contact customer C13 to request invoices, contracts, and business rationale for the $45,000 in wire transfers received from Orion Trade Holdings Ltd.",
+  "decision": "escalate"
+ },
+ "usage": {
+  "input": 17401,
+  "output": 493,
+  "thinking": 1322
+ },
+ "model_turns": [
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_alert",
+      "args": {
+       "alert_id": "A13"
+      },
+      "id": "call_8218105863811035254"
+     },
+     "thoughtSignature": "EtsCCtgCAWkUfRNetmnLpnyrPXbA0NtievodaCWEnLDa0o9mgQyRL3p0n8l/zMtushp+P50RKynenYblBNj9CrqB6VrWyygSpTg1rRaDwoAYurrbXzo6Brf0idKgjQ0gUHXiwstzcGZokvEzE3SVeKaASKDw1l0cuHZkjP+mzN5ve4dXsg3/YvwTNtmQ9c2AjF6VQ4fcL038V4yOmQ4LaWWC0W+5lV/G8sBccznd78RmldDq5WMbBZipq1ygM2Mp3Oje+mtOht43Pc+b/19KriZ1lVNPq/ORp9myQgRAMW7zIDVYAMwPBvgS5QX94chOnTHMWRPlbVhoc51IsLAstUiFClsY6BlgcUsR1A9pb+RwHitKoaG6WZNLUg9h3HHy7cipIsSW63S4TVgR4Cum4rw8BFWoKPqnbm5/5kauhkunnHlFuomNJGlzfeUwmTuE5uMM+rMRF8wZARGypHw="
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_customer_profile",
+      "args": {
+       "customer_id": "C13"
+      },
+      "id": "call_4203618401654483005"
+     },
+     "thoughtSignature": "EqEDCp4DAWkUfROxi3pwlLXRfLPIxYqu/ZhO6YxSPyLQ80rVi+WFTP6zmiD9Osd0Ly2OgJLw9Wub+IagJYXSNIs3oaGUSAMnwDNg76GPEafaG7KQdiAOuBwoTGNUYNruhQaOCM/w9DLNgui02rGwNTKT8F+rTnbUsaan0V/4FnrHgqMfGOefevsJ0nulUpl3F3pFws1m1FWxgbnsV98nLZS5ZwERrEyg8KDt3HEmIJcGpfwOxaYb1yKTPJF1u5JL2nHM6qS2oomxRsjY27zvSZAh5ChlOcvE7AHuKxb8tFx93/jN+bxJ8wNUQsyOS26HZGNSe/5pJYvwfqd2QQ38J0PxLrS6/V7ZOaIFE5/yaybuighoYe/ylgKHHwQzmtPtuNK2tepw3SRqgnmA1HmbnvlggehrU0cfgALJJURIYVJrGpcT3M+sA7rtRX8yOGBUrmq/7jEsTYEXRdUQ4aHWDLkbjQbLpLrZsUtJdiiPE8+R9eTGZ/L46pdRGRlx3oq7+CFwt95xH4N3cUXK3KK43VmpRSSjyjfTYMkSx2kElQWmp2WV"
+    },
+    {
+     "functionCall": {
+      "name": "get_transactions",
+      "args": {
+       "customer_id": "C13"
+      },
+      "id": "call_4203618401654481732"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_case_history",
+      "args": {
+       "customer_id": "C13"
+      },
+      "id": "call_4203618401654484555"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_login_activity",
+      "args": {
+       "customer_id": "C13"
+      },
+      "id": "call_4203618401654483282"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_counterparty",
+      "args": {
+       "counterparty_id": "CP-052",
+       "customer_id": "C13"
+      },
+      "id": "call_14819562149145206189"
+     },
+     "thoughtSignature": "Eo4ECosEAWkUfROJYj/u6MoQAwaQLyrEZOqAe4M1zZWVT2mDY6Ne8geNVYULAa51+xxBEZJABpb+VYsSoNgkQ8fIQWumLLeRoKWdRL6ufrFQu/62a6FJt45Y+8K/Ne2YQQW0LlOa3y5UEPbXNPxJSBKCpSv3pY46dk1umTA2aKM6LU8eH9rWnmNjztdyEiD/5p8f8VAU3a7yj+2wCV5RTw0EuOtR91AiNWDQVMcVzQXZAS04LJ9mITsNsAf4sFINssW1+X0nVd/kgejCqJqJuoGg39GUNit/LpwwnhQtVlWG2D2b60pOnDa74c6nA8IpGuNZZd9kws4Mr63Xvv+wPDsHuDkOUnVAce/XQWuYhlq67U4r1mecRgcXUE4ZxRx5lsy+5KUcgn7Hp2yB6QO3CaqrbZnAJBPqdAL8TcEA1rrCznrciULbw4HTGbdSNWc07r/dBfPcCfu/BLlDtB+e5QGTd0npWAjDWkTz8JE54ySHlnZ0Z7F+dITy2ovHRLMKrFDz6MaNTsbdFYrnxX0tW3CfDPnbbzP7ok16grsdf0kdlOy28NNvD/q18FMs0rgxH5swz9scjXtFcAFjpMcKtfpgkSRvubOSv4YmIUtp02JC/xLFOCcConxFuQ3RXVCjc16WfC8gSyS4NulRjSxQjA3racxnfPlVbhYhGNkzvxmuwoFt1y6w2+ZBh3V2+IpN/g=="
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "screen_name",
+      "args": {
+       "name": "Orion Trade Holdings Ltd"
+      },
+      "id": "call_11700834520092852116"
+     },
+     "thoughtSignature": "Eq4FCqsFAWkUfRNWMKcVfJxuMg7eST4pKwRkomwc6Pc4m8JybIUBtzrlVqV8cLo37k6JgjAqWsadfj9t6lk20ahD4HiGM3efaVMM3CCo7D0zinPA8Czg7lFQ4ZvxjLklA+shi3v3BetXTdxwBJB8YV/2PeT7gIxMZH0dIpmfv/C2QuEPIepHKnWDpGMCYzXPF6LKzxpWRJ6tHrQWOATuSKCzHBrox+ZtxyeiVkIFJY5G6/fxdBbd2RcDHTUvhlJBR9mdEfPP96pb0RPqOKIzbyUPHrAFAHDUYLhpf+Byh9VgDwk4rmsnU5NkZn0P9wV1SGS2FrMTEH404mf3mU6MYHKiEM///l6DUdZ80taDRh05Ipkp32Pm8gdtTebOhUCDqkRUef7GT3pJ9q23W4Nb9X3zWHVxKKm9WmRZfmYr0KTtoppoxRQvRBsmu0fV2ln4EhzBgoQ7beArZqjwftQ5LpA91GGgmegfsAZPaGsBWAQCyyiiPtnBJEo+8uV8BOmYttSE8gMtVBMVRmLG9ZKWmjSg/JXOSq+fA0q8iSY1GmpRoYdgUz0IWRnKy8DnTNkMQgSpjpPbAVNERhkaycCOfb9MpLxUv4nc9QiVz4fo7xxcGxonJPHfjcWVcL+jDkpvAw5nWHuoLdsrr9sZquZqHChrMYXv9xB/nGtL2VyannufURehd16AChQsMzWPo+KHBblmP83XOsl1yOG2tJ/8fwGc+8LZTo5Dli+jsfhsozLUEo4L2xxZwPAPRw9/qRncrfXHb/ruuuAZx7YqT0g0fGVRjx9pxkvLJf84Sx7oyRKy/v2hZ4IIR3LeIuuTTqJ9aKou9DXjIDvdbqbDYkslAsyDX7yJ8ZwQbezkZNkQlEeSD8OEUMbFKviBiCwI3wn0u+2iQHiW4JtQojFk7xGV11Q="
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "submit_decision",
+      "args": {
+       "typology": "unexplained activity / profile mismatch",
+       "confidence": 0.9,
+       "statements": [
+        {
+         "evidence_ids": [
+          "ALERT-A13"
+         ],
+         "text": "Customer C13 (Nadia Petrova-Lowe) triggered alert A13 for PROFILE_MISMATCH due to incoming funds exceeding 5 times her expected monthly amount of $4,500."
+        },
+        {
+         "text": "Customer C13 is registered as a freelance graphic designer with an expected monthly income of $4,500.",
+         "evidence_ids": [
+          "KYC-C13"
+         ]
+        },
+        {
+         "evidence_ids": [
+          "T-0294",
+          "T-0295"
+         ],
+         "text": "On 2026-11-02 and 2026-11-09, customer C13 received two wire transfers of $22,500 each ($45,000 total) from Orion Trade Holdings Ltd with the memo 'consulting fees'."
+        },
+        {
+         "evidence_ids": [
+          "CP-052"
+         ],
+         "text": "Orion Trade Holdings Ltd is a business entity registered on 2026-06-03 in the Free Port of Belmora with no prior relationship with the customer before November 2026."
+        }
+       ],
+       "next_steps": "Contact customer C13 to request invoices, contracts, and business rationale for the $45,000 in wire transfers received from Orion Trade Holdings Ltd.",
+       "decision": "escalate"
+      },
+      "id": "call_6665049273313451039"
+     },
+     "thoughtSignature": "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"
+    }
+   ],
+   "role": "model"
+  }
+ ],
+ "wall_ms": 18957
+}

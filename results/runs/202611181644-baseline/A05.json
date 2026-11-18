@@ -1,0 +1,1324 @@
+{
+ "alert_id": "A05",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A05"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A05",
+    "evidence_id": "ALERT-A05",
+    "date": "2026-11-13",
+    "rule": "FAN_OUT",
+    "customer_id": "C05",
+    "amount_total": 18025.0,
+    "summary": "Payments to 10 or more different payees within 7 days.",
+    "triggering_transaction_ids": [
+     "T-0186",
+     "T-0187",
+     "T-0188",
+     "T-0189",
+     "T-0190",
+     "T-0191",
+     "T-0192",
+     "T-0193",
+     "T-0194",
+     "T-0195",
+     "T-0196",
+     "T-0197"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C05"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C05",
+    "evidence_id": "KYC-C05",
+    "name": "Brightline Landscaping LLC",
+    "owner": "Carla Mendes",
+    "citizenship": "US",
+    "city": "Harlow, OH",
+    "occupation": "Landscaping company",
+    "segment": "business",
+    "customer_since": "2019-03-04",
+    "risk_rating": "low",
+    "employees": 12,
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 60000,
+     "total_out": 55000
+    },
+    "kyc_last_review": "2026-03-02",
+    "linked_accounts": [],
+    "authorized_agents": []
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C05",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C05",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 104,
+    "returned": 100,
+    "total_in": 225200.0,
+    "total_out": 144200.0,
+    "rows": [
+     {
+      "transaction_id": "T-0106",
+      "evidence_id": "T-0106",
+      "date": "2026-08-07",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1555.0,
+      "channel": "online",
+      "counterparty_id": "CP-014",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0107",
+      "evidence_id": "T-0107",
+      "date": "2026-08-07",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1440.0,
+      "channel": "online",
+      "counterparty_id": "CP-015",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0108",
+      "evidence_id": "T-0108",
+      "date": "2026-08-07",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1690.0,
+      "channel": "online",
+      "counterparty_id": "CP-016",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0109",
+      "evidence_id": "T-0109",
+      "date": "2026-08-07",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1365.0,
+      "channel": "online",
+      "counterparty_id": "CP-017",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0110",
+      "evidence_id": "T-0110",
+      "date": "2026-08-07",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1505.0,
+      "channel": "online",
+      "counterparty_id": "CP-018",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0111",
+      "evidence_id": "T-0111",
+      "date": "2026-08-07",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1470.0,
+      "channel": "online",
+      "counterparty_id": "CP-019",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0112",
+      "evidence_id": "T-0112",
+      "date": "2026-08-07",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1580.0,
+      "channel": "online",
+      "counterparty_id": "CP-020",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0113",
+      "evidence_id": "T-0113",
+      "date": "2026-08-07",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1420.0,
+      "channel": "online",
+      "counterparty_id": "CP-021",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0198",
+      "evidence_id": "T-0198",
+      "date": "2026-08-10",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 34500.0,
+      "channel": "online",
+      "counterparty_id": "CP-022",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0199",
+      "evidence_id": "T-0199",
+      "date": "2026-08-15",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 21800.0,
+      "channel": "online",
+      "counterparty_id": "CP-023",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0114",
+      "evidence_id": "T-0114",
+      "date": "2026-08-21",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1520.0,
+      "channel": "online",
+      "counterparty_id": "CP-010",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0115",
+      "evidence_id": "T-0115",
+      "date": "2026-08-21",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1480.0,
+      "channel": "online",
+      "counterparty_id": "CP-011",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0116",
+      "evidence_id": "T-0116",
+      "date": "2026-08-21",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1610.0,
+      "channel": "online",
+      "counterparty_id": "CP-012",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0117",
+      "evidence_id": "T-0117",
+      "date": "2026-08-21",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1390.0,
+      "channel": "online",
+      "counterparty_id": "CP-013",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0118",
+      "evidence_id": "T-0118",
+      "date": "2026-08-21",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1555.0,
+      "channel": "online",
+      "counterparty_id": "CP-014",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0119",
+      "evidence_id": "T-0119",
+      "date": "2026-08-21",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1440.0,
+      "channel": "online",
+      "counterparty_id": "CP-015",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0120",
+      "evidence_id": "T-0120",
+      "date": "2026-08-21",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1690.0,
+      "channel": "online",
+      "counterparty_id": "CP-016",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0121",
+      "evidence_id": "T-0121",
+      "date": "2026-08-21",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1365.0,
+      "channel": "online",
+      "counterparty_id": "CP-017",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0122",
+      "evidence_id": "T-0122",
+      "date": "2026-08-21",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1505.0,
+      "channel": "online",
+      "counterparty_id": "CP-018",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0123",
+      "evidence_id": "T-0123",
+      "date": "2026-08-21",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1470.0,
+      "channel": "online",
+      "counterparty_id": "CP-019",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0124",
+      "evidence_id": "T-0124",
+      "date": "2026-08-21",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1580.0,
+      "channel": "online",
+      "counterparty_id": "CP-020",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0125",
+      "evidence_id": "T-0125",
+      "date": "2026-08-21",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1420.0,
+      "channel": "online",
+      "counterparty_id": "CP-021",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0126",
+      "evidence_id": "T-0126",
+      "date": "2026-09-04",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1520.0,
+      "channel": "online",
+      "counterparty_id": "CP-010",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0127",
+      "evidence_id": "T-0127",
+      "date": "2026-09-04",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1480.0,
+      "channel": "online",
+      "counterparty_id": "CP-011",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0128",
+      "evidence_id": "T-0128",
+      "date": "2026-09-04",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1610.0,
+      "channel": "online",
+      "counterparty_id": "CP-012",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0129",
+      "evidence_id": "T-0129",
+      "date": "2026-09-04",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1390.0,
+      "channel": "online",
+      "counterparty_id": "CP-013",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0130",
+      "evidence_id": "T-0130",
+      "date": "2026-09-04",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1555.0,
+      "channel": "online",
+      "counterparty_id": "CP-014",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0131",
+      "evidence_id": "T-0131",
+      "date": "2026-09-04",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1440.0,
+      "channel": "online",
+      "counterparty_id": "CP-015",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0132",
+      "evidence_id": "T-0132",
+      "date": "2026-09-04",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1690.0,
+      "channel": "online",
+      "counterparty_id": "CP-016",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0133",
+      "evidence_id": "T-0133",
+      "date": "2026-09-04",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1365.0,
+      "channel": "online",
+      "counterparty_id": "CP-017",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0134",
+      "evidence_id": "T-0134",
+      "date": "2026-09-04",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1505.0,
+      "channel": "online",
+      "counterparty_id": "CP-018",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0135",
+      "evidence_id": "T-0135",
+      "date": "2026-09-04",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1470.0,
+      "channel": "online",
+      "counterparty_id": "CP-019",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0136",
+      "evidence_id": "T-0136",
+      "date": "2026-09-04",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1580.0,
+      "channel": "online",
+      "counterparty_id": "CP-020",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0137",
+      "evidence_id": "T-0137",
+      "date": "2026-09-04",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1420.0,
+      "channel": "online",
+      "counterparty_id": "CP-021",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0200",
+      "evidence_id": "T-0200",
+      "date": "2026-09-10",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 34500.0,
+      "channel": "online",
+      "counterparty_id": "CP-022",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0201",
+      "evidence_id": "T-0201",
+      "date": "2026-09-15",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 21800.0,
+      "channel": "online",
+      "counterparty_id": "CP-023",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0138",
+      "evidence_id": "T-0138",
+      "date": "2026-09-18",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1520.0,
+      "channel": "online",
+      "counterparty_id": "CP-010",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0139",
+      "evidence_id": "T-0139",
+      "date": "2026-09-18",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1480.0,
+      "channel": "online",
+      "counterparty_id": "CP-011",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0140",
+      "evidence_id": "T-0140",
+      "date": "2026-09-18",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1610.0,
+      "channel": "online",
+      "counterparty_id": "CP-012",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0141",
+      "evidence_id": "T-0141",
+      "date": "2026-09-18",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1390.0,
+      "channel": "online",
+      "counterparty_id": "CP-013",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0142",
+      "evidence_id": "T-0142",
+      "date": "2026-09-18",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1555.0,
+      "channel": "online",
+      "counterparty_id": "CP-014",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0143",
+      "evidence_id": "T-0143",
+      "date": "2026-09-18",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1440.0,
+      "channel": "online",
+      "counterparty_id": "CP-015",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0144",
+      "evidence_id": "T-0144",
+      "date": "2026-09-18",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1690.0,
+      "channel": "online",
+      "counterparty_id": "CP-016",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0145",
+      "evidence_id": "T-0145",
+      "date": "2026-09-18",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1365.0,
+      "channel": "online",
+      "counterparty_id": "CP-017",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0146",
+      "evidence_id": "T-0146",
+      "date": "2026-09-18",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1505.0,
+      "channel": "online",
+      "counterparty_id": "CP-018",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0147",
+      "evidence_id": "T-0147",
+      "date": "2026-09-18",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1470.0,
+      "channel": "online",
+      "counterparty_id": "CP-019",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0148",
+      "evidence_id": "T-0148",
+      "date": "2026-09-18",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1580.0,
+      "channel": "online",
+      "counterparty_id": "CP-020",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0149",
+      "evidence_id": "T-0149",
+      "date": "2026-09-18",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1420.0,
+      "channel": "online",
+      "counterparty_id": "CP-021",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0150",
+      "evidence_id": "T-0150",
+      "date": "2026-10-02",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1520.0,
+      "channel": "online",
+      "counterparty_id": "CP-010",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0151",
+      "evidence_id": "T-0151",
+      "date": "2026-10-02",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1480.0,
+      "channel": "online",
+      "counterparty_id": "CP-011",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0152",
+      "evidence_id": "T-0152",
+      "date": "2026-10-02",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1610.0,
+      "channel": "online",
+      "counterparty_id": "CP-012",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0153",
+      "evidence_id": "T-0153",
+      "date": "2026-10-02",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1390.0,
+      "channel": "online",
+      "counterparty_id": "CP-013",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0154",
+      "evidence_id": "T-0154",
+      "date": "2026-10-02",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1555.0,
+      "channel": "online",
+      "counterparty_id": "CP-014",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0155",
+      "evidence_id": "T-0155",
+      "date": "2026-10-02",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1440.0,
+      "channel": "online",
+      "counterparty_id": "CP-015",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0156",
+      "evidence_id": "T-0156",
+      "date": "2026-10-02",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1690.0,
+      "channel": "online",
+      "counterparty_id": "CP-016",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0157",
+      "evidence_id": "T-0157",
+      "date": "2026-10-02",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1365.0,
+      "channel": "online",
+      "counterparty_id": "CP-017",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0158",
+      "evidence_id": "T-0158",
+      "date": "2026-10-02",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1505.0,
+      "channel": "online",
+      "counterparty_id": "CP-018",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0159",
+      "evidence_id": "T-0159",
+      "date": "2026-10-02",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1470.0,
+      "channel": "online",
+      "counterparty_id": "CP-019",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0160",
+      "evidence_id": "T-0160",
+      "date": "2026-10-02",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1580.0,
+      "channel": "online",
+      "counterparty_id": "CP-020",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0161",
+      "evidence_id": "T-0161",
+      "date": "2026-10-02",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1420.0,
+      "channel": "online",
+      "counterparty_id": "CP-021",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0202",
+      "evidence_id": "T-0202",
+      "date": "2026-10-10",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 34500.0,
+      "channel": "online",
+      "counterparty_id": "CP-022",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0203",
+      "evidence_id": "T-0203",
+      "date": "2026-10-15",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 21800.0,
+      "channel": "online",
+      "counterparty_id": "CP-023",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0162",
+      "evidence_id": "T-0162",
+      "date": "2026-10-16",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1520.0,
+      "channel": "online",
+      "counterparty_id": "CP-010",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0163",
+      "evidence_id": "T-0163",
+      "date": "2026-10-16",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1480.0,
+      "channel": "online",
+      "counterparty_id": "CP-011",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0164",
+      "evidence_id": "T-0164",
+      "date": "2026-10-16",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1610.0,
+      "channel": "online",
+      "counterparty_id": "CP-012",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0165",
+      "evidence_id": "T-0165",
+      "date": "2026-10-16",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1390.0,
+      "channel": "online",
+      "counterparty_id": "CP-013",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0166",
+      "evidence_id": "T-0166",
+      "date": "2026-10-16",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1555.0,
+      "channel": "online",
+      "counterparty_id": "CP-014",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0167",
+      "evidence_id": "T-0167",
+      "date": "2026-10-16",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1440.0,
+      "channel": "online",
+      "counterparty_id": "CP-015",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0168",
+      "evidence_id": "T-0168",
+      "date": "2026-10-16",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1690.0,
+      "channel": "online",
+      "counterparty_id": "CP-016",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0169",
+      "evidence_id": "T-0169",
+      "date": "2026-10-16",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1365.0,
+      "channel": "online",
+      "counterparty_id": "CP-017",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0170",
+      "evidence_id": "T-0170",
+      "date": "2026-10-16",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1505.0,
+      "channel": "online",
+      "counterparty_id": "CP-018",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0171",
+      "evidence_id": "T-0171",
+      "date": "2026-10-16",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1470.0,
+      "channel": "online",
+      "counterparty_id": "CP-019",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0172",
+      "evidence_id": "T-0172",
+      "date": "2026-10-16",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1580.0,
+      "channel": "online",
+      "counterparty_id": "CP-020",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0173",
+      "evidence_id": "T-0173",
+      "date": "2026-10-16",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1420.0,
+      "channel": "online",
+      "counterparty_id": "CP-021",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0174",
+      "evidence_id": "T-0174",
+      "date": "2026-10-30",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1520.0,
+      "channel": "online",
+      "counterparty_id": "CP-010",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0175",
+      "evidence_id": "T-0175",
+      "date": "2026-10-30",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1480.0,
+      "channel": "online",
+      "counterparty_id": "CP-011",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0176",
+      "evidence_id": "T-0176",
+      "date": "2026-10-30",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1610.0,
+      "channel": "online",
+      "counterparty_id": "CP-012",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0177",
+      "evidence_id": "T-0177",
+      "date": "2026-10-30",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1390.0,
+      "channel": "online",
+      "counterparty_id": "CP-013",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0178",
+      "evidence_id": "T-0178",
+      "date": "2026-10-30",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1555.0,
+      "channel": "online",
+      "counterparty_id": "CP-014",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0179",
+      "evidence_id": "T-0179",
+      "date": "2026-10-30",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1440.0,
+      "channel": "online",
+      "counterparty_id": "CP-015",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0180",
+      "evidence_id": "T-0180",
+      "date": "2026-10-30",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1690.0,
+      "channel": "online",
+      "counterparty_id": "CP-016",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0181",
+      "evidence_id": "T-0181",
+      "date": "2026-10-30",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1365.0,
+      "channel": "online",
+      "counterparty_id": "CP-017",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0182",
+      "evidence_id": "T-0182",
+      "date": "2026-10-30",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1505.0,
+      "channel": "online",
+      "counterparty_id": "CP-018",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0183",
+      "evidence_id": "T-0183",
+      "date": "2026-10-30",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1470.0,
+      "channel": "online",
+      "counterparty_id": "CP-019",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0184",
+      "evidence_id": "T-0184",
+      "date": "2026-10-30",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1580.0,
+      "channel": "online",
+      "counterparty_id": "CP-020",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0185",
+      "evidence_id": "T-0185",
+      "date": "2026-10-30",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1420.0,
+      "channel": "online",
+      "counterparty_id": "CP-021",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0204",
+      "evidence_id": "T-0204",
+      "date": "2026-11-10",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 34500.0,
+      "channel": "online",
+      "counterparty_id": "CP-022",
+      "memo": "INVOICE"
+     },
+     {
+      "transaction_id": "T-0186",
+      "evidence_id": "T-0186",
+      "date": "2026-11-13",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1520.0,
+      "channel": "online",
+      "counterparty_id": "CP-010",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0187",
+      "evidence_id": "T-0187",
+      "date": "2026-11-13",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1480.0,
+      "channel": "online",
+      "counterparty_id": "CP-011",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0188",
+      "evidence_id": "T-0188",
+      "date": "2026-11-13",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1610.0,
+      "channel": "online",
+      "counterparty_id": "CP-012",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0189",
+      "evidence_id": "T-0189",
+      "date": "2026-11-13",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1390.0,
+      "channel": "online",
+      "counterparty_id": "CP-013",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0190",
+      "evidence_id": "T-0190",
+      "date": "2026-11-13",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1555.0,
+      "channel": "online",
+      "counterparty_id": "CP-014",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0191",
+      "evidence_id": "T-0191",
+      "date": "2026-11-13",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1440.0,
+      "channel": "online",
+      "counterparty_id": "CP-015",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0192",
+      "evidence_id": "T-0192",
+      "date": "2026-11-13",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1690.0,
+      "channel": "online",
+      "counterparty_id": "CP-016",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0193",
+      "evidence_id": "T-0193",
+      "date": "2026-11-13",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1365.0,
+      "channel": "online",
+      "counterparty_id": "CP-017",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0194",
+      "evidence_id": "T-0194",
+      "date": "2026-11-13",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1505.0,
+      "channel": "online",
+      "counterparty_id": "CP-018",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0195",
+      "evidence_id": "T-0195",
+      "date": "2026-11-13",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1470.0,
+      "channel": "online",
+      "counterparty_id": "CP-019",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0196",
+      "evidence_id": "T-0196",
+      "date": "2026-11-13",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1580.0,
+      "channel": "online",
+      "counterparty_id": "CP-020",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0197",
+      "evidence_id": "T-0197",
+      "date": "2026-11-13",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1420.0,
+      "channel": "online",
+      "counterparty_id": "CP-021",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0205",
+      "evidence_id": "T-0205",
+      "date": "2026-11-15",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 21800.0,
+      "channel": "online",
+      "counterparty_id": "CP-023",
+      "memo": "INVOICE"
+     }
+    ],
+    "note": "Only the newest 100 rows are shown. Use a shorter date range or a type filter."
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C05"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C05",
+    "records": [
+     {
+      "record_id": "CH-021",
+      "evidence_id": "CH-021",
+      "date": "2026-03-02",
+      "kind": "kyc_review",
+      "text": "Annual review. Payroll for 12 staff by ACH every second Friday. Same staff since 2021; seasonal hours vary."
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C05"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C05",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0025",
+      "evidence_id": "LG-0025",
+      "timestamp": "2026-10-20T19:37:00",
+      "event": "login",
+      "device_id": "DV-5E05",
+      "device_first_seen": "2021-06-01",
+      "ip": "73.41.50.5",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0024",
+      "evidence_id": "LG-0024",
+      "timestamp": "2026-10-26T19:31:00",
+      "event": "login",
+      "device_id": "DV-5E05",
+      "device_first_seen": "2021-06-01",
+      "ip": "73.41.50.5",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0023",
+      "evidence_id": "LG-0023",
+      "timestamp": "2026-11-01T19:25:00",
+      "event": "login",
+      "device_id": "DV-5E05",
+      "device_first_seen": "2021-06-01",
+      "ip": "73.41.50.5",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0022",
+      "evidence_id": "LG-0022",
+      "timestamp": "2026-11-07T19:19:00",
+      "event": "login",
+      "device_id": "DV-5E05",
+      "device_first_seen": "2021-06-01",
+      "ip": "73.41.50.5",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0021",
+      "evidence_id": "LG-0021",
+      "timestamp": "2026-11-13T19:13:00",
+      "event": "login",
+      "device_id": "DV-5E05",
+      "device_first_seen": "2021-06-01",
+      "ip": "73.41.50.5",
+      "ip_city": "Harlow, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "fan-out",
+  "statements": [
+   {
+    "text": "Alert A05 fired on 2026-11-13 (rule FAN_OUT).",
+    "evidence_ids": [
+     "ALERT-A05"
+    ]
+   },
+   {
+    "text": "Payments to 12 different payees in 7 days.",
+    "evidence_ids": [
+     "T-0186",
+     "T-0187",
+     "T-0188",
+     "T-0189",
+     "T-0190",
+     "T-0191",
+     "T-0192",
+     "T-0193",
+     "T-0194",
+     "T-0195",
+     "T-0196",
+     "T-0197"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule FAN_OUT fired for customer Brightline Landscaping LLC. Payments to 12 different payees in 7 days."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

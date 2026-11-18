@@ -1,0 +1,434 @@
+{
+ "alert_id": "A06",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A06"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A06",
+    "evidence_id": "ALERT-A06",
+    "date": "2026-11-13",
+    "rule": "FAN_OUT",
+    "customer_id": "C06",
+    "amount_total": 17650.0,
+    "summary": "Payments to 8 or more different payees within 2 days.",
+    "triggering_transaction_ids": [
+     "T-0216",
+     "T-0217",
+     "T-0218",
+     "T-0219",
+     "T-0220",
+     "T-0221",
+     "T-0222",
+     "T-0223",
+     "T-0224"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C06"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C06",
+    "evidence_id": "KYC-C06",
+    "name": "Kayla Brennan",
+    "dob": "2004-07-09",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Student (part-time cafe job)",
+    "employer": "Bean There Cafe",
+    "segment": "personal",
+    "customer_since": "2024-01-15",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 100,
+     "total_in": 1200,
+     "total_out": 1100
+    },
+    "kyc_last_review": "2025-01-15",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 22
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C06",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C06",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 19,
+    "returned": 19,
+    "total_in": 22320.0,
+    "total_out": 17650.0,
+    "rows": [
+     {
+      "transaction_id": "T-0206",
+      "evidence_id": "T-0206",
+      "date": "2026-08-07",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0207",
+      "evidence_id": "T-0207",
+      "date": "2026-08-21",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0208",
+      "evidence_id": "T-0208",
+      "date": "2026-09-04",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0209",
+      "evidence_id": "T-0209",
+      "date": "2026-09-18",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0210",
+      "evidence_id": "T-0210",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0211",
+      "evidence_id": "T-0211",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0212",
+      "evidence_id": "T-0212",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0214",
+      "evidence_id": "T-0214",
+      "date": "2026-11-11",
+      "type": "wire_in",
+      "direction": "in",
+      "amount": 9500.0,
+      "channel": "online",
+      "counterparty_id": "CP-025",
+      "memo": "project payment"
+     },
+     {
+      "transaction_id": "T-0215",
+      "evidence_id": "T-0215",
+      "date": "2026-11-11",
+      "type": "p2p_in",
+      "direction": "in",
+      "amount": 8500.0,
+      "channel": "online",
+      "counterparty_id": "CP-026",
+      "memo": "for you"
+     },
+     {
+      "transaction_id": "T-0216",
+      "evidence_id": "T-0216",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 2050.0,
+      "channel": "online",
+      "counterparty_id": "CP-027"
+     },
+     {
+      "transaction_id": "T-0217",
+      "evidence_id": "T-0217",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1980.0,
+      "channel": "online",
+      "counterparty_id": "CP-028"
+     },
+     {
+      "transaction_id": "T-0218",
+      "evidence_id": "T-0218",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1950.0,
+      "channel": "online",
+      "counterparty_id": "CP-029"
+     },
+     {
+      "transaction_id": "T-0219",
+      "evidence_id": "T-0219",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 2100.0,
+      "channel": "online",
+      "counterparty_id": "CP-030"
+     },
+     {
+      "transaction_id": "T-0220",
+      "evidence_id": "T-0220",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1890.0,
+      "channel": "online",
+      "counterparty_id": "CP-031"
+     },
+     {
+      "transaction_id": "T-0221",
+      "evidence_id": "T-0221",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 2000.0,
+      "channel": "online",
+      "counterparty_id": "CP-032"
+     },
+     {
+      "transaction_id": "T-0222",
+      "evidence_id": "T-0222",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1700.0,
+      "channel": "online",
+      "counterparty_id": "CP-033"
+     },
+     {
+      "transaction_id": "T-0223",
+      "evidence_id": "T-0223",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1930.0,
+      "channel": "online",
+      "counterparty_id": "CP-034"
+     },
+     {
+      "transaction_id": "T-0224",
+      "evidence_id": "T-0224",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 2050.0,
+      "channel": "online",
+      "counterparty_id": "CP-035"
+     },
+     {
+      "transaction_id": "T-0213",
+      "evidence_id": "T-0213",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C06"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C06",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C06"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C06",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0030",
+      "evidence_id": "LG-0030",
+      "timestamp": "2026-10-20T19:37:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0029",
+      "evidence_id": "LG-0029",
+      "timestamp": "2026-10-26T19:31:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0028",
+      "evidence_id": "LG-0028",
+      "timestamp": "2026-11-01T19:25:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0027",
+      "evidence_id": "LG-0027",
+      "timestamp": "2026-11-07T19:19:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0031",
+      "evidence_id": "LG-0031",
+      "timestamp": "2026-11-10T23:41:00",
+      "event": "login",
+      "device_id": "DV-6X99",
+      "device_first_seen": "2026-11-10",
+      "ip": "142.88.7.21",
+      "ip_city": "Toronto",
+      "ip_country": "CA",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0032",
+      "evidence_id": "LG-0032",
+      "timestamp": "2026-11-12T08:05:00",
+      "event": "login",
+      "device_id": "DV-6X99",
+      "device_first_seen": "2026-11-10",
+      "ip": "142.88.7.21",
+      "ip_city": "Toronto",
+      "ip_country": "CA",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0026",
+      "evidence_id": "LG-0026",
+      "timestamp": "2026-11-13T19:13:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "fan-out",
+  "statements": [
+   {
+    "text": "Alert A06 fired on 2026-11-13 (rule FAN_OUT).",
+    "evidence_ids": [
+     "ALERT-A06"
+    ]
+   },
+   {
+    "text": "Payments to 9 different payees in 7 days.",
+    "evidence_ids": [
+     "T-0216",
+     "T-0217",
+     "T-0218",
+     "T-0219",
+     "T-0220",
+     "T-0221",
+     "T-0222",
+     "T-0223",
+     "T-0224"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule FAN_OUT fired for customer Kayla Brennan. Payments to 9 different payees in 7 days."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

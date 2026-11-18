@@ -1,0 +1,403 @@
+{
+ "alert_id": "A10",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A10"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A10",
+    "evidence_id": "ALERT-A10",
+    "date": "2026-11-11",
+    "rule": "RAPID_MOVEMENT",
+    "customer_id": "C10",
+    "amount_total": 85000.0,
+    "summary": "90% or more of incoming funds sent out within 48 hours.",
+    "triggering_transaction_ids": [
+     "T-0261"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C10"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C10",
+    "evidence_id": "KYC-C10",
+    "name": "Robert Asante",
+    "dob": "1981-10-05",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Civil engineer",
+    "employer": "Millbrook Water Utility",
+    "segment": "personal",
+    "customer_since": "2011-05-09",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 7800,
+     "total_out": 7000
+    },
+    "kyc_last_review": "2025-05-09",
+    "linked_accounts": [
+     "Brokerage account at Lakeshore Investments in the customer's own name (linked 2015)"
+    ],
+    "authorized_agents": [],
+    "age": 45
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C10",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C10",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 18,
+    "returned": 18,
+    "total_in": 112840.0,
+    "total_out": 91079.47,
+    "rows": [
+     {
+      "transaction_id": "T-0253",
+      "evidence_id": "T-0253",
+      "date": "2026-08-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1500.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0245",
+      "evidence_id": "T-0245",
+      "date": "2026-08-07",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3480.0,
+      "channel": "online",
+      "counterparty_id": "CP-041",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0257",
+      "evidence_id": "T-0257",
+      "date": "2026-08-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 142.17,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0246",
+      "evidence_id": "T-0246",
+      "date": "2026-08-21",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3480.0,
+      "channel": "online",
+      "counterparty_id": "CP-041",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0254",
+      "evidence_id": "T-0254",
+      "date": "2026-09-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1500.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0247",
+      "evidence_id": "T-0247",
+      "date": "2026-09-04",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3480.0,
+      "channel": "online",
+      "counterparty_id": "CP-041",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0258",
+      "evidence_id": "T-0258",
+      "date": "2026-09-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 156.4,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0248",
+      "evidence_id": "T-0248",
+      "date": "2026-09-18",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3480.0,
+      "channel": "online",
+      "counterparty_id": "CP-041",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0255",
+      "evidence_id": "T-0255",
+      "date": "2026-10-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1500.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0249",
+      "evidence_id": "T-0249",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3480.0,
+      "channel": "online",
+      "counterparty_id": "CP-041",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0259",
+      "evidence_id": "T-0259",
+      "date": "2026-10-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 131.88,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0250",
+      "evidence_id": "T-0250",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3480.0,
+      "channel": "online",
+      "counterparty_id": "CP-041",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0251",
+      "evidence_id": "T-0251",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3480.0,
+      "channel": "online",
+      "counterparty_id": "CP-041",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0256",
+      "evidence_id": "T-0256",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1500.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0261",
+      "evidence_id": "T-0261",
+      "date": "2026-11-09",
+      "type": "transfer_in",
+      "direction": "in",
+      "amount": 85000.0,
+      "channel": "online",
+      "counterparty_id": "CP-042",
+      "memo": "transfer from brokerage"
+     },
+     {
+      "transaction_id": "T-0262",
+      "evidence_id": "T-0262",
+      "date": "2026-11-10",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 84500.0,
+      "channel": "online",
+      "counterparty_id": "CP-043",
+      "memo": "closing funds 14 Birch Lane"
+     },
+     {
+      "transaction_id": "T-0260",
+      "evidence_id": "T-0260",
+      "date": "2026-11-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 149.02,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0252",
+      "evidence_id": "T-0252",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3480.0,
+      "channel": "online",
+      "counterparty_id": "CP-041",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C10"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C10",
+    "records": [
+     {
+      "record_id": "CH-022",
+      "evidence_id": "CH-022",
+      "date": "2026-11-07",
+      "kind": "call_note",
+      "text": "Customer called: closing on a house on 2026-11-10 and will wire the closing funds to Lakeside Title & Escrow. Wire instructions confirmed by calling the title company's known number."
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C10"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C10",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0050",
+      "evidence_id": "LG-0050",
+      "timestamp": "2026-10-20T19:37:00",
+      "event": "login",
+      "device_id": "DV-10K10",
+      "device_first_seen": "2022-07-01",
+      "ip": "73.41.100.2",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0049",
+      "evidence_id": "LG-0049",
+      "timestamp": "2026-10-26T19:31:00",
+      "event": "login",
+      "device_id": "DV-10K10",
+      "device_first_seen": "2022-07-01",
+      "ip": "73.41.100.2",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0048",
+      "evidence_id": "LG-0048",
+      "timestamp": "2026-11-01T19:25:00",
+      "event": "login",
+      "device_id": "DV-10K10",
+      "device_first_seen": "2022-07-01",
+      "ip": "73.41.100.2",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0047",
+      "evidence_id": "LG-0047",
+      "timestamp": "2026-11-07T19:19:00",
+      "event": "login",
+      "device_id": "DV-10K10",
+      "device_first_seen": "2022-07-01",
+      "ip": "73.41.100.2",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0046",
+      "evidence_id": "LG-0046",
+      "timestamp": "2026-11-13T19:13:00",
+      "event": "login",
+      "device_id": "DV-10K10",
+      "device_first_seen": "2022-07-01",
+      "ip": "73.41.100.2",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "rapid movement",
+  "statements": [
+   {
+    "text": "Alert A10 fired on 2026-11-11 (rule RAPID_MOVEMENT).",
+    "evidence_ids": [
+     "ALERT-A10"
+    ]
+   },
+   {
+    "text": "$85,000 came in on 2026-11-09 and $84,500 went out within 2 days.",
+    "evidence_ids": [
+     "T-0261",
+     "T-0262"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule RAPID_MOVEMENT fired for customer Robert Asante. $85,000 came in on 2026-11-09 and $84,500 went out within 2 days."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

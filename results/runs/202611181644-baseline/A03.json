@@ -1,0 +1,404 @@
+{
+ "alert_id": "A03",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A03"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A03",
+    "evidence_id": "ALERT-A03",
+    "date": "2026-11-07",
+    "rule": "CASH_AGGREGATE",
+    "customer_id": "C03",
+    "amount_total": 29100.0,
+    "summary": "Cash deposits adding up to more than $25,000 within 15 days.",
+    "triggering_transaction_ids": [
+     "T-0058",
+     "T-0059",
+     "T-0060",
+     "T-0061",
+     "T-0062",
+     "T-0063"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C03"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C03",
+    "evidence_id": "KYC-C03",
+    "name": "Marcus Ellery",
+    "dob": "1997-03-02",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Rideshare driver (self-employed)",
+    "employer": "self-employed",
+    "segment": "personal",
+    "customer_since": "2023-09-18",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 800,
+     "total_in": 3500,
+     "total_out": 3300
+    },
+    "kyc_last_review": "2025-09-18",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 29
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C03",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C03",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 26,
+    "returned": 26,
+    "total_in": 38726.0,
+    "total_out": 33000.0,
+    "rows": [
+     {
+      "transaction_id": "T-0054",
+      "evidence_id": "T-0054",
+      "date": "2026-08-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1250.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0039",
+      "evidence_id": "T-0039",
+      "date": "2026-08-07",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 590.25,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0040",
+      "evidence_id": "T-0040",
+      "date": "2026-08-14",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 655.8,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0041",
+      "evidence_id": "T-0041",
+      "date": "2026-08-21",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 701.15,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0042",
+      "evidence_id": "T-0042",
+      "date": "2026-08-28",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 612.4,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0055",
+      "evidence_id": "T-0055",
+      "date": "2026-09-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1250.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0043",
+      "evidence_id": "T-0043",
+      "date": "2026-09-04",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 590.25,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0044",
+      "evidence_id": "T-0044",
+      "date": "2026-09-11",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 655.8,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0045",
+      "evidence_id": "T-0045",
+      "date": "2026-09-18",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 701.15,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0046",
+      "evidence_id": "T-0046",
+      "date": "2026-09-25",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 612.4,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0056",
+      "evidence_id": "T-0056",
+      "date": "2026-10-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1250.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0047",
+      "evidence_id": "T-0047",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 590.25,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0048",
+      "evidence_id": "T-0048",
+      "date": "2026-10-09",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 655.8,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0049",
+      "evidence_id": "T-0049",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 701.15,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0050",
+      "evidence_id": "T-0050",
+      "date": "2026-10-23",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 612.4,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0058",
+      "evidence_id": "T-0058",
+      "date": "2026-10-27",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 4800.0,
+      "channel": "atm",
+      "location": "Millbrook North ATM"
+     },
+     {
+      "transaction_id": "T-0059",
+      "evidence_id": "T-0059",
+      "date": "2026-10-28",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 4900.0,
+      "channel": "branch",
+      "location": "Harlow branch"
+     },
+     {
+      "transaction_id": "T-0051",
+      "evidence_id": "T-0051",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 590.25,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0060",
+      "evidence_id": "T-0060",
+      "date": "2026-10-30",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 4700.0,
+      "channel": "atm",
+      "location": "Eastport ATM"
+     },
+     {
+      "transaction_id": "T-0057",
+      "evidence_id": "T-0057",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1250.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0061",
+      "evidence_id": "T-0061",
+      "date": "2026-11-01",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 4950.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch"
+     },
+     {
+      "transaction_id": "T-0062",
+      "evidence_id": "T-0062",
+      "date": "2026-11-03",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 4850.0,
+      "channel": "atm",
+      "location": "Harlow ATM"
+     },
+     {
+      "transaction_id": "T-0063",
+      "evidence_id": "T-0063",
+      "date": "2026-11-05",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 4900.0,
+      "channel": "branch",
+      "location": "Eastport branch"
+     },
+     {
+      "transaction_id": "T-0052",
+      "evidence_id": "T-0052",
+      "date": "2026-11-06",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 655.8,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     },
+     {
+      "transaction_id": "T-0064",
+      "evidence_id": "T-0064",
+      "date": "2026-11-06",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 28000.0,
+      "channel": "online",
+      "counterparty_id": "CP-008",
+      "memo": "goods"
+     },
+     {
+      "transaction_id": "T-0053",
+      "evidence_id": "T-0053",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 701.15,
+      "channel": "online",
+      "counterparty_id": "CP-007",
+      "memo": "DRIVER PAYOUT"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C03"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C03",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "close",
+  "confidence": 0.9,
+  "typology": "none (no rule hit)",
+  "statements": [
+   {
+    "text": "Alert A03 fired on 2026-11-07 (rule CASH_AGGREGATE).",
+    "evidence_ids": [
+     "ALERT-A03"
+    ]
+   },
+   {
+    "text": "No cash transactions in the 8,000-9,999 band in the 15 days before the alert.",
+    "evidence_ids": [
+     "ALERT-A03"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

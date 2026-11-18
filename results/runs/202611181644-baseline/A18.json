@@ -1,0 +1,424 @@
+{
+ "alert_id": "A18",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A18"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A18",
+    "evidence_id": "ALERT-A18",
+    "date": "2026-11-10",
+    "rule": "NEW_DEVICE_TRANSFER",
+    "customer_id": "C18",
+    "amount_total": 6000.0,
+    "summary": "New device and a transfer of $5,000 or more within 24 hours.",
+    "triggering_transaction_ids": [
+     "T-0507"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C18"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C18",
+    "evidence_id": "KYC-C18",
+    "name": "Grace Whitfield",
+    "dob": "1987-05-03",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Teacher",
+    "employer": "Millbrook School District",
+    "segment": "personal",
+    "customer_since": "2012-08-20",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 4700,
+     "total_out": 4300
+    },
+    "kyc_last_review": "2025-08-20",
+    "linked_accounts": [
+     "Savings account at Northfield Credit Union in the customer's own name (linked 2023)"
+    ],
+    "authorized_agents": [],
+    "age": 39
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C18",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C18",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 20,
+    "returned": 20,
+    "total_in": 17200.0,
+    "total_out": 19239.47,
+    "rows": [
+     {
+      "transaction_id": "T-0496",
+      "evidence_id": "T-0496",
+      "date": "2026-08-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1290.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0488",
+      "evidence_id": "T-0488",
+      "date": "2026-08-07",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2150.0,
+      "channel": "online",
+      "counterparty_id": "CP-089",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0500",
+      "evidence_id": "T-0500",
+      "date": "2026-08-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 142.17,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0504",
+      "evidence_id": "T-0504",
+      "date": "2026-08-16",
+      "type": "transfer_out",
+      "direction": "out",
+      "amount": 2500.0,
+      "channel": "online",
+      "counterparty_id": "CP-090",
+      "memo": "to savings"
+     },
+     {
+      "transaction_id": "T-0489",
+      "evidence_id": "T-0489",
+      "date": "2026-08-21",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2150.0,
+      "channel": "online",
+      "counterparty_id": "CP-089",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0497",
+      "evidence_id": "T-0497",
+      "date": "2026-09-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1290.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0490",
+      "evidence_id": "T-0490",
+      "date": "2026-09-04",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2150.0,
+      "channel": "online",
+      "counterparty_id": "CP-089",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0501",
+      "evidence_id": "T-0501",
+      "date": "2026-09-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 156.4,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0505",
+      "evidence_id": "T-0505",
+      "date": "2026-09-16",
+      "type": "transfer_out",
+      "direction": "out",
+      "amount": 3000.0,
+      "channel": "online",
+      "counterparty_id": "CP-090",
+      "memo": "to savings"
+     },
+     {
+      "transaction_id": "T-0491",
+      "evidence_id": "T-0491",
+      "date": "2026-09-18",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2150.0,
+      "channel": "online",
+      "counterparty_id": "CP-089",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0498",
+      "evidence_id": "T-0498",
+      "date": "2026-10-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1290.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0492",
+      "evidence_id": "T-0492",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2150.0,
+      "channel": "online",
+      "counterparty_id": "CP-089",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0502",
+      "evidence_id": "T-0502",
+      "date": "2026-10-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 131.88,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0493",
+      "evidence_id": "T-0493",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2150.0,
+      "channel": "online",
+      "counterparty_id": "CP-089",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0506",
+      "evidence_id": "T-0506",
+      "date": "2026-10-16",
+      "type": "transfer_out",
+      "direction": "out",
+      "amount": 2000.0,
+      "channel": "online",
+      "counterparty_id": "CP-090",
+      "memo": "to savings"
+     },
+     {
+      "transaction_id": "T-0494",
+      "evidence_id": "T-0494",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2150.0,
+      "channel": "online",
+      "counterparty_id": "CP-089",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0499",
+      "evidence_id": "T-0499",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1290.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0507",
+      "evidence_id": "T-0507",
+      "date": "2026-11-10",
+      "type": "transfer_out",
+      "direction": "out",
+      "amount": 6000.0,
+      "channel": "mobile",
+      "counterparty_id": "CP-090",
+      "memo": "to savings"
+     },
+     {
+      "transaction_id": "T-0503",
+      "evidence_id": "T-0503",
+      "date": "2026-11-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 149.02,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0495",
+      "evidence_id": "T-0495",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2150.0,
+      "channel": "online",
+      "counterparty_id": "CP-089",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C18"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C18",
+    "records": [
+     {
+      "record_id": "CH-028",
+      "evidence_id": "CH-028",
+      "date": "2026-11-09",
+      "kind": "call_note",
+      "text": "Customer called: she got a new phone and set up the mobile app again. Identity verified with security questions."
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C18"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C18",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0091",
+      "evidence_id": "LG-0091",
+      "timestamp": "2026-10-22T19:35:00",
+      "event": "login",
+      "device_id": "DV-18T18",
+      "device_first_seen": "2021-09-01",
+      "ip": "73.41.180.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0090",
+      "evidence_id": "LG-0090",
+      "timestamp": "2026-10-29T19:28:00",
+      "event": "login",
+      "device_id": "DV-18T18",
+      "device_first_seen": "2021-09-01",
+      "ip": "73.41.180.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0089",
+      "evidence_id": "LG-0089",
+      "timestamp": "2026-11-04T19:22:00",
+      "event": "login",
+      "device_id": "DV-18T18",
+      "device_first_seen": "2021-09-01",
+      "ip": "73.41.180.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0092",
+      "evidence_id": "LG-0092",
+      "timestamp": "2026-11-09T18:40:00",
+      "event": "login",
+      "device_id": "DV-18W21",
+      "device_first_seen": "2026-11-09",
+      "ip": "73.41.180.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0093",
+      "evidence_id": "LG-0093",
+      "timestamp": "2026-11-10T07:55:00",
+      "event": "login",
+      "device_id": "DV-18W21",
+      "device_first_seen": "2026-11-09",
+      "ip": "73.41.180.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  }
+ ],
+ "decision": {
+  "decision": "escalate",
+  "confidence": 0.9,
+  "typology": "new device + transfer",
+  "statements": [
+   {
+    "text": "Alert A18 fired on 2026-11-10 (rule NEW_DEVICE_TRANSFER).",
+    "evidence_ids": [
+     "ALERT-A18"
+    ]
+   },
+   {
+    "text": "New device DV-18W21 and a transfer of $6,000.",
+    "evidence_ids": [
+     "LG-0092",
+     "T-0507"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}

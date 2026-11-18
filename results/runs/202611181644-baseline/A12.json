@@ -1,0 +1,230 @@
+{
+ "alert_id": "A12",
+ "agent": "rule-based baseline",
+ "model": null,
+ "outcome": "decided",
+ "error": null,
+ "turns": 1,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A12"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A12",
+    "evidence_id": "ALERT-A12",
+    "date": "2026-11-07",
+    "rule": "ELDER_OUTFLOW",
+    "customer_id": "C12",
+    "amount_total": 42000.0,
+    "summary": "Customer aged 70+ sent $20,000 or more to new payees within 30 days.",
+    "triggering_transaction_ids": [
+     "T-0282"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C12"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C12",
+    "evidence_id": "KYC-C12",
+    "name": "Walter Kim",
+    "dob": "1945-06-02",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Retired",
+    "employer": "retired",
+    "segment": "personal",
+    "customer_since": "1979-02-14",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 4200,
+     "total_out": 3500
+    },
+    "kyc_last_review": "2025-02-14",
+    "authorized_agents": [
+     "Susan Kim-Park (daughter), power of attorney on file since 2019-05-20"
+    ],
+    "linked_accounts": [],
+    "age": 81
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C12",
+    "start_date": "2026-08-01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C12",
+    "start_date": "2026-08-01",
+    "end_date": "2026-11-16",
+    "total_rows": 9,
+    "returned": 9,
+    "total_in": 16800.0,
+    "total_out": 42000.0,
+    "rows": [
+     {
+      "transaction_id": "T-0274",
+      "evidence_id": "T-0274",
+      "date": "2026-08-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2700.0,
+      "channel": "online",
+      "counterparty_id": "CP-047",
+      "memo": "BENEFITS"
+     },
+     {
+      "transaction_id": "T-0275",
+      "evidence_id": "T-0275",
+      "date": "2026-08-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1500.0,
+      "channel": "online",
+      "counterparty_id": "CP-044",
+      "memo": "PENSION"
+     },
+     {
+      "transaction_id": "T-0276",
+      "evidence_id": "T-0276",
+      "date": "2026-09-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2700.0,
+      "channel": "online",
+      "counterparty_id": "CP-047",
+      "memo": "BENEFITS"
+     },
+     {
+      "transaction_id": "T-0277",
+      "evidence_id": "T-0277",
+      "date": "2026-09-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1500.0,
+      "channel": "online",
+      "counterparty_id": "CP-044",
+      "memo": "PENSION"
+     },
+     {
+      "transaction_id": "T-0278",
+      "evidence_id": "T-0278",
+      "date": "2026-10-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2700.0,
+      "channel": "online",
+      "counterparty_id": "CP-047",
+      "memo": "BENEFITS"
+     },
+     {
+      "transaction_id": "T-0279",
+      "evidence_id": "T-0279",
+      "date": "2026-10-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1500.0,
+      "channel": "online",
+      "counterparty_id": "CP-044",
+      "memo": "PENSION"
+     },
+     {
+      "transaction_id": "T-0280",
+      "evidence_id": "T-0280",
+      "date": "2026-11-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2700.0,
+      "channel": "online",
+      "counterparty_id": "CP-047",
+      "memo": "BENEFITS"
+     },
+     {
+      "transaction_id": "T-0281",
+      "evidence_id": "T-0281",
+      "date": "2026-11-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1500.0,
+      "channel": "online",
+      "counterparty_id": "CP-044",
+      "memo": "PENSION"
+     },
+     {
+      "transaction_id": "T-0282",
+      "evidence_id": "T-0282",
+      "date": "2026-11-06",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 42000.0,
+      "channel": "online",
+      "counterparty_id": "CP-048",
+      "memo": "entrance fee W. Kim"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C12"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C12",
+    "records": [
+     {
+      "record_id": "CH-025",
+      "evidence_id": "CH-025",
+      "date": "2026-11-04",
+      "kind": "call_note",
+      "text": "Daughter Susan Kim-Park (power of attorney on file since 2019) called: her father is moving into Maple Grove Senior Living; entrance fee $42,000. Signed contract copy received and scanned."
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "decision": "sar",
+  "confidence": 0.9,
+  "typology": "elder exploitation",
+  "statements": [
+   {
+    "text": "Alert A12 fired on 2026-11-07 (rule ELDER_OUTFLOW).",
+    "evidence_ids": [
+     "ALERT-A12"
+    ]
+   },
+   {
+    "text": "Customer is 81; $42,000 sent to new payees in 30 days.",
+    "evidence_ids": [
+     "KYC-C12",
+     "T-0282"
+    ]
+   }
+  ],
+  "next_steps": "Rule-based disposition.",
+  "sar_draft": "Rule ELDER_OUTFLOW fired for customer Walter Kim. Customer is 81; $42,000 sent to new payees in 30 days."
+ },
+ "usage": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0
+ },
+ "wall_ms": 0
+}
