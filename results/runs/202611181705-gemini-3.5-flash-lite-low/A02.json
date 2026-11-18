@@ -1,0 +1,333 @@
+{
+ "alert_id": "A02",
+ "agent": "gemini-3.5-flash-lite (low), prompt v2",
+ "model": "gemini-3.5-flash-lite",
+ "effort": "low",
+ "prompt_version": "v2",
+ "outcome": "decided",
+ "error": null,
+ "turns": 3,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A02"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A02",
+    "evidence_id": "ALERT-A02",
+    "date": "2026-11-06",
+    "rule": "CASH_NEAR_CTR",
+    "customer_id": "C02",
+    "amount_total": 9600.0,
+    "summary": "Single cash deposit between $8,000 and $9,999.",
+    "triggering_transaction_ids": [
+     "T-0038"
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C02"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C02",
+    "evidence_id": "KYC-C02",
+    "name": "Priya Natarajan",
+    "dob": "1985-08-22",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Dental hygienist",
+    "employer": "Millbrook Family Dental",
+    "segment": "personal",
+    "customer_since": "2014-06-03",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 200,
+     "total_in": 5200,
+     "total_out": 4800
+    },
+    "kyc_last_review": "2025-06-03",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 41
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C02"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C02",
+    "start_date": "2026-10-02",
+    "end_date": "2026-11-16",
+    "total_rows": 8,
+    "returned": 8,
+    "total_in": 19120.0,
+    "total_out": 1930.9,
+    "rows": [
+     {
+      "transaction_id": "T-0026",
+      "evidence_id": "T-0026",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2380.0,
+      "channel": "online",
+      "counterparty_id": "CP-006",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0036",
+      "evidence_id": "T-0036",
+      "date": "2026-10-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 131.88,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0027",
+      "evidence_id": "T-0027",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2380.0,
+      "channel": "online",
+      "counterparty_id": "CP-006",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0028",
+      "evidence_id": "T-0028",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2380.0,
+      "channel": "online",
+      "counterparty_id": "CP-006",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0033",
+      "evidence_id": "T-0033",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1650.0,
+      "channel": "online",
+      "counterparty_id": "CP-003",
+      "memo": "MORTGAGE"
+     },
+     {
+      "transaction_id": "T-0038",
+      "evidence_id": "T-0038",
+      "date": "2026-11-05",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9600.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch",
+      "memo": "cash - vehicle sale"
+     },
+     {
+      "transaction_id": "T-0037",
+      "evidence_id": "T-0037",
+      "date": "2026-11-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 149.02,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0029",
+      "evidence_id": "T-0029",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 2380.0,
+      "channel": "online",
+      "counterparty_id": "CP-006",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C02"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C02",
+    "records": [
+     {
+      "record_id": "CH-003",
+      "evidence_id": "CH-003",
+      "date": "2025-06-03",
+      "kind": "kyc_review",
+      "text": "Annual review. No cash deposits over $1,000 in the last 12 months."
+     },
+     {
+      "record_id": "CH-002",
+      "evidence_id": "CH-002",
+      "date": "2026-11-05",
+      "kind": "teller_note",
+      "text": "Customer sold her 2017 sedan privately. Showed a signed bill of sale and title transfer for $9,600. Copies scanned to the file."
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  }
+ ],
+ "decision": {
+  "next_steps": "No further action required. Close alert A02 as explained by documentation.",
+  "decision": "close",
+  "statements": [
+   {
+    "evidence_ids": [
+     "ALERT-A02",
+     "T-0038"
+    ],
+    "text": "Priya Natarajan received an alert (A02) for a single cash deposit of $9,600 on 2026-11-05 at the Millbrook Main branch."
+   },
+   {
+    "text": "The customer is a dental hygienist with an expected monthly cash activity of $200.",
+    "evidence_ids": [
+     "KYC-C02"
+    ]
+   },
+   {
+    "text": "A teller note confirms the customer sold her 2017 sedan privately and presented a signed bill of sale and title transfer for $9,600, which were scanned to the file.",
+    "evidence_ids": [
+     "CH-002"
+    ]
+   },
+   {
+    "evidence_ids": [
+     "CH-002",
+     "T-0038"
+    ],
+    "text": "The cash deposit is fully explained by a legitimate one-off vehicle sale and poses no suspicious risk."
+   }
+  ],
+  "typology": "none (explained)",
+  "confidence": 1
+ },
+ "usage": {
+  "input": 8604,
+  "output": 349,
+  "thinking": 540
+ },
+ "model_turns": [
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_alert",
+      "args": {
+       "alert_id": "A02"
+      },
+      "id": "call_6728421859705082543"
+     },
+     "thoughtSignature": "EqYDCqMDAWkUfRM8g0xVKgW/exTlaFdjq+JEeVfX0/XJ91hTORWPC2vJmO3mPJsq7osRxTZAYS8Tzt5K+iuTz7GCqVNonW2L0xPsvwUZoT2y4H7IYUACb3Bs75FW/V4rWLMocmPY6qRe4tduKcN3+le2+iNDDtZjlOmZN9JzL7jwwO6PV2rDHDKSPLq2qwRy3vk2D5kfj5eQxM7wkcFxvQtsNi6xynTmM3q6vFNM30BytgefK3KTPFvHb46DVS7dO0iSiPErsWUt705OK+/0RPL/KSkk87BHngYp7YElp8rwYAVeVkDGdKS8mTV0mSofKcBpRardhKoFg/DeBW5/4Io+m5bu+czeXBHFsKzvsXT4FtPG9uBdDCCy+wlWHDKzRLYHrhqmaaBSLb+m/Iq7dnq9reZp69CGUORO+uVIsbbATmpLHTBx96jaidC7ehvhqud/iJ4vu9AASLX9BPUK3EkfuuctovjRndc80ZpeKmiTj8YLuqFBbz4qzC9W0f1/IWA4/de4g730qBgukE7NuNSGL7bf12a6iTEupm9y4vilu3TvmcUC0KQ="
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_customer_profile",
+      "args": {
+       "customer_id": "C02"
+      },
+      "id": "call_9974188986048726410"
+     },
+     "thoughtSignature": "EtcCCtQCAWkUfRNjWLy0IGMBNXga86V3itUQtDc/h3He+qZlGsU5i8GMEBpxt8/N3yqFqx8g4JEIhtxqRvyuEDcz4kji/N7/9jXqsvUpzoPqxY2rSuIdO3Zi8+QIkngZcGLhi4IXcSOpvBLxhqRC/Acvu/Bgs3YVCTAkYp1DJg0Omyw7PD6YgAhQbqwQT2EVuJWjMCqmWp3Sp21wxm2jF4RYVoDM6lCjx4dFY58UiSdgmrAKxyl+yzUFEcyOI1MBT5mPOpYG+NEpv675GCEQNeXf0T2xkq1bOPW3IgNhFtA6nUuiqjdJ3fllRVc/csGcHhoDoCyJt4Ep5S5slky8fqOyQAe5eWhUAM8joHNStw1PC2cchm/FfEUJTqXnYC65K3otzViFjNzrLoMW0914Q2B8kq8eAOQQcLCZmSMnfRbCVonOU90zg1f9JrV5KNBN+5ddx/FQiSOn3Q=="
+    },
+    {
+     "functionCall": {
+      "name": "get_transactions",
+      "args": {
+       "customer_id": "C02"
+      },
+      "id": "call_9974188986048725911"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_case_history",
+      "args": {
+       "customer_id": "C02"
+      },
+      "id": "call_9974188986048725412"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "submit_decision",
+      "args": {
+       "next_steps": "No further action required. Close alert A02 as explained by documentation.",
+       "decision": "close",
+       "statements": [
+        {
+         "evidence_ids": [
+          "ALERT-A02",
+          "T-0038"
+         ],
+         "text": "Priya Natarajan received an alert (A02) for a single cash deposit of $9,600 on 2026-11-05 at the Millbrook Main branch."
+        },
+        {
+         "text": "The customer is a dental hygienist with an expected monthly cash activity of $200.",
+         "evidence_ids": [
+          "KYC-C02"
+         ]
+        },
+        {
+         "text": "A teller note confirms the customer sold her 2017 sedan privately and presented a signed bill of sale and title transfer for $9,600, which were scanned to the file.",
+         "evidence_ids": [
+          "CH-002"
+         ]
+        },
+        {
+         "evidence_ids": [
+          "CH-002",
+          "T-0038"
+         ],
+         "text": "The cash deposit is fully explained by a legitimate one-off vehicle sale and poses no suspicious risk."
+        }
+       ],
+       "typology": "none (explained)",
+       "confidence": 1
+      },
+      "id": "call_2281359677267580884"
+     },
+     "thoughtSignature": "EtQLCtELAWkUfRNjKpMAEbsfD6fsjVGSQiHhCCI80GZttQd1zmDdlGKCBSjHVhO5wq9HgqpMtm4eXv0wNsRWHEEeU5TpsTdFLtcz+zM9WwfX6BmKZ1tK3QNWPG8NNQPPG5ps8J5y/PXpOmeN7RsOEBB+IqoJlTziAcy/RDGihuo+c4ea4Vf7SqAz8l2h9XVJIkwPOueHnWe7p2/DDUZ3zBwkgTwcmWLfv9NbEJdMXnmrlms9uBFHJLuuWBhoVvKiySWwZLHARSbHZCXIiTQWdy7TkkWVQSONPdAoDhND5i9VphApmYeCnqjYSiV64VTR8BVNZizNYOL5J6po8YZeESxHpir4OCHLikYdfu4bGcBwUDCDA26pQIM++PTJ3f8xNjbs2/DyxS0VEXpSJqsGvjmmJKroPT4dFjhUC2dnShgWQFw5O/0A+cOeJCkbALf9+KX8mvXWdSqPppDkM0ZQc0t0JAsByXq+XyyfVdgozht7cLWbiuu7kZlOHgFEGTgZZQt33RiSNcjn1MCeTHn0B7BG9PY7Lb1N6YmJrW8iyAqR7wYPJNVJQP24idnVKUnd+Iv8gOP3god2JgQWloCPR1svwoxVHXL48lKSDfbEu2fxO1U8sTeZFekOuNaSN0fuKwOag4ThlJpt3VMCz+PaEdYVr50evMM9DpR/dqtoCx8pog/Uaq26ReGnU4wcowjPzw7sN2OlBHBUQyj4Z9adHYOiJO7s43pA2LqHcea+1Q3Ydo3u/ub3WxEamrMMjjvdkL0i5G1VU/aESFk/bSxNt0377lH9jhh2vZkVHzVLNsC7K4+gzvpKo4q9W5trU4F714GPojty7XlbCQ2HC/suVxF2jtj5oaWWkw5kiJgci/BLU+5W3/COrmtksnsrA8f19AMuxH8WOjJgFGZpyeip5b4KhhrLKV8QVCGhNrYacFswntZeb2WDT1N11FcuW3+m9iJDa1xf8v6hChtSI6pQMK8DkovpLRWF+bQMbl5GcQyrH1XFbi1eHmzNbsVO9YsF+TUnUa8uE1q439KW2V1pN/eSW59AzOe5ajBieLzuBsRPpYZZeShfJ/ytDEce3df+oo0dtyTUCK/od+3q5WTjod19vPJuDUfdZidaCwz9jsqDPMJBm8eJvueM9lVeaV24er+VCtN2Ix4FMzPafHC34nsf4Ai1jwN1tHxyB606NJlgEh7vFn7YCL5E1ezZTthlShG4RSf77TpQPT6mK1W+kNWBKbVcDvHRD5ubfrGF3gqTnfmVE6AAkSmMKEGh0TnuE82SiStWT8XHqbs6/t+3Gz3Kt6M81henkuzvnSiLncNpnbvAzl+aYJ7mfhsgrjig5vjxpP2I4jhwNLIAkCOKNilyA90QE6vcPalWXXNorCB/zU/WUcKuiAmOTsRIv5wPMm/qs1MQ/NjE3TgxHOnXFx7BhVi3YOGus46a1tJb3BI+aZU5PFaMowftfoURJOiBdfeHLLXT5T4hMFvPbQS+cTysxrmlJHxYqgVOf9cUSnTVrWqshn7NgAs+tPZ1Y+yFGW4J14Yul1cK3/BpSB0UVmYf9lJhI7787/tAx6YwHxq0WCuaHo+lF1DcqdANjlqgjhc0LZV4If4y3i7l65ehTCJPa5USjE+9kHNT9hlJq/s0RrJx6z3lqROGSv0wxlAQAV9I61MThUAVSiljSm4xrTZEhpfi/RN3AZIHPfwJrGw9roA4xiueRPnBAjemGj3NfRgqvAvok6vHOGe/C7k8OHxFmw4paQigftoLUdTO+QvJvJyakjjLcRyVsZyyKqKQcP4q1BejKl96+boLz11g5eS5pm3GSHL6Yhl16+yYF46ZqWKI4GU6gOirukIYBNaS3XHKSIGSgCFKH1SWZU6Tea+iViOGoijipQxVnJGfQu9H+yYD5X5Mu2Mp+WcHiWKeH3wi9CWSmweTRrj50wJ4X1I154P8LSiEoGvGFdHD8iA6VGDD+D3TtZhS5IsHZUOjFGprpMSgow=="
+    }
+   ],
+   "role": "model"
+  }
+ ],
+ "wall_ms": 5843
+}

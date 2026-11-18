@@ -1,0 +1,597 @@
+{
+ "alert_id": "A06",
+ "agent": "gemini-3.5-flash-lite (low), prompt v2",
+ "model": "gemini-3.5-flash-lite",
+ "effort": "low",
+ "prompt_version": "v2",
+ "outcome": "decided",
+ "error": null,
+ "turns": 3,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A06"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A06",
+    "evidence_id": "ALERT-A06",
+    "date": "2026-11-13",
+    "rule": "FAN_OUT",
+    "customer_id": "C06",
+    "amount_total": 17650.0,
+    "summary": "Payments to 8 or more different payees within 2 days.",
+    "triggering_transaction_ids": [
+     "T-0216",
+     "T-0217",
+     "T-0218",
+     "T-0219",
+     "T-0220",
+     "T-0221",
+     "T-0222",
+     "T-0223",
+     "T-0224"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C06"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C06",
+    "evidence_id": "KYC-C06",
+    "name": "Kayla Brennan",
+    "dob": "2004-07-09",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Student (part-time cafe job)",
+    "employer": "Bean There Cafe",
+    "segment": "personal",
+    "customer_since": "2024-01-15",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 100,
+     "total_in": 1200,
+     "total_out": 1100
+    },
+    "kyc_last_review": "2025-01-15",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 22
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C06"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C06",
+    "start_date": "2026-10-02",
+    "end_date": "2026-11-16",
+    "total_rows": 15,
+    "returned": 15,
+    "total_in": 20160.0,
+    "total_out": 17650.0,
+    "rows": [
+     {
+      "transaction_id": "T-0210",
+      "evidence_id": "T-0210",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0211",
+      "evidence_id": "T-0211",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0212",
+      "evidence_id": "T-0212",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0214",
+      "evidence_id": "T-0214",
+      "date": "2026-11-11",
+      "type": "wire_in",
+      "direction": "in",
+      "amount": 9500.0,
+      "channel": "online",
+      "counterparty_id": "CP-025",
+      "memo": "project payment"
+     },
+     {
+      "transaction_id": "T-0215",
+      "evidence_id": "T-0215",
+      "date": "2026-11-11",
+      "type": "p2p_in",
+      "direction": "in",
+      "amount": 8500.0,
+      "channel": "online",
+      "counterparty_id": "CP-026",
+      "memo": "for you"
+     },
+     {
+      "transaction_id": "T-0216",
+      "evidence_id": "T-0216",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 2050.0,
+      "channel": "online",
+      "counterparty_id": "CP-027"
+     },
+     {
+      "transaction_id": "T-0217",
+      "evidence_id": "T-0217",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1980.0,
+      "channel": "online",
+      "counterparty_id": "CP-028"
+     },
+     {
+      "transaction_id": "T-0218",
+      "evidence_id": "T-0218",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1950.0,
+      "channel": "online",
+      "counterparty_id": "CP-029"
+     },
+     {
+      "transaction_id": "T-0219",
+      "evidence_id": "T-0219",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 2100.0,
+      "channel": "online",
+      "counterparty_id": "CP-030"
+     },
+     {
+      "transaction_id": "T-0220",
+      "evidence_id": "T-0220",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1890.0,
+      "channel": "online",
+      "counterparty_id": "CP-031"
+     },
+     {
+      "transaction_id": "T-0221",
+      "evidence_id": "T-0221",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 2000.0,
+      "channel": "online",
+      "counterparty_id": "CP-032"
+     },
+     {
+      "transaction_id": "T-0222",
+      "evidence_id": "T-0222",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1700.0,
+      "channel": "online",
+      "counterparty_id": "CP-033"
+     },
+     {
+      "transaction_id": "T-0223",
+      "evidence_id": "T-0223",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 1930.0,
+      "channel": "online",
+      "counterparty_id": "CP-034"
+     },
+     {
+      "transaction_id": "T-0224",
+      "evidence_id": "T-0224",
+      "date": "2026-11-12",
+      "type": "p2p_out",
+      "direction": "out",
+      "amount": 2050.0,
+      "channel": "online",
+      "counterparty_id": "CP-035"
+     },
+     {
+      "transaction_id": "T-0213",
+      "evidence_id": "T-0213",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 540.0,
+      "channel": "online",
+      "counterparty_id": "CP-024",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C06"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C06",
+    "records": [],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C06"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C06",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0030",
+      "evidence_id": "LG-0030",
+      "timestamp": "2026-10-20T19:37:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0029",
+      "evidence_id": "LG-0029",
+      "timestamp": "2026-10-26T19:31:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0028",
+      "evidence_id": "LG-0028",
+      "timestamp": "2026-11-01T19:25:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0027",
+      "evidence_id": "LG-0027",
+      "timestamp": "2026-11-07T19:19:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0031",
+      "evidence_id": "LG-0031",
+      "timestamp": "2026-11-10T23:41:00",
+      "event": "login",
+      "device_id": "DV-6X99",
+      "device_first_seen": "2026-11-10",
+      "ip": "142.88.7.21",
+      "ip_city": "Toronto",
+      "ip_country": "CA",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0032",
+      "evidence_id": "LG-0032",
+      "timestamp": "2026-11-12T08:05:00",
+      "event": "login",
+      "device_id": "DV-6X99",
+      "device_first_seen": "2026-11-10",
+      "ip": "142.88.7.21",
+      "ip_city": "Toronto",
+      "ip_country": "CA",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0026",
+      "evidence_id": "LG-0026",
+      "timestamp": "2026-11-13T19:13:00",
+      "event": "login",
+      "device_id": "DV-6F06",
+      "device_first_seen": "2024-01-15",
+      "ip": "73.41.60.3",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_counterparty",
+   "args": {
+    "counterparty_id": "CP-025",
+    "customer_id": "C06"
+   },
+   "is_error": false,
+   "result": {
+    "counterparty_id": "CP-025",
+    "evidence_id": "CP-025",
+    "name": "Harbor Point Consulting",
+    "type": "business",
+    "registered": "2026-10-02",
+    "relationship_since": "2026-11-11",
+    "notes": "Registered 2026-10-02. Sent money to 3 other customers of this bank in November.",
+    "other_customers_paid": 3,
+    "with_this_customer": {
+     "payments_since_2026_08_01": 1,
+     "first_payment_since_2026_08_01": "2026-11-11",
+     "last_payment": "2026-11-11",
+     "total_amount_since_2026_08_01": 9500.0
+    }
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_counterparty",
+   "args": {
+    "counterparty_id": "CP-026",
+    "customer_id": "C06"
+   },
+   "is_error": false,
+   "result": {
+    "counterparty_id": "CP-026",
+    "evidence_id": "CP-026",
+    "name": "R. Okafor",
+    "type": "individual",
+    "relationship_since": "2026-11-11",
+    "notes": "No other link to the customer on file.",
+    "with_this_customer": {
+     "payments_since_2026_08_01": 1,
+     "first_payment_since_2026_08_01": "2026-11-11",
+     "last_payment": "2026-11-11",
+     "total_amount_since_2026_08_01": 8500.0
+    }
+   }
+  }
+ ],
+ "decision": {
+  "statements": [
+   {
+    "text": "Customer C06 (Kayla Brennan) is a part-time cafe worker and student residing in Millbrook, OH, with an expected monthly activity of $1,200.",
+    "evidence_ids": [
+     "KYC-C06"
+    ]
+   },
+   {
+    "evidence_ids": [
+     "LG-0031",
+     "LG-0032"
+    ],
+    "text": "On 2026-11-10 and 2026-11-12, digital banking logins occurred from a new device DV-6X99 located in Toronto, Canada."
+   },
+   {
+    "text": "On 2026-11-11, the account received unexpected incoming funds totaling $18,000 ($9,500 wire in and $8,500 P2P in).",
+    "evidence_ids": [
+     "T-0214",
+     "T-0215"
+    ]
+   },
+   {
+    "evidence_ids": [
+     "T-0216",
+     "T-0217",
+     "T-0218",
+     "T-0219",
+     "T-0220",
+     "T-0221",
+     "T-0222",
+     "T-0223",
+     "T-0224"
+    ],
+    "text": "On 2026-11-12, the account fanned out $17,650 across nine P2P outward transactions to different payees."
+   },
+   {
+    "text": "Alert A06 was triggered under the FAN_OUT rule for payments to 9 different payees totaling $17,650 within 2 days.",
+    "evidence_ids": [
+     "ALERT-A06"
+    ]
+   }
+  ],
+  "next_steps": "Place a temporary hold on the account, contact the customer immediately using known phone records to verify recent login activity from Toronto, and investigate potential account takeover.",
+  "decision": "escalate",
+  "typology": "account takeover",
+  "confidence": 0.95
+ },
+ "usage": {
+  "input": 12205,
+  "output": 625,
+  "thinking": 985
+ },
+ "model_turns": [
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_alert",
+      "args": {
+       "alert_id": "A06"
+      },
+      "id": "call_10879586131374729883"
+     },
+     "thoughtSignature": "ErcCCrQCAWkUfRPa6pIUpLtzM1bQg56/z2YVRRPd5yu4dnc7hdbmztEfqnl/V8KTp1WxNtM5gguccIRbMAUeHew9wJsuxj8FOYQireOFqW4+DbQoSyq4rft7ybLYv6rCjvjoz/N3AkirFWCL0p/BD8t20807iMQjylhhq1kvooAs19EdPyhSbK0bbGBzN6LIxIiJVvVG6AiCs5W9IU0BTkjJ/YSIYJavLOY18WbQkWw7g7KyskQVy2yxqiuUOk9m5Rybq59Cw1TO7JivwRTNXCyeSiOxaXmQ6XYNS3DfOnueF9fwQTj7myaWW4N5NrQxUr54O2xg0zTm3EtVNJmf1rPtgDIrxfB1lTp5ExbFojQMAfCrvcRshqwD/TI/EI4btDiZb+qqyi9oaj3tHhID1Qr8jP8Ugu2zj/4="
+    },
+    {
+     "functionCall": {
+      "name": "get_customer_profile",
+      "args": {
+       "customer_id": "C06"
+      },
+      "id": "call_10879586131374729052"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_transactions",
+      "args": {
+       "customer_id": "C06"
+      },
+      "id": "call_10879586131374728221"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_case_history",
+      "args": {
+       "customer_id": "C06"
+      },
+      "id": "call_10879586131374727390"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_login_activity",
+      "args": {
+       "customer_id": "C06"
+      },
+      "id": "call_5309750630228647913"
+     },
+     "thoughtSignature": "EpYDCpMDAWkUfRNvc+03u0SiqYZOyovfC+fFv7GaEsa+ApWTfzoqzqDEFkXr6F9sCXhxSHWpVTZCXjWrgL837nBN6dLFYhWb6XecfGlODBZp1kk1uJCSUhXUr06/7UuOIJ5cml7X0jTqdmpuFmntmzjP1G09tMgoRbQr4bzZEpbcc3uFX8SG2gA8aV1I5sJRAMZSdBfLrhIpvZbLfL+s8UYhD2rzVg2GHuzWaDFqXgP0mu8gp1Oq9Svv7grChZU/bB3Pv9rWQTmynNorpj6M88RPB1YCeqHr1dLbC/GsIKSeo4ZLSZc0v6oeMm5DIAq2tfR0NzzXUkCAKp5w5Ci6cU0SAq+/wp6xh5eKJglQPhgY4QBFwiWWX4tEjqeblYTLTEKe9F8PVAsAAsRxMajH1jKbX0CTMFKkGJ1eUOh6nIsKgP0Dm7b06NMl9LLXexWH9EgHjENQ9n3uEbzwFWUyFjqBrD3bkwaKXE/OpgNbLgfaElB6DWMhgcVR4Tyy/k03nsxvwKrD6Y8WZSIRiwJp1PbC8y7txCsJew=="
+    },
+    {
+     "functionCall": {
+      "name": "get_counterparty",
+      "args": {
+       "counterparty_id": "CP-025",
+       "customer_id": "C06"
+      },
+      "id": "call_5309750630228646440"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_counterparty",
+      "args": {
+       "counterparty_id": "CP-026",
+       "customer_id": "C06"
+      },
+      "id": "call_5309750630228644967"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "submit_decision",
+      "args": {
+       "statements": [
+        {
+         "text": "Customer C06 (Kayla Brennan) is a part-time cafe worker and student residing in Millbrook, OH, with an expected monthly activity of $1,200.",
+         "evidence_ids": [
+          "KYC-C06"
+         ]
+        },
+        {
+         "evidence_ids": [
+          "LG-0031",
+          "LG-0032"
+         ],
+         "text": "On 2026-11-10 and 2026-11-12, digital banking logins occurred from a new device DV-6X99 located in Toronto, Canada."
+        },
+        {
+         "text": "On 2026-11-11, the account received unexpected incoming funds totaling $18,000 ($9,500 wire in and $8,500 P2P in).",
+         "evidence_ids": [
+          "T-0214",
+          "T-0215"
+         ]
+        },
+        {
+         "evidence_ids": [
+          "T-0216",
+          "T-0217",
+          "T-0218",
+          "T-0219",
+          "T-0220",
+          "T-0221",
+          "T-0222",
+          "T-0223",
+          "T-0224"
+         ],
+         "text": "On 2026-11-12, the account fanned out $17,650 across nine P2P outward transactions to different payees."
+        },
+        {
+         "text": "Alert A06 was triggered under the FAN_OUT rule for payments to 9 different payees totaling $17,650 within 2 days.",
+         "evidence_ids": [
+          "ALERT-A06"
+         ]
+        }
+       ],
+       "next_steps": "Place a temporary hold on the account, contact the customer immediately using known phone records to verify recent login activity from Toronto, and investigate potential account takeover.",
+       "decision": "escalate",
+       "typology": "account takeover",
+       "confidence": 0.95
+      },
+      "id": "call_4899769149911760417"
+     },
+     "thoughtSignature": "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"
+    }
+   ],
+   "role": "model"
+  }
+ ],
+ "wall_ms": 87210
+}

@@ -1,0 +1,417 @@
+{
+ "alert_id": "A01",
+ "agent": "gemini-3.5-flash-lite (low), prompt v2",
+ "model": "gemini-3.5-flash-lite",
+ "effort": "low",
+ "prompt_version": "v2",
+ "outcome": "decided",
+ "error": null,
+ "turns": 4,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A01"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A01",
+    "evidence_id": "ALERT-A01",
+    "date": "2026-11-10",
+    "rule": "CASH_NEAR_CTR",
+    "customer_id": "C01",
+    "amount_total": 37900.0,
+    "summary": "2 or more cash deposits between $8,000 and $9,999 within 10 days.",
+    "triggering_transaction_ids": [
+     "T-0017",
+     "T-0018",
+     "T-0019",
+     "T-0020"
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C01",
+    "evidence_id": "KYC-C01",
+    "name": "Tomas Reyes-Hart",
+    "dob": "1992-05-14",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Store clerk",
+    "employer": "Northgate Hardware",
+    "segment": "personal",
+    "customer_since": "2019-02-11",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 500,
+     "total_in": 3200,
+     "total_out": 3000
+    },
+    "kyc_last_review": "2025-02-11",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 34
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C01",
+    "start_date": "2026-10-02",
+    "end_date": "2026-11-16",
+    "total_rows": 12,
+    "returned": 12,
+    "total_in": 43700.0,
+    "total_out": 37380.9,
+    "rows": [
+     {
+      "transaction_id": "T-0005",
+      "evidence_id": "T-0005",
+      "date": "2026-10-02",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1450.0,
+      "channel": "online",
+      "counterparty_id": "CP-004",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0015",
+      "evidence_id": "T-0015",
+      "date": "2026-10-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 131.88,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0006",
+      "evidence_id": "T-0006",
+      "date": "2026-10-16",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1450.0,
+      "channel": "online",
+      "counterparty_id": "CP-004",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0007",
+      "evidence_id": "T-0007",
+      "date": "2026-10-30",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1450.0,
+      "channel": "online",
+      "counterparty_id": "CP-004",
+      "memo": "PAYROLL"
+     },
+     {
+      "transaction_id": "T-0012",
+      "evidence_id": "T-0012",
+      "date": "2026-11-01",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 1100.0,
+      "channel": "online",
+      "counterparty_id": "CP-002",
+      "memo": "RENT"
+     },
+     {
+      "transaction_id": "T-0017",
+      "evidence_id": "T-0017",
+      "date": "2026-11-03",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9400.0,
+      "channel": "branch",
+      "location": "Millbrook Main branch"
+     },
+     {
+      "transaction_id": "T-0018",
+      "evidence_id": "T-0018",
+      "date": "2026-11-04",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9200.0,
+      "channel": "branch",
+      "location": "Harlow branch"
+     },
+     {
+      "transaction_id": "T-0019",
+      "evidence_id": "T-0019",
+      "date": "2026-11-06",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9800.0,
+      "channel": "branch",
+      "location": "Eastport branch"
+     },
+     {
+      "transaction_id": "T-0020",
+      "evidence_id": "T-0020",
+      "date": "2026-11-07",
+      "type": "cash_deposit",
+      "direction": "in",
+      "amount": 9500.0,
+      "channel": "branch",
+      "location": "Millbrook North branch"
+     },
+     {
+      "transaction_id": "T-0021",
+      "evidence_id": "T-0021",
+      "date": "2026-11-09",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 36000.0,
+      "channel": "online",
+      "counterparty_id": "CP-005",
+      "memo": "vehicles"
+     },
+     {
+      "transaction_id": "T-0016",
+      "evidence_id": "T-0016",
+      "date": "2026-11-12",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 149.02,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES"
+     },
+     {
+      "transaction_id": "T-0008",
+      "evidence_id": "T-0008",
+      "date": "2026-11-13",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 1450.0,
+      "channel": "online",
+      "counterparty_id": "CP-004",
+      "memo": "PAYROLL"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C01"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C01",
+    "records": [
+     {
+      "record_id": "CH-001",
+      "evidence_id": "CH-001",
+      "date": "2026-11-03",
+      "kind": "teller_note",
+      "text": "Before depositing, customer asked the teller what amount 'triggers the government form'."
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 3,
+   "tool": "get_counterparty",
+   "args": {
+    "customer_id": "C01",
+    "counterparty_id": "CP-005"
+   },
+   "is_error": false,
+   "result": {
+    "counterparty_id": "CP-005",
+    "evidence_id": "CP-005",
+    "name": "Jaxon Auto Exports LLC",
+    "type": "business",
+    "registered": "2026-09-01",
+    "relationship_since": "2026-11-09",
+    "notes": "Registered 2026-09-01 in another state. No website on file.",
+    "with_this_customer": {
+     "payments_since_2026_08_01": 1,
+     "first_payment_since_2026_08_01": "2026-11-09",
+     "last_payment": "2026-11-09",
+     "total_amount_since_2026_08_01": 36000.0
+    }
+   }
+  }
+ ],
+ "decision": {
+  "next_steps": "File a Suspicious Activity Report (SAR) for structuring and forward to BSA officer.",
+  "typology": "structuring",
+  "decision": "sar",
+  "statements": [
+   {
+    "text": "Customer Tomas Reyes-Hart made four cash deposits totaling $37,900 between 2026-11-03 and 2026-11-07, in amounts ranging from $9,200 to $9,800 across multiple branches.",
+    "evidence_ids": [
+     "ALERT-A01",
+     "T-0017",
+     "T-0018",
+     "T-0019",
+     "T-0020"
+    ]
+   },
+   {
+    "text": "Prior to making the cash deposits, the customer asked a teller what amount triggers the government reporting form.",
+    "evidence_ids": [
+     "CH-001"
+    ]
+   },
+   {
+    "text": "The customer's expected monthly cash deposit activity is $500.",
+    "evidence_ids": [
+     "KYC-C01"
+    ]
+   },
+   {
+    "evidence_ids": [
+     "T-0021",
+     "CP-005"
+    ],
+    "text": "On 2026-11-09, the customer wired $36,000 to Jaxon Auto Exports LLC, a business registered on 2026-09-01."
+   }
+  ],
+  "confidence": 1,
+  "sar_draft": "On 2026-11-03 through 2026-11-07, customer Tomas Reyes-Hart made four cash deposits totaling $37,900 in amounts just under $10,000 ($9,400, $9,200, $9,800, and $9,500) across multiple branch locations. Prior to depositing, the customer inquired with a teller about the currency transaction report threshold. On 2026-11-09, the customer wired $36,000 to Jaxon Auto Exports LLC. This pattern indicates intentional structuring to evade CTR reporting requirements."
+ },
+ "usage": {
+  "input": 13522,
+  "output": 583,
+  "thinking": 799
+ },
+ "model_turns": [
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_alert",
+      "args": {
+       "alert_id": "A01"
+      },
+      "id": "call_4437784092015333642"
+     },
+     "thoughtSignature": "Eo4DCosDAWkUfRNlIC4h9Qf2URT2AC3BYmdfepgaLADDfiWv1Z/njN8qRcaqSjFPc/iWGNrCELAYz2EvDZGdik5dKoGWfpOFUVjeeQXbeCmfaYWFVFZXyJ2Zmx6uBkZtqsewsIbtp/pOS2cStA506o3IueY/04aYFKQSX80QMqYX/M+J7RNDW8VSLe3JjiA5QSsJ9wJtCidlTlw7qWU0mIACO1qLlm6QiWVttgtSE6qsZ2KHBWFnCvpdMfAtfNs7+YYFIZw6IBx0ObcRhbqkrvLuiEv2d6L5A3eJa88E29oUPLyhit6bakTa/zGpcphkv/1BdIwU69lW4s/zU91JuQYZHcOdWQGze7AptbCCLZjyv4hcd6L7VkD/5Cbrn03M37c2CH+xv0ic1FwyHa8rf+yKsa1z+iRf7KpUyQlLgIbJlMnL6fcyrIwGrnTPnRYkIyya4QTCv9ZxmB9hY4qFVY7qHPGogJE4jViIF+uVbNCgsXEb28b8YFpFMZv8/LLo3oyt76Lg7GPPtLqJUSRh+jw="
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_customer_profile",
+      "args": {
+       "customer_id": "C01"
+      },
+      "id": "call_9477049518479430047"
+     },
+     "thoughtSignature": "EtkBCtYBAWkUfRP9LVnIhUqaKWZjBwaKSfTfEY9dQdxrWDmWx7WDq+IdnTh3CiHj6gJpn5kA9yfBqlOLpZVEh+azrFrZk4ezgHmi3h3GD107jE0H4/DOm1U/BiIxE4t2uGxKvw19F0PqYiPFo9y6M6zzVl7j47ilzLoUE7Tezd3Su4p/OvmGLJYnJdchvnOayK/b1lgY6l72abk7k4XivoglFkXCNbrJ+YTZROXIwZLcShf1Sc+6gEdA7+Fmes564m+KwFD/I7hqdsX08zTe775LsqTFoR5onwMHqw=="
+    },
+    {
+     "functionCall": {
+      "name": "get_transactions",
+      "args": {
+       "customer_id": "C01"
+      },
+      "id": "call_9477049518479431040"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_case_history",
+      "args": {
+       "customer_id": "C01"
+      },
+      "id": "call_9477049518479432033"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_counterparty",
+      "args": {
+       "customer_id": "C01",
+       "counterparty_id": "CP-005"
+      },
+      "id": "call_10682743230399456470"
+     },
+     "thoughtSignature": "EqgJCqUJAWkUfRMDdP5zlK1fH11TSWAkMrCYz5xrMlZ+XsD1z5HfgL48IWixZ4vRyvbZyhhdf+u627iQA1bmZ+CLp+duGaCOm9mCfERrfjyZBFkXRcN7anRSBlPj/GsWh6TykLTNfr9PE6zXG+ojskdJ4/WP1c0QLBkm4/cO669H7WhaEZ+SFoplGYUphGe2EXK7sdhiYiL70kZ8Aj6JZWxBxR4TV679uEi9VB2dkCiaULNhTDbka4ATvlW1p3NKmHxZa5XV3UiTWyiKq+QpDUvSMK3ilm6PICCKr+2aLeHlActQzaOgUScRlQtVODnD360iHsDBQB5MkPa2d9jrPO57Yl3j5wKBJ82fdGGPd/Bo7+aKu4AKvt6pFI3l856F9FqcUH1qmQ2SqWsiHZ9b4zIxSc3Mk0o1c4JezAjh9C3nyBvrfYpCBtp+cj1YM0MtRlvWtFBwdhSN6lOQq0QTLUf/dXM2T+4N42HpeVEFrRvFl3aAZKXza7sarmkigksoWHC9PdW0XhGjRVaCrbKxoxXwgk8+KvRXcfU+7stKXuIVBYlYGkZMSR1jMqWMyL0d966tv8h1UP2Ww4guB6emaba3Q8rhrXsm5rxydJeL2ZXYKGYQUZPDVyMqlLVx4q47T/WgcONlKHATqVUgVseW1jnvFEtjEgKBe6VfY5SV7fGu0aunpJRhavF1YSwo4QNgUNzytsGMoGqMe7Gb06c/fzVqqiQkdbKUjUzh/rBRDQ+VJMbFWIB5oFAP/CudURh60TwU9m1WFgcn/8jHca2Z0ASLsE+VWFnlnHIfdrcY/WEkJO4dpCD300Ravp7OlFwjwnTzyB9ZJwZui0/mbz07hMbYBHEh87VYQZPApCSYhbr/QYT0zegGES9hNzZZ3JKRt9hhpCYavFirw69SCDJgUWQbYgLIH4OvhTIoSRVUDjeSGIRcWntLRCnjepJgShH68DppBehLJ+K+JZ/p8a+iEbYnhlDI89uKks0Uww+IYz6V23SLpF9i91JMGouw09iq1GMM2f3sBF6rGCPv/gaPX8clKlldbYjDWetfKaHWqWrw0aIhYDP2cIDFRJxua8Kc+qhomvBDYHUQnQvp0djkCwkZi0xZMZXeDSiGep4RRIrtUUN0CR7Og+8lmPEdisqL7dW7rO4lVDgBmlIVpSR4FK8RwFKRAJBJ0uOBW6IXXP6CyAHDbJpbyTbVeI1KRLZlQO9YB/Ly29dGx11ZK536ZNDbA0yJnjkLwknPzhBj+Zql3v5nOHBmdO3e4RGTp9SzNCwfzz6c/+u9BcK7NOsex96AC6M8A2OIqrKrjIP3LAgvcPLyUFVIyjIprC3PWmo+oeX3FbEQoVvQrzH+lFCSFYWd3MlGvb1kgJmYOr5jYGHsQ4OaTj2hYpiCLbd5cw6el/si/4d0vycX0Pqw8I+U7uDBf0pL0ZqhCvhHZmOvYbnK16yYhLhw+K4aPtNVi4cvNrgpURqN1ig6ci9hceDfpMJetnqwRhPS+A+h2Ou+UGU3mxzkrkeMgJRTLb3BD3aOeAX9gZKh8/NgrpJs06+J8V8wSYfbEPeRq/UOJWRMMnzGgUKgE9IpXnaChA=="
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "submit_decision",
+      "args": {
+       "next_steps": "File a Suspicious Activity Report (SAR) for structuring and forward to BSA officer.",
+       "typology": "structuring",
+       "decision": "sar",
+       "statements": [
+        {
+         "text": "Customer Tomas Reyes-Hart made four cash deposits totaling $37,900 between 2026-11-03 and 2026-11-07, in amounts ranging from $9,200 to $9,800 across multiple branches.",
+         "evidence_ids": [
+          "ALERT-A01",
+          "T-0017",
+          "T-0018",
+          "T-0019",
+          "T-0020"
+         ]
+        },
+        {
+         "text": "Prior to making the cash deposits, the customer asked a teller what amount triggers the government reporting form.",
+         "evidence_ids": [
+          "CH-001"
+         ]
+        },
+        {
+         "text": "The customer's expected monthly cash deposit activity is $500.",
+         "evidence_ids": [
+          "KYC-C01"
+         ]
+        },
+        {
+         "evidence_ids": [
+          "T-0021",
+          "CP-005"
+         ],
+         "text": "On 2026-11-09, the customer wired $36,000 to Jaxon Auto Exports LLC, a business registered on 2026-09-01."
+        }
+       ],
+       "confidence": 1,
+       "sar_draft": "On 2026-11-03 through 2026-11-07, customer Tomas Reyes-Hart made four cash deposits totaling $37,900 in amounts just under $10,000 ($9,400, $9,200, $9,800, and $9,500) across multiple branch locations. Prior to depositing, the customer inquired with a teller about the currency transaction report threshold. On 2026-11-09, the customer wired $36,000 to Jaxon Auto Exports LLC. This pattern indicates intentional structuring to evade CTR reporting requirements."
+      },
+      "id": "call_4094999780617625169"
+     },
+     "thoughtSignature": "EtYHCtMHAWkUfRPT1lELt7U7hFAt1Wh0EBdNAff4nro68t5Y/JVce/DO1TWVYaxuJXW5GK4PKb/hAXjVPe7QWRP0io3I8V9HkdVI7Zvw4TxakUvI95Qu41Mucga4gkVIPwDwI8Jb/AHEP6UmIy0KLaIKWUOELzQVw5b1/0GESO1rbNfzHvffpCSwGmAE7TAfnvKd+6vt/QoahhkSAkPzxoLP8aUGxUho5Eepc2aK/2tOTKM7UGHHWfzocbjc0WpeluqN0WzbhGRursDxZJkEN56nbVs0zf/5zMtRL/XYLK/u+o4Gpg57qsdDTmE0SCx2WW+l22l/JkfRWDvidIGzIVQd+KthiIjkGPkehqi2D+ygcFAUgXR8A3awerk77a4jtp38qHwl2pXy9Qh52zAeTeZX0pNZFZXwF3/azTXKlJuoqFvjj9mvhSh/Qq02BsXpTCBh7m9VGnVB04Du8rmBs6YuN2cFYjzFB42j9bWfKV1YQgfeCVrcHhCCaMKcjNod4EQ5Z4XcZDeo2e8ZeKX6aBubLbLJH72ZB6uz1mdAFG0NVwWOKjStYrxhnnyDwzTJYnzcMYEXPNOPfzVgXeECa3ZSfbEXWJBkizmqkr7h8i+GqFzXZ8yVWH+enhydk+Syr+nkcNpo3ledCr0+JQatqpBJU+pEyU+l7j/NsGZ0fab2nXheTvhNvPgphpWpkvHEh3QHW89ISdyipWpnUBxWqZVObLu5M6JD0p0Eo0BhU5vAai/cHmbRPV+kvCVzAKoWqPMpT2WDBF8RilCkckAZ3Jc2o/ooWifHnT9JbiualBz7xXPr4mY4wRYg5Cu8ApcVnYixGNUQWLZIjGkKhvPGInFSTg3hCscu2l6SdfOo6haJP/fcyKFgSotRXy3EJDSvHQYrsWYxLj6HCXFNq/lFabemww1mlpPhfV6elljTpCTCpFxsMHkNfNFilxbyMGBRmf9ATh8gYsKkeXUAI+hMMpYT7tBFBNBXBnCQpnUz4mb8qnfWAFi3+Y9HeT+hrafzLCkp6Zw3PFYcHfk/tfjyu9RZ3Ogz0wmShE6Lv2f/NtIY17ZUs/R4itVcuFT11MOpWs1jXlTLUrwovG1TEN5deYE4RG7gRf+P5y5eer2+kRK0eQdzAmFFgynglSY8weAr9svWZthSbFLjZEl+in2842B0WNMUZ06aqyWO3mAXmwdaeDe8xcrd1Y+3KYk5FVJMK7RMqvyGsZZ+9z43jft+MvfMZAUJN7PFvqgCHKoNXv93oUTCGLPgVY8gNT+1pMdSID1vhNfgPvrysSxFMSfZJbWTd5sKYfLc6A=="
+    }
+   ],
+   "role": "model"
+  }
+ ],
+ "wall_ms": 56374
+}

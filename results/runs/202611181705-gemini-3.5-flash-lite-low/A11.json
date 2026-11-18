@@ -1,0 +1,455 @@
+{
+ "alert_id": "A11",
+ "agent": "gemini-3.5-flash-lite (low), prompt v2",
+ "model": "gemini-3.5-flash-lite",
+ "effort": "low",
+ "prompt_version": "v2",
+ "outcome": "decided",
+ "error": null,
+ "turns": 3,
+ "steps": [
+  {
+   "turn": 1,
+   "tool": "get_alert",
+   "args": {
+    "alert_id": "A11"
+   },
+   "is_error": false,
+   "result": {
+    "alert_id": "A11",
+    "evidence_id": "ALERT-A11",
+    "date": "2026-11-08",
+    "rule": "ELDER_OUTFLOW",
+    "customer_id": "C11",
+    "amount_total": 64000.0,
+    "summary": "Customer aged 70+ sent $20,000 or more to new payees within 30 days.",
+    "triggering_transaction_ids": [
+     "T-0271",
+     "T-0272",
+     "T-0273"
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_customer_profile",
+   "args": {
+    "customer_id": "C11"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C11",
+    "evidence_id": "KYC-C11",
+    "name": "Margaret Ellison",
+    "dob": "1948-03-19",
+    "citizenship": "US",
+    "city": "Millbrook, OH",
+    "occupation": "Retired teacher",
+    "employer": "retired",
+    "segment": "personal",
+    "customer_since": "1987-09-01",
+    "risk_rating": "low",
+    "expected_monthly": {
+     "cash_in": 0,
+     "total_in": 3900,
+     "total_out": 3000
+    },
+    "kyc_last_review": "2026-10-25",
+    "linked_accounts": [],
+    "authorized_agents": [],
+    "age": 78
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_transactions",
+   "args": {
+    "customer_id": "C11"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C11",
+    "start_date": "2026-10-02",
+    "end_date": "2026-11-16",
+    "total_rows": 7,
+    "returned": 7,
+    "total_in": 7800.0,
+    "total_out": 65767.43,
+    "rows": [
+     {
+      "transaction_id": "T-0265",
+      "evidence_id": "T-0265",
+      "date": "2026-10-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3900.0,
+      "channel": "online",
+      "counterparty_id": "CP-044",
+      "memo": "PENSION"
+     },
+     {
+      "transaction_id": "T-0269",
+      "evidence_id": "T-0269",
+      "date": "2026-10-14",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 865.1,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES AND CARE"
+     },
+     {
+      "transaction_id": "T-0271",
+      "evidence_id": "T-0271",
+      "date": "2026-10-30",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 18000.0,
+      "channel": "online",
+      "counterparty_id": "CP-045",
+      "memo": "investment"
+     },
+     {
+      "transaction_id": "T-0266",
+      "evidence_id": "T-0266",
+      "date": "2026-11-03",
+      "type": "ach_in",
+      "direction": "in",
+      "amount": 3900.0,
+      "channel": "online",
+      "counterparty_id": "CP-044",
+      "memo": "PENSION"
+     },
+     {
+      "transaction_id": "T-0272",
+      "evidence_id": "T-0272",
+      "date": "2026-11-03",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 21000.0,
+      "channel": "online",
+      "counterparty_id": "CP-045",
+      "memo": "investment"
+     },
+     {
+      "transaction_id": "T-0273",
+      "evidence_id": "T-0273",
+      "date": "2026-11-07",
+      "type": "wire_out",
+      "direction": "out",
+      "amount": 25000.0,
+      "channel": "online",
+      "counterparty_id": "CP-046",
+      "memo": "investment fee"
+     },
+     {
+      "transaction_id": "T-0270",
+      "evidence_id": "T-0270",
+      "date": "2026-11-14",
+      "type": "ach_out",
+      "direction": "out",
+      "amount": 902.33,
+      "channel": "online",
+      "counterparty_id": "CP-001",
+      "memo": "UTILITIES AND CARE"
+     }
+    ]
+   }
+  },
+  {
+   "turn": 1,
+   "tool": "get_case_history",
+   "args": {
+    "customer_id": "C11"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C11",
+    "records": [
+     {
+      "record_id": "CH-023",
+      "evidence_id": "CH-023",
+      "date": "2026-10-25",
+      "kind": "kyc_update",
+      "text": "Joint owner added: Victor Lang, age 36. Not a relative listed on the account. Added online."
+     },
+     {
+      "record_id": "CH-024",
+      "evidence_id": "CH-024",
+      "date": "2026-11-03",
+      "kind": "branch_note",
+      "text": "Customer said she is helping a friend she met online with an investment that 'doubles in a month'. She seemed rushed."
+     }
+    ],
+    "note": "Includes prior alerts, SARs, CTRs filed, KYC reviews, teller and call notes."
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_counterparty",
+   "args": {
+    "customer_id": "C11",
+    "counterparty_id": "CP-045"
+   },
+   "is_error": false,
+   "result": {
+    "counterparty_id": "CP-045",
+    "evidence_id": "CP-045",
+    "name": "BitHarbor Digital Assets",
+    "type": "crypto_exchange",
+    "relationship_since": "2026-10-30",
+    "notes": "Crypto exchange.",
+    "with_this_customer": {
+     "payments_since_2026_08_01": 2,
+     "first_payment_since_2026_08_01": "2026-10-30",
+     "last_payment": "2026-11-03",
+     "total_amount_since_2026_08_01": 39000.0
+    }
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_counterparty",
+   "args": {
+    "customer_id": "C11",
+    "counterparty_id": "CP-046"
+   },
+   "is_error": false,
+   "result": {
+    "counterparty_id": "CP-046",
+    "evidence_id": "CP-046",
+    "name": "Global Yield Partners",
+    "type": "business",
+    "country": "Free Port of Belmora (fictional)",
+    "registered": "2026-09-12",
+    "relationship_since": "2026-11-07",
+    "notes": "Registered 2026-09-12 in Belmora (fictional). No license on file.",
+    "with_this_customer": {
+     "payments_since_2026_08_01": 1,
+     "first_payment_since_2026_08_01": "2026-11-07",
+     "last_payment": "2026-11-07",
+     "total_amount_since_2026_08_01": 25000.0
+    }
+   }
+  },
+  {
+   "turn": 2,
+   "tool": "get_login_activity",
+   "args": {
+    "customer_id": "C11"
+   },
+   "is_error": false,
+   "result": {
+    "customer_id": "C11",
+    "since": "2026-10-17",
+    "events": [
+     {
+      "login_id": "LG-0051",
+      "evidence_id": "LG-0051",
+      "timestamp": "2026-10-17T19:40:00",
+      "event": "login",
+      "device_id": "DV-11L11",
+      "device_first_seen": "2019-04-10",
+      "ip": "73.41.110.5",
+      "ip_city": "Millbrook, OH",
+      "ip_country": "US",
+      "other_customers_on_this_device": []
+     },
+     {
+      "login_id": "LG-0054",
+      "evidence_id": "LG-0054",
+      "timestamp": "2026-10-24T21:15:00",
+      "event": "login",
+      "device_id": "DV-11Z77",
+      "device_first_seen": "2026-10-24",
+      "ip": "102.66.4.19",
+      "ip_city": "unknown",
+      "ip_country": "unknown",
+      "other_customers_on_this_device": []
+     }
+    ]
+   }
+  }
+ ],
+ "decision": {
+  "typology": "elder financial exploitation",
+  "decision": "sar",
+  "confidence": 1,
+  "statements": [
+   {
+    "evidence_ids": [
+     "ALERT-A11",
+     "KYC-C11",
+     "T-0271",
+     "T-0272",
+     "T-0273"
+    ],
+    "text": "Margaret Ellison, a 78-year-old retired customer, sent $64,000 in wire outflows to new payees between 2026-10-30 and 2026-11-07."
+   },
+   {
+    "text": "Branch staff noted that the customer stated she was helping an online friend with an investment that 'doubles in a month' and appeared rushed.",
+    "evidence_ids": [
+     "CH-024"
+    ]
+   },
+   {
+    "text": "A joint owner, Victor Lang (age 36), was added online on 2026-10-25 from an unknown foreign IP address.",
+    "evidence_ids": [
+     "CH-023",
+     "LG-0054"
+    ]
+   },
+   {
+    "evidence_ids": [
+     "CP-045",
+     "CP-046",
+     "T-0271",
+     "T-0272",
+     "T-0273"
+    ],
+    "text": "Funds were directed to crypto exchange BitHarbor Digital Assets ($39,000) and offshore entity Global Yield Partners ($25,000) in Belmora."
+   }
+  ],
+  "next_steps": "Contact the customer immediately to discuss the suspected scam, review account access and joint owner status, and consider placing a temporary hold on further suspicious outflows while filing the SAR.",
+  "sar_draft": "On 2026-11-08, alert A11 flagged elder outflow for customer Margaret Ellison (C11), a 78-year-old retired teacher. Between 2026-10-30 and 2026-11-07, the customer initiated three wire outflows totaling $64,000 to new payees: $39,000 to crypto exchange BitHarbor Digital Assets (CP-045) and $25,000 to Global Yield Partners (CP-046) in Belmora. Case history reveals that a joint owner, 36-year-old Victor Lang, was added online on 2026-10-25 from an unknown foreign IP address (LG-0054). Branch notes from 2026-11-03 indicate the customer stated she was helping an online friend with an investment that 'doubles in a month' and seemed rushed. This activity is indicative of elder financial exploitation and an investment scam."
+ },
+ "usage": {
+  "input": 10869,
+  "output": 784,
+  "thinking": 1236
+ },
+ "model_turns": [
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_alert",
+      "args": {
+       "alert_id": "A11"
+      },
+      "id": "call_1474830197441927113"
+     },
+     "thoughtSignature": "EokECoYEAWkUfROE90DVTxPyjwa+5drF6EwAyHkc5d4JzduBBYzZZ/gAZJpvPCEKY52FgFHJawXjX9iRiOCyTilZygUVJhIIYpZ451Nvulu7LZX/16xTuCa8LIru/Q8yYpws1k2tdH/vamXXiELYRbg3KKzjcosWdheq9RuVi099SfKdSOJ0lXzs+uv/uAhxjktShGPv3PurTtxb4c0Bnk4Rn6kbqkwyJOG0+q2tpTZZIESpqS4vhBYJHMCQ/8wlZe3Z0k/MpCIYYpiiU4nnwd4XFv84WqDMt4hrJKsAPzF4ToMtTP8OzGfukpDiYNKEHKJcBQqBVQlpJphM2lvd8HU3UihvumlKPSn9WJqB4qSXSwgSvD8CYB6I5EB7FMKQLLsDW4sqG6pnCNpehiRMM3rQrFZhTyYkTgwXhFFcdopFlKjdW5gr7GtlmDzUMWV8enAP4AzJPGN64afBFQV79OfX9aas+YmDYOZC3ApJN8fcNPJ9rwcYD6R21utsZ+kCA/RnQT77KfOHg1o8LgT9RaAVfmAlEdEw2bv9RBocSntAKMBKWwfD1y+jvFbQfl5Qvh4tMrkoJQrmWOURo79K1522U8lKjl//UwsHFRw2SvalU9ZOKZ+kk0k0mqXjaQa39i39IAE3pyhyB7UVWPjLab21HYecRJg1wCAWIm7PMcqrmNr6GfU/HYZaNvc="
+    },
+    {
+     "functionCall": {
+      "name": "get_customer_profile",
+      "args": {
+       "customer_id": "C11"
+      },
+      "id": "call_1474830197441925594"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_transactions",
+      "args": {
+       "customer_id": "C11"
+      },
+      "id": "call_1474830197441928171"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_case_history",
+      "args": {
+       "customer_id": "C11"
+      },
+      "id": "call_1474830197441926652"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "get_counterparty",
+      "args": {
+       "customer_id": "C11",
+       "counterparty_id": "CP-045"
+      },
+      "id": "call_12820661348468004301"
+     },
+     "thoughtSignature": "EvQHCvEHAWkUfROP6U4MoxvGbvnWWrGFPQae3kLja1ft2AMeRDzHqC+cYmfk7Xx1LmRxzHk3Q7wsitwBwhXDXFkkbZ2Oz9szIqXhGplPLDjt6B2cKJjeSg/iB34X3ZDFkavOJM69VzUHwIGRaufes4OiD1Oq07mHDC/RDkoFYHfn5pXmfUtZt0pYRw+LATJsRJtmQbULQ7LCl/+63FJT3csmYYU887nz9SKIQkgphgiN5CJ8BESLV5jD4nlhfSHPr6atek8DT96Sv/m2BzgKqt0UjEIqtdWEHKlsGC+BM1tVOAfCRQ1rzrC6T5Djuqpy1F4RB4eT95FBteP8CJ2JX82GNtr3pUL6pmCno1dolZt4W+1WKgWnInsjvuNOfMwW5wW2VI7eUIbpSQ145R5zc20tmPq/fkq4uQGfuLzGTsWqW994UZJ2qrYwTclniHn41j246dmjP7x8BiQ7Rmkgpprdeklpa1a6AklqZVy59Zs5SZZ/uV2AMHMRDdc/QutcnA+DxcX4qm0rYn31BRyPbeAsuYIdAQxngHxWxiayTnqgUUwAllHKKzUTD0O6ewV3Bl5LkVaq7wpq/9qT+cbl79eBGPiz+8iYvRoVVa0KxKl+FUPU2hfqTAdPeFqO/o9bq02rfSF7QPCijKS15GfeCZKdKXXs8WmUTtoKtNzs4UX+O2zG2hF025ME8RcZ4gs2a/nys5ExJ/yTdIURefAv1Rnxbw/NJItjbCJeUjRVRO93xw2js6FeR0B+iozk8hyUiMeXMCBo9DvdzjyyDn+mDL0b3giF1nWfNGFi74LmHklWc7Q9v3ptgzua1JNPPyZSi7EXydXJCQN6CgwpDHkeuX09Oqo6TNADxuUxdWMeI4MR7wKVwJ2MNmci+9l6eFMI1StC/L/TOAcUDPBW4YvqJG4vqykRyJIZtJnJC1l4xgUF7TqRue03bL0i38L+WGq6uGnnAp5URkJNuPimGVkhiPNlOj2j0uYSTnqSG3jGPLSJRqlIcj5gGEh2nqkjKbCy+IVg+fzWWna77nOJSJ01VMa7/dfHoh4eHHz6tDxknLg7/tcPCVXNfxeve0qMoCK8yieefOtg4Q6AkYA6QjuoUnJ7E4cwgOkBjpyezz939BrFusk8V8Owd1f/9lDy8NyCvSiqC/rHUV/y/w5iEnp1pjwyiMcGrNCrJWS8BrsbyJ72JPKO3IhDHdRy++O30aSRZLA/0gH5flQIkYLZiXN07MwJQjjYynBw2FtP36WDOEjxfYzJ9ztthS8eKesTzZmMAqz+9VVCkHtZHIeaFt3pN/hoauzFN5CKYfvRolxhsaYy7AizFAYQqBty87SABTDGXUwKGHUmFg=="
+    },
+    {
+     "functionCall": {
+      "name": "get_counterparty",
+      "args": {
+       "customer_id": "C11",
+       "counterparty_id": "CP-046"
+      },
+      "id": "call_12820661348468006594"
+     }
+    },
+    {
+     "functionCall": {
+      "name": "get_login_activity",
+      "args": {
+       "customer_id": "C11"
+      },
+      "id": "call_12820661348468004791"
+     }
+    }
+   ],
+   "role": "model"
+  },
+  {
+   "parts": [
+    {
+     "functionCall": {
+      "name": "submit_decision",
+      "args": {
+       "typology": "elder financial exploitation",
+       "decision": "sar",
+       "confidence": 1,
+       "statements": [
+        {
+         "evidence_ids": [
+          "ALERT-A11",
+          "KYC-C11",
+          "T-0271",
+          "T-0272",
+          "T-0273"
+         ],
+         "text": "Margaret Ellison, a 78-year-old retired customer, sent $64,000 in wire outflows to new payees between 2026-10-30 and 2026-11-07."
+        },
+        {
+         "text": "Branch staff noted that the customer stated she was helping an online friend with an investment that 'doubles in a month' and appeared rushed.",
+         "evidence_ids": [
+          "CH-024"
+         ]
+        },
+        {
+         "text": "A joint owner, Victor Lang (age 36), was added online on 2026-10-25 from an unknown foreign IP address.",
+         "evidence_ids": [
+          "CH-023",
+          "LG-0054"
+         ]
+        },
+        {
+         "evidence_ids": [
+          "CP-045",
+          "CP-046",
+          "T-0271",
+          "T-0272",
+          "T-0273"
+         ],
+         "text": "Funds were directed to crypto exchange BitHarbor Digital Assets ($39,000) and offshore entity Global Yield Partners ($25,000) in Belmora."
+        }
+       ],
+       "next_steps": "Contact the customer immediately to discuss the suspected scam, review account access and joint owner status, and consider placing a temporary hold on further suspicious outflows while filing the SAR.",
+       "sar_draft": "On 2026-11-08, alert A11 flagged elder outflow for customer Margaret Ellison (C11), a 78-year-old retired teacher. Between 2026-10-30 and 2026-11-07, the customer initiated three wire outflows totaling $64,000 to new payees: $39,000 to crypto exchange BitHarbor Digital Assets (CP-045) and $25,000 to Global Yield Partners (CP-046) in Belmora. Case history reveals that a joint owner, 36-year-old Victor Lang, was added online on 2026-10-25 from an unknown foreign IP address (LG-0054). Branch notes from 2026-11-03 indicate the customer stated she was helping an online friend with an investment that 'doubles in a month' and seemed rushed. This activity is indicative of elder financial exploitation and an investment scam."
+      },
+      "id": "call_18061234712303633124"
+     },
+     "thoughtSignature": "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"
+    }
+   ],
+   "role": "model"
+  }
+ ],
+ "wall_ms": 61152
+}
