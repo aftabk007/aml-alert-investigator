@@ -7,7 +7,7 @@ and stops when the model calls submit_decision.
 
 import time
 
-from .prompt import opening_message, system_prompt
+from .prompt import PROMPT_VERSION, opening_message, system_prompt
 from .tools import ALL_TOOLS, SUBMIT_TOOL, call_tool, validate_args
 from .gemini import thinking_config
 
@@ -50,7 +50,8 @@ def run_alert(alert_id, bank, send, model, effort="low", max_turns=16):
     if tc:
         body["generationConfig"] = {"thinkingConfig": tc}
 
-    trace = {"alert_id": alert_id, "agent": "%s (%s)" % (model, effort), "model": model, "effort": effort,
+    trace = {"alert_id": alert_id, "agent": "%s (%s), prompt %s" % (model, effort, PROMPT_VERSION), "model": model,
+             "effort": effort, "prompt_version": PROMPT_VERSION,
              "outcome": "max_turns", "error": None, "turns": 0, "steps": [], "decision": None,
              "usage": {"input": 0, "output": 0, "thinking": 0}, "model_turns": []}
     started = time.time()
