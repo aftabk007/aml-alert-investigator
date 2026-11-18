@@ -1,0 +1,336 @@
+[
+ {
+  "alert_id": "A01",
+  "evidence_id": "ALERT-A01",
+  "date": "2026-11-10",
+  "rule": "CASH_NEAR_CTR",
+  "customer_id": "C01",
+  "amount_total": 37900.0,
+  "summary": "2 or more cash deposits between $8,000 and $9,999 within 10 days.",
+  "triggering_transaction_ids": [
+   "T-0017",
+   "T-0018",
+   "T-0019",
+   "T-0020"
+  ]
+ },
+ {
+  "alert_id": "A02",
+  "evidence_id": "ALERT-A02",
+  "date": "2026-11-06",
+  "rule": "CASH_NEAR_CTR",
+  "customer_id": "C02",
+  "amount_total": 9600.0,
+  "summary": "Single cash deposit between $8,000 and $9,999.",
+  "triggering_transaction_ids": [
+   "T-0038"
+  ]
+ },
+ {
+  "alert_id": "A03",
+  "evidence_id": "ALERT-A03",
+  "date": "2026-11-07",
+  "rule": "CASH_AGGREGATE",
+  "customer_id": "C03",
+  "amount_total": 29100.0,
+  "summary": "Cash deposits adding up to more than $25,000 within 15 days.",
+  "triggering_transaction_ids": [
+   "T-0058",
+   "T-0059",
+   "T-0060",
+   "T-0061",
+   "T-0062",
+   "T-0063"
+  ]
+ },
+ {
+  "alert_id": "A04",
+  "evidence_id": "ALERT-A04",
+  "date": "2026-11-14",
+  "rule": "CASH_NEAR_CTR",
+  "customer_id": "C04",
+  "amount_total": 36850.0,
+  "summary": "3 or more cash deposits between $8,000 and $9,999 within 30 days.",
+  "triggering_transaction_ids": [
+   "T-0087",
+   "T-0089",
+   "T-0091",
+   "T-0093"
+  ]
+ },
+ {
+  "alert_id": "A05",
+  "evidence_id": "ALERT-A05",
+  "date": "2026-11-13",
+  "rule": "FAN_OUT",
+  "customer_id": "C05",
+  "amount_total": 18025.0,
+  "summary": "Payments to 10 or more different payees within 7 days.",
+  "triggering_transaction_ids": [
+   "T-0186",
+   "T-0187",
+   "T-0188",
+   "T-0189",
+   "T-0190",
+   "T-0191",
+   "T-0192",
+   "T-0193",
+   "T-0194",
+   "T-0195",
+   "T-0196",
+   "T-0197"
+  ]
+ },
+ {
+  "alert_id": "A06",
+  "evidence_id": "ALERT-A06",
+  "date": "2026-11-13",
+  "rule": "FAN_OUT",
+  "customer_id": "C06",
+  "amount_total": 17650.0,
+  "summary": "Payments to 8 or more different payees within 2 days.",
+  "triggering_transaction_ids": [
+   "T-0216",
+   "T-0217",
+   "T-0218",
+   "T-0219",
+   "T-0220",
+   "T-0221",
+   "T-0222",
+   "T-0223",
+   "T-0224"
+  ]
+ },
+ {
+  "alert_id": "A07",
+  "evidence_id": "ALERT-A07",
+  "date": "2026-11-12",
+  "rule": "WATCHLIST_HIT",
+  "customer_id": "C07",
+  "amount_total": 0.0,
+  "summary": "Name screening hit after a sanctions list update: customer name is similar to a list entry (score 0.97).",
+  "triggering_transaction_ids": []
+ },
+ {
+  "alert_id": "A08",
+  "evidence_id": "ALERT-A08",
+  "date": "2026-11-11",
+  "rule": "WATCHLIST_HIT",
+  "customer_id": "C08",
+  "amount_total": 0.0,
+  "summary": "Name screening hit after a sanctions list update: exact name match (score 1.00).",
+  "triggering_transaction_ids": []
+ },
+ {
+  "alert_id": "A09",
+  "evidence_id": "ALERT-A09",
+  "date": "2026-11-09",
+  "rule": "RAPID_MOVEMENT",
+  "customer_id": "C09",
+  "amount_total": 7500.0,
+  "summary": "90% or more of incoming funds sent out within 48 hours.",
+  "triggering_transaction_ids": [
+   "T-0243"
+  ]
+ },
+ {
+  "alert_id": "A10",
+  "evidence_id": "ALERT-A10",
+  "date": "2026-11-11",
+  "rule": "RAPID_MOVEMENT",
+  "customer_id": "C10",
+  "amount_total": 85000.0,
+  "summary": "90% or more of incoming funds sent out within 48 hours.",
+  "triggering_transaction_ids": [
+   "T-0261"
+  ]
+ },
+ {
+  "alert_id": "A11",
+  "evidence_id": "ALERT-A11",
+  "date": "2026-11-08",
+  "rule": "ELDER_OUTFLOW",
+  "customer_id": "C11",
+  "amount_total": 64000.0,
+  "summary": "Customer aged 70+ sent $20,000 or more to new payees within 30 days.",
+  "triggering_transaction_ids": [
+   "T-0271",
+   "T-0272",
+   "T-0273"
+  ]
+ },
+ {
+  "alert_id": "A12",
+  "evidence_id": "ALERT-A12",
+  "date": "2026-11-07",
+  "rule": "ELDER_OUTFLOW",
+  "customer_id": "C12",
+  "amount_total": 42000.0,
+  "summary": "Customer aged 70+ sent $20,000 or more to new payees within 30 days.",
+  "triggering_transaction_ids": [
+   "T-0282"
+  ]
+ },
+ {
+  "alert_id": "A13",
+  "evidence_id": "ALERT-A13",
+  "date": "2026-11-10",
+  "rule": "PROFILE_MISMATCH",
+  "customer_id": "C13",
+  "amount_total": 45000.0,
+  "summary": "Incoming funds in 30 days are more than 5 times the expected monthly amount.",
+  "triggering_transaction_ids": [
+   "T-0294",
+   "T-0295"
+  ]
+ },
+ {
+  "alert_id": "A14",
+  "evidence_id": "ALERT-A14",
+  "date": "2026-11-07",
+  "rule": "PROFILE_MISMATCH",
+  "customer_id": "C14",
+  "amount_total": 18000.0,
+  "summary": "Incoming funds in 30 days are more than 3 times the expected monthly amount.",
+  "triggering_transaction_ids": [
+   "T-0312"
+  ]
+ },
+ {
+  "alert_id": "A15",
+  "evidence_id": "ALERT-A15",
+  "date": "2026-11-09",
+  "rule": "FUNNEL",
+  "customer_id": "C15",
+  "amount_total": 15400.0,
+  "summary": "Cash deposits at 3 or more out-of-area locations within 7 days.",
+  "triggering_transaction_ids": [
+   "T-0329",
+   "T-0330",
+   "T-0331",
+   "T-0332",
+   "T-0333"
+  ]
+ },
+ {
+  "alert_id": "A16",
+  "evidence_id": "ALERT-A16",
+  "date": "2026-11-15",
+  "rule": "FAN_IN",
+  "customer_id": "C16",
+  "amount_total": 1912.0,
+  "summary": "Payments from 25 or more different senders within 30 days.",
+  "triggering_transaction_ids": [
+   "T-0421",
+   "T-0422",
+   "T-0423",
+   "T-0424",
+   "T-0425",
+   "T-0426",
+   "T-0427",
+   "T-0428",
+   "T-0429",
+   "T-0430"
+  ]
+ },
+ {
+  "alert_id": "A17",
+  "evidence_id": "ALERT-A17",
+  "date": "2026-11-12",
+  "rule": "NEW_DEVICE_TRANSFER",
+  "customer_id": "C17",
+  "amount_total": 12000.0,
+  "summary": "New device, new payee and a transfer of $5,000 or more within 1 hour.",
+  "triggering_transaction_ids": [
+   "T-0487"
+  ]
+ },
+ {
+  "alert_id": "A18",
+  "evidence_id": "ALERT-A18",
+  "date": "2026-11-10",
+  "rule": "NEW_DEVICE_TRANSFER",
+  "customer_id": "C18",
+  "amount_total": 6000.0,
+  "summary": "New device and a transfer of $5,000 or more within 24 hours.",
+  "triggering_transaction_ids": [
+   "T-0507"
+  ]
+ },
+ {
+  "alert_id": "A19",
+  "evidence_id": "ALERT-A19",
+  "date": "2026-11-05",
+  "rule": "CASH_NEAR_CTR",
+  "customer_id": "C19",
+  "amount_total": 29400.0,
+  "summary": "2 or more cash withdrawals between $8,000 and $9,999 within 10 days.",
+  "triggering_transaction_ids": [
+   "T-0516",
+   "T-0517",
+   "T-0518"
+  ]
+ },
+ {
+  "alert_id": "A20",
+  "evidence_id": "ALERT-A20",
+  "date": "2026-11-11",
+  "rule": "CASH_NEAR_CTR",
+  "customer_id": "C20",
+  "amount_total": 28400.0,
+  "summary": "2 or more cash deposits between $8,000 and $9,999 within 10 days.",
+  "triggering_transaction_ids": [
+   "T-0529",
+   "T-0530",
+   "T-0531"
+  ]
+ },
+ {
+  "alert_id": "A21",
+  "evidence_id": "ALERT-A21",
+  "date": "2026-11-13",
+  "rule": "WATCHLIST_HIT",
+  "customer_id": "C21",
+  "amount_total": 0.0,
+  "summary": "Adverse media screening hit: exact name match (score 1.00).",
+  "triggering_transaction_ids": []
+ },
+ {
+  "alert_id": "A22",
+  "evidence_id": "ALERT-A22",
+  "date": "2026-11-11",
+  "rule": "HIGH_RISK_WIRE",
+  "customer_id": "C22",
+  "amount_total": 79000.0,
+  "summary": "Wires to a counterparty in a high-risk jurisdiction (bank policy list).",
+  "triggering_transaction_ids": [
+   "T-0559",
+   "T-0560"
+  ]
+ },
+ {
+  "alert_id": "A23",
+  "evidence_id": "ALERT-A23",
+  "date": "2026-11-14",
+  "rule": "RAPID_MOVEMENT",
+  "customer_id": "C23",
+  "amount_total": 14000.0,
+  "summary": "90% or more of incoming funds sent out within 48 hours.",
+  "triggering_transaction_ids": [
+   "T-0577"
+  ]
+ },
+ {
+  "alert_id": "A24",
+  "evidence_id": "ALERT-A24",
+  "date": "2026-11-10",
+  "rule": "RAPID_MOVEMENT",
+  "customer_id": "C24",
+  "amount_total": 9930.0,
+  "summary": "90% or more of incoming funds sent out within 48 hours.",
+  "triggering_transaction_ids": [
+   "T-0584",
+   "T-0586"
+  ]
+ }
+]
