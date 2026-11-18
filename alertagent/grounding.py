@@ -14,7 +14,9 @@ It cannot check words ("the customer seemed rushed"), only citations, money and 
 import re
 
 MONEY = re.compile(r"\$\s?(\d{1,3}(?:,\d{3})+|\d+)(\.\d+)?\s?([kKmM])?(?![\w])")
-DATE = re.compile(r"\b(20\d\d-\d\d-\d\d)\b")
+DATE = re.compile(r"(?<!\d)(20\d\d-\d\d-\d\d)(?!\d)")  # also inside timestamps like 2026-11-12T08:05:00
+MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+WORD_DATE = re.compile(r"\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.? (\d{1,2}),? (20\d\d)\b", re.I)
 TOLERANCE = 0.5
 POLICY_AMOUNTS = {10000.0, 5000.0}
 
@@ -32,7 +34,11 @@ def money_values(text):
 
 
 def dates_in_text(text):
-    return set(DATE.findall(text or ""))
+    """ISO dates, and written dates like "November 7, 2026" turned into 2026-11-07."""
+    found = set(DATE.findall(text or ""))
+    for mon, day, year in WORD_DATE.findall(text or ""):
+        found.add("%s-%02d-%02d" % (year, MONTHS.index(mon[:3].lower()) + 1, int(day)))
+    return found
 
 
 def _walk(rec, nums, dates):

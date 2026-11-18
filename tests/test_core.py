@@ -102,6 +102,19 @@ class GroundingTest(unittest.TestCase):
         p = check_statement({"text": "Teller note.", "evidence_ids": ["CH-001"]}, self.seen)
         self.assertTrue(any("no tool returned" in x for x in p))
 
+    def test_dates_inside_timestamps_count(self):
+        r, _ = call_tool(BANK, "get_login_activity", {"customer_id": "C06"})
+        seen = evidence_index(r)
+        last = r["events"][-1]
+        s = {"text": "Login from a new device on %s." % last["timestamp"][:10], "evidence_ids": [last["evidence_id"]]}
+        self.assertEqual(check_statement(s, seen), [])
+
+    def test_written_dates_are_checked(self):
+        ok = {"text": "On November 3, 2026 the customer deposited $9,400.", "evidence_ids": [self.ids[0]]}
+        self.assertEqual(check_statement(ok, self.seen), [])
+        bad = {"text": "On Nov 4, 2026 the customer deposited $9,400.", "evidence_ids": [self.ids[0]]}
+        self.assertTrue(any("2026-11-04" in x for x in check_statement(bad, self.seen)))
+
     def test_policy_amounts_allowed(self):
         s = {"text": "All four deposits were just under the $10,000 CTR line.", "evidence_ids": self.ids}
         self.assertEqual(check_statement(s, self.seen), [])
